@@ -1,0 +1,43 @@
+name: fitness
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  fonts:
+    - family: Lalezar
+      fonts:
+        - asset: assets/Fonts/Lalezar-Regular.ttf
+
+    - family: Iransans
+      fonts:
+        - asset: assets/Fonts/irsans.ttf
+
+    - family: NotoNaskhArabicMedium
+      fonts:
+        - asset: assets/Fonts/NotoNaskhArabic-Medium.ttf
+
+    - family: NotoNaskhArabicRegular
+      fonts:
+        - asset: assets/Fonts/NotoNaskhArabic-Regular.ttf
+
+  assets:
+    - assets/splash-screen.png
+    - assets/Fonts/Lalezar-Regular.ttf
+    - assets/Fonts/irsans.ttf
+    - assets/Fonts/NotoNaskhArabic-Medium.ttf
+    - assets/Fonts/NotoNaskhArabic-Regular.ttf
+
+  uses-material-design: true
