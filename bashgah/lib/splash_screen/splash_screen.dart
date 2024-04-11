@@ -17,13 +17,13 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 0),
       vsync: this,
     );
     _animation = Tween<double>(begin: 0, end: 0.5).animate(_animationController);
     _animationController.forward();
 
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(seconds: 0), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => MyHomePage()),

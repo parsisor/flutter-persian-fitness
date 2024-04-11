@@ -57,25 +57,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
               ),
               SizedBox(height: 10.0),
               Divider(thickness: 0.4),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-          width: 200,
-          height: 50,
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ArticlePage()),
-              );
-            },
-            child: Text('View Articles'),
-          ),
-        ),
-              SizedBox(
-                height: 10.0,
-              ),
+              
               Container(
                 decoration: BoxDecoration(
                   color: sanavie,
@@ -128,6 +110,25 @@ class _Fitness_HubState extends State<Fitness_Hub> {
               ),
               SizedBox(height: 10.0),
               Divider(thickness: 0.4),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+          width: 200,
+          height: 50,
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ArticlePage()),
+              );
+            },
+            child: Text('View Articles'),
+          ),
+        ),
+              SizedBox(
+                height: 10.0,
+              ),
               SizedBox(
                 height: 10.0,
               ),
