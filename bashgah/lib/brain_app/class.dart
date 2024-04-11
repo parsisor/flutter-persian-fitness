@@ -8,7 +8,7 @@ class Brain_app extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         
-        title: Text('404 Error'),
+        title: Text('716 Error'),
         centerTitle: true,
       ),
       body: Center(
