@@ -1,39 +1,38 @@
+import 'package:fitness/articles/view_page.dart';
+import 'package:fitness/code_assets.dart/consts.dart';
+import 'package:fitness/fitness_hub/streak_bar/streak_bar.dart';
+import 'package:fitness/fitness_hub/streak_bar/week_day.dart';
+import 'package:fitness/settings_Page/settings.dart';
+import 'package:fitness/workouts/workouts.dart';
 import 'package:flutter/material.dart';
-import 'consts.dart';
-import 'settings.dart';
-import 'workouts.dart';
 
-class MainHub extends StatefulWidget {
+class Fitness_Hub extends StatefulWidget {
+  const Fitness_Hub({super.key});
+
   @override
-  _MainHubState createState() => _MainHubState();
+  State<Fitness_Hub> createState() => _Fitness_HubState();
 }
 
-class _MainHubState extends State<MainHub> {
+class _Fitness_HubState extends State<Fitness_Hub> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('صفحه اصلی', style: TextStyle(color: sefid)),
-        backgroundColor: avalie,
+        title: Text('صفحه اصلی'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: sefid),
+          icon: Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
         centerTitle: true,
         actions: [
-
           IconButton(
-            icon: Icon(Icons.settings, color: sefid),
+            icon: Icon(Icons.settings),
             onPressed: () {
-
-
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => SettingsPage(),
               ));
-
-              print('Settings icon pressed!');
             },
           ),
         ],
@@ -42,23 +41,38 @@ class _MainHubState extends State<MainHub> {
         physics: BouncingScrollPhysics(
             decelerationRate: ScrollDecelerationRate.normal),
         child: Container(
-          color: avalie,
           child: Padding(
-            padding: const EdgeInsets.all(30),
+            padding: const EdgeInsets.all(20),
             child: Column(children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Streak_Bar("شنبه", "Yes"),
-                  Streak_Bar("یک شنبه", "No"),
-                  Streak_Bar("دو شنبه", "Today"),
-                  Streak_Bar("سه شنبه", "future"),
-                  Streak_Bar("چهارشنبه", "future"),
+                  Streak_Bar(getCurrentWeekDay(-2), "Yes"),
+                  Streak_Bar(getCurrentWeekDay(-1), "No"),
+                  Streak_Bar(getCurrentWeekDay(0), "Today"),
+                  Streak_Bar(getCurrentWeekDay(1), "future"),
+                  Streak_Bar(getCurrentWeekDay(2), "future"),
                 ],
               ),
               SizedBox(height: 10.0),
               Divider(thickness: 0.4),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+          width: 200,
+          height: 50,
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ArticlePage()),
+              );
+            },
+            child: Text('View Articles'),
+          ),
+        ),
               SizedBox(
                 height: 10.0,
               ),
@@ -89,7 +103,7 @@ class _MainHubState extends State<MainHub> {
                           child: Text(
                             calories,
                             style: TextStyle(
-                              color: sefid,
+                              color: white,
                               fontSize: 70,
                               fontFamily: 'NotoNaskhArabicMedium',
                             ),
@@ -117,22 +131,23 @@ class _MainHubState extends State<MainHub> {
               SizedBox(
                 height: 10.0,
               ),
-              Workouts(
-                  context, "سینه و شکم", "../assets/photos/sine.png", "sine"),
+              Workouts(context, "سینه و شکم", "../assets/photos/sine.png",
+                  "sine", container_color1),
               SizedBox(
                 height: 10,
               ),
-              Workouts(
-                  context, "بازو و ساعد", "../assets/photos/bazo.png", "bazo"),
+              Workouts(context, "بازو و ساعد", "../assets/photos/bazo.png",
+                  "bazo", container_color2),
               SizedBox(
                 height: 10,
               ),
-              Workouts(context, "ران و ساق", "../assets/photos/pa.png", "pa"),
+              Workouts(context, "ران و ساق", "../assets/photos/pa.png", "pa",
+                  container_color3),
               SizedBox(
                 height: 10,
               ),
-              Workouts(
-                  context, "  کل بدن", "../assets/photos/badan.png", "badan"),
+              Workouts(context, "  کل بدن", "../assets/photos/badan.png",
+                  "badan", container_color4),
             ]),
           ),
         ),
@@ -141,97 +156,60 @@ class _MainHubState extends State<MainHub> {
   }
 }
 
-Widget Workouts(BuildContext context, String part, String img, String id) {
+Widget Workouts(
+    BuildContext context, String part, String img, String id, Color color) {
+  final double darknessFraction = 0.8;
+
+  Color darkerColor = Color.fromRGBO(
+    (color.red * darknessFraction).toInt(),
+    (color.green * darknessFraction).toInt(),
+    (color.blue * darknessFraction).toInt(),
+    1.0,
+  );
+
   return Container(
+    height: 200,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(21),
-      color: gray,
+      gradient: LinearGradient(
+        colors: [
+          darkerColor,
+          color,
+        ],
+        begin: Alignment.centerLeft,
+        end: Alignment.centerRight,
+        stops: [0.3, 1.0],
+      ),
     ),
     child: InkWell(
       onTap: () {
-
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => WorkoutDetailPage(id),
         ));
       },
       child: Row(
         children: [
-          Image.asset(img),
-          SizedBox(width: 40),
-          Expanded(
-            child: Text(
-              part,
-              style: TextStyle(
-                color: sefid,
-                fontSize: 32,
-                fontFamily: 'NotoNaskhArabicMedium',
-              ),
+          Container(
+            width: 120,
+            height: 120,
+            child: Image.asset(
+              img,
+              fit: BoxFit.contain,
             ),
           ),
+          SizedBox(width: 40),
+          Text(
+            part,
+            style: TextStyle(
+              color: sefid,
+              fontSize: 32,
+              fontFamily: 'NotoNaskhArabicMedium',
+            ),
+          ),
+          SizedBox(width: 10)
         ],
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
       ),
     ),
-  );
-}
-
-Widget Streak_Bar(String roz, String vaziat) {
-  final double defaultWidth = 47;
-  final double defaultHeight = 70;
-  double width_con = defaultWidth;
-  double height_con = defaultHeight;
-
-  BoxDecoration? decoration;
-  Column? cart_details;
-
-  switch (vaziat) {
-    case "Today":
-      width_con = 54;
-      height_con = 80;
-      cart_details = _buildColumn("../assets/Icons/clock.png", roz, 40);
-      decoration = _buildBoxDecoration(sanavie);
-      break;
-    case "No":
-      cart_details = _buildColumn("../assets/Icons/cancel.png", roz, 40);
-      decoration = _buildBoxDecoration(gray);
-      break;
-    case "Yes":
-      cart_details = _buildColumn("../assets/Icons/check.png", roz, 38);
-      decoration = _buildBoxDecoration(gray);
-      break;
-    default:
-      cart_details = _buildColumn("../assets/Icons/clock.png", roz, 38);
-      decoration = _buildBoxDecoration(gray);
-  }
-
-  return Container(
-    width: width_con,
-    height: height_con,
-    decoration: decoration,
-    child: cart_details,
-  );
-}
-
-Column _buildColumn(String assetPath, String text, double imageSize) {
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Image.asset(assetPath, width: imageSize, height: imageSize),
-      Text(
-        text,
-        style: TextStyle(
-          fontSize: 12,
-          color: sefid,
-          fontFamily: 'NotoNaskhArabicMedium'
-        ),
-      ),
-    ],
-  );
-}
-
-BoxDecoration _buildBoxDecoration(Color color) {
-  return BoxDecoration(
-    color: color,
-    borderRadius: BorderRadius.circular(10.0),
   );
 }

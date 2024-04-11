@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'consts.dart';
-import 'workout_data.dart';
-import 'tozihat.dart';
-import 'assets.dart';
+import '../workouts/workout_data.dart';
 
 String getWorkoutTitleById(String id) {
   switch (id) {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'consts.dart';
+import '../code_assets.dart/consts.dart';
 import 'workout_data.dart';
 import 'tozihat.dart';
-import 'assets.dart';
+
 
 class WorkoutDetailPage extends StatelessWidget {
   final String workoutId;
@@ -79,9 +79,9 @@ class WorkoutDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('ورزش ها'),
         centerTitle: true,
-        backgroundColor: sanavie,
+
       ),
-      backgroundColor: avalie,
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -91,7 +91,7 @@ class WorkoutDetailPage extends StatelessWidget {
                 workoutTitle,
                 style: TextStyle(
                     fontSize: 20,
-                    color: sefid,
+
                     fontFamily: 'NotoNaskhArabicMedium'),
               ),
               SizedBox(height: 10),
@@ -101,7 +101,7 @@ class WorkoutDetailPage extends StatelessWidget {
                 workoutDescription,
                 style: TextStyle(
                     fontSize: 16,
-                    color: sefid,
+                    
                     fontFamily: 'NotoNaskhArabicMedium'),
               ),
               SizedBox(height: 10),

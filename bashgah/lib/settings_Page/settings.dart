@@ -1,5 +1,7 @@
+import 'package:fitness/Theme/theme_provider.dart';
 import 'package:flutter/material.dart';
-import 'consts.dart';
+import 'package:provider/provider.dart';
+import '../code_assets.dart/consts.dart';
 
 class SettingsPage extends StatelessWidget {
   @override
@@ -14,31 +16,13 @@ class SettingsPage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            ListTile(
-              title: Text('تغییر رنگ پس زمینه'),
-              onTap: () {
-
-              },
-            ),
-            Divider(),
-            ListTile(
-              title: Text('تغییر رنگ متن'),
-              onTap: () {
-
-              },
-            ),
-            Divider(),
-            ListTile(
-              title: Text('تغییر فونت'),
-              onTap: () {
-              
-              },
-            ),
+            
             Divider(),
             ListTile(
               title: Text('تغییر تم'),
               onTap: () {
-  
+                Provider.of<ThemeProvider>(context, listen: false)
+                    .toggleTheme();
               },
             ),
             Divider(),
@@ -47,10 +31,4 @@ class SettingsPage extends StatelessWidget {
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: SettingsPage(),
-  ));
 }

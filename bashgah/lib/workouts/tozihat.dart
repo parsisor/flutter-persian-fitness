@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'consts.dart';
-import 'assets.dart';
+
+import '../code_assets.dart/assets.dart';
 import 'workout_data.dart';
 
 class Tozihat extends StatelessWidget {
@@ -19,11 +19,11 @@ class Tozihat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: avalie,
+      
       appBar: AppBar(
         title: Text("توضیحات"),
         centerTitle: true,
-        backgroundColor: sanavie,
+        
       ),
       body: Center(
         
@@ -40,7 +40,7 @@ class Tozihat extends StatelessWidget {
                     children: [
                       Text(
                         getWorkoutsById(workoutId)[s],
-                        style: TextStyle(fontSize: 30  , color: sefid),
+                        style: TextStyle(fontSize: 30 ),
                         textDirection: TextDirection.rtl,
                       ),
                       SizedBox(height: 20),
@@ -54,7 +54,7 @@ class Tozihat extends StatelessWidget {
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
                           getExerciseDescription(),
-                          style: TextStyle(fontSize: 22 , color: sefid),
+                          style: TextStyle(fontSize: 22 ),
                           textDirection: TextDirection.rtl,
                         ),
                       ),
