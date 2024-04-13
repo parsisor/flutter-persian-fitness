@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: BMIHomePage(),
+        home:SplashScreen(),
         theme: Provider.of<ThemeProvider>(context).themeData,
       ),
     );
