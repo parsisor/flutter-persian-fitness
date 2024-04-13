@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:fitness/select_app/homepage.dart';
 import 'package:flutter/material.dart';
 
-
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -17,13 +16,26 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: Duration(seconds: 0),
+      duration: Duration(seconds: 3), // Adjust duration as needed
       vsync: this,
     );
-    _animation = Tween<double>(begin: 0, end: 0.5).animate(_animationController);
-    _animationController.forward();
 
-    Timer(Duration(seconds: 0), () {
+    // Define the logo beats animation
+    _animation = TweenSequence<double>([
+      TweenSequenceItem<double>(
+        tween: Tween<double>(begin: 1.0, end: 1.2), // Scale up
+        weight: 1,
+      ),
+      TweenSequenceItem<double>(
+        tween: Tween<double>(begin: 1.2, end: 1.0), // Scale down
+        weight: 1,
+      ),
+    ]).animate(_animationController);
+
+    // Start animation
+    _animationController.repeat(reverse: true);
+
+    Timer(Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => MyHomePage()),
@@ -40,7 +52,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Color.fromARGB(255, 32, 54, 80),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -53,14 +65,14 @@ class _SplashScreenState extends State<SplashScreen>
                   child: child,
                 );
               },
-              child: Image.asset("../../assets/Icons/star.png"),
+              child: Image.asset("../../assets/App_Logo/Logo.png" , scale: 5,),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             Text(
-              'Splash Screen',
+              'زرنگ',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 24,
+                fontSize: 40,
                 fontWeight: FontWeight.bold,
               ),
             ),

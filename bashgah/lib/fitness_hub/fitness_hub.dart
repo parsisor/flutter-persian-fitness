@@ -1,4 +1,5 @@
 import 'package:fitness/articles/view_page.dart';
+import 'package:fitness/calculator/calculator.dart';
 import 'package:fitness/code_assets.dart/consts.dart';
 import 'package:fitness/fitness_hub/streak_bar/streak_bar.dart';
 import 'package:fitness/fitness_hub/streak_bar/week_day.dart';
@@ -18,7 +19,10 @@ class _Fitness_HubState extends State<Fitness_Hub> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('صفحه اصلی'),
+        title: Text(
+          'صفحه اصلی',
+          style: TextStyle(fontFamily: 'NotoNaskhArabicMedium'),
+        ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -57,7 +61,6 @@ class _Fitness_HubState extends State<Fitness_Hub> {
               ),
               SizedBox(height: 10.0),
               Divider(thickness: 0.4),
-              
               Container(
                 decoration: BoxDecoration(
                   color: sanavie,
@@ -113,19 +116,57 @@ class _Fitness_HubState extends State<Fitness_Hub> {
               SizedBox(
                 height: 10,
               ),
-              Container(
-          width: 200,
-          height: 50,
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ArticlePage()),
-              );
-            },
-            child: Text('View Articles'),
-          ),
-        ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ArticlePage()),
+                      );
+                    },
+                    child: Container(
+                      width: 200,
+                      height: 200,
+                      decoration: BoxDecoration(
+                        color: button_color,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'مقاله ها',
+                          style: TextStyle(fontFamily: 'NotoNaskhArabicMedium' , fontSize: 30 , color: sefid),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BMIHomePage()),
+                      );
+                    },
+                    child: Container(
+                      width: 200,
+                      height: 200,
+                      decoration: BoxDecoration(
+                        color: button_color,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'ماشین حساب', 
+                          style: TextStyle(fontFamily: 'NotoNaskhArabicMedium' , fontSize: 30 , color: sefid),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               SizedBox(
                 height: 10.0,
               ),

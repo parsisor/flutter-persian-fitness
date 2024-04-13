@@ -50,31 +50,37 @@ class ArticlePage extends StatelessWidget {
 
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Articles'),
-      ),
-      body: ListView.builder(
-        itemCount: articles.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(articles[index].title),
-            subtitle: Text(articles[index].sub),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      ArticleDetailPage(article: articles[index]),
-                ),
-              );
-            },
-          );
-        },
-      ),
-    );
-  }
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text('Articles'),
+    ),
+    body: ListView.builder(
+      itemCount: articles.length,
+      itemBuilder: (context, index) {
+        return Column(
+          children: [
+            ListTile(
+              title: Text(articles[index].title),
+              subtitle: Text(articles[index].sub),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        ArticleDetailPage(article: articles[index]),
+                  ),
+                );
+              },
+            ),
+            Divider(),
+          ],
+        );
+      },
+    ),
+  );
+}
+
 }
 
 class Article {
