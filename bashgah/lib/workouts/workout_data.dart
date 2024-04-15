@@ -12,16 +12,16 @@ const exercise_list_sine = [
 ];
 const exercise_code_sine = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const exercise_img_sine = [
-  "../assets/workout/bazo.png",
-  "../assets/workout/sine.png",
-  "../assets/workout/sine.png",
-  "../assets/workout/sine.png",
-  "../assets/workout/sine.png",
-  "../assets/workout/sine.png",
-  "../assets/workout/sine.png",
-  "../assets/workout/sine.png",
-  "../assets/workout/sine.png",
-  "../assets/workout/sine.png",
+  "assets/workout/sine.png",
+  "assets/workout/sine.png",
+  "assets/workout/sine.png",
+  "assets/workout/sine.png",
+  "assets/workout/sine.png",
+  "assets/workout/sine.png",
+  "assets/workout/sine.png",
+  "assets/workout/sine.png",
+  "assets/workout/sine.png",
+  "assets/workout/sine.png",
 ];
 const exercise_list_bazo = [
   "جلو بازو با دمبل",
@@ -37,16 +37,16 @@ const exercise_list_bazo = [
 ];
 const exercise_code_bazo = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 const exercise_img_bazo = [
-  "../assets/workout/bazo.png",
-  "../assets/workout/bazo.png",
-  "../assets/workout/bazo.png",
-  "../assets/workout/bazo.png",
-  "../assets/workout/bazo.png",
-  "../assets/workout/bazo.png",
-  "../assets/workout/bazo.png",
-  "../assets/workout/bazo.png",
-  "../assets/workout/bazo.png",
-  "../assets/workout/bazo.png",
+  "assets/workout/bazo.png",
+  "assets/workout/bazo.png",
+  "assets/workout/bazo.png",
+  "assets/workout/bazo.png",
+  "assets/workout/bazo.png",
+  "assets/workout/bazo.png",
+  "assets/workout/bazo.png",
+  "assets/workout/bazo.png",
+  "assets/workout/bazo.png",
+  "assets/workout/bazo.png",
 ];
 const exercise_list_pa = [
   "اسکات",
@@ -62,16 +62,16 @@ const exercise_list_pa = [
 ];
 const exercise_code_pa = [21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
 const exercise_img_pa = [
-  "../assets/workout/pa.png",
-  "../assets/workout/pa.png",
-  "../assets/workout/pa.png",
-  "../assets/workout/pa.png",
-  "../assets/workout/pa.png",
-  "../assets/workout/pa.png",
-  "../assets/workout/pa.png",
-  "../assets/workout/pa.png",
-  "../assets/workout/pa.png",
-  "../assets/workout/pa.png",
+  "assets/workout/pa.png",
+  "assets/workout/pa.png",
+  "assets/workout/pa.png",
+  "assets/workout/pa.png",
+  "assets/workout/pa.png",
+  "assets/workout/pa.png",
+  "assets/workout/pa.png",
+  "assets/workout/pa.png",
+  "assets/workout/pa.png",
+  "assets/workout/pa.png",
 ];
 const exercise_list_all = [
   "اسکات",
@@ -87,16 +87,16 @@ const exercise_list_all = [
 ];
 const exercise_code_all = [31, 32, 33, 34, 35, 36, 37, 38, 39, 40];
 const exercise_img_all = [
-  "../assets/workout/badan.png",
-  "../assets/workout/badan.png",
-  "../assets/workout/badan.png",
-  "../assets/workout/badan.png",
-  "../assets/workout/badan.png",
-  "../assets/workout/badan.png",
-  "../assets/workout/badan.png",
-  "../assets/workout/badan.png",
-  "../assets/workout/badan.png",
-  "../assets/workout/badan.png",
+  "assets/workout/badan.png",
+  "assets/workout/badan.png",
+  "assets/workout/badan.png",
+  "assets/workout/badan.png",
+  "assets/workout/badan.png",
+  "assets/workout/badan.png",
+  "assets/workout/badan.png",
+  "assets/workout/badan.png",
+  "assets/workout/badan.png",
+  "assets/workout/badan.png",
 ];
 Map<int, String> exerciseDescriptions = {
   1: "شنا سوئدی\n"

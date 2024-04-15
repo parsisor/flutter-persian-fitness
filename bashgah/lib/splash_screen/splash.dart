@@ -17,7 +17,7 @@ class Splash_Screen extends StatelessWidget {
       splash: Center(
         child: Container(
           
-          child: Image.asset("../../assets/Icons/star.png"),
+          child: Image.asset("assets/Icons/star.png"),
         ),
       ),
       nextScreen: MyHomePage(),

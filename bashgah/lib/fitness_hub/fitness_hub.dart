@@ -69,7 +69,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Image.asset("../assets/vectors/Dumbbell.png"),
+                    Image.asset("assets/vectors/Dumbbell.png"),
                     Stack(
                       alignment: Alignment.center,
                       children: [
@@ -81,7 +81,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                             top: 20,
                             right: 20,
                             child:
-                                Image.asset("../assets/vectors/calorie.png")),
+                                Image.asset("assets/vectors/calorie.png")),
                         Positioned(
                           top: 20,
                           left: 20,
@@ -173,22 +173,22 @@ class _Fitness_HubState extends State<Fitness_Hub> {
               SizedBox(
                 height: 10.0,
               ),
-              Workouts(context, "سینه و شکم", "../assets/photos/sine.png",
+              Workouts(context, "سینه و شکم", "assets/photos/sine.png",
                   "sine", container_color1),
               SizedBox(
                 height: 10,
               ),
-              Workouts(context, "بازو و ساعد", "../assets/photos/bazo.png",
+              Workouts(context, "بازو و ساعد", "assets/photos/bazo.png",
                   "bazo", container_color2),
               SizedBox(
                 height: 10,
               ),
-              Workouts(context, "ران و ساق", "../assets/photos/pa.png", "pa",
+              Workouts(context, "ران و ساق", "assets/photos/pa.png", "pa",
                   container_color3),
               SizedBox(
                 height: 10,
               ),
-              Workouts(context, "  کل بدن", "../assets/photos/badan.png",
+              Workouts(context, "  کل بدن", "assets/photos/badan.png",
                   "badan", container_color4),
             ]),
           ),

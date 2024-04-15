@@ -14,19 +14,19 @@ Widget Streak_Bar(String roz, String vaziat) {
     case "Today":
       width_con = 54;
       height_con = 80;
-      cart_details = _buildColumn("../assets/Icons/clock.png", roz, 40);
+      cart_details = _buildColumn("assets/Icons/clock.png", roz, 40);
       decoration = _buildBoxDecoration(sanavie);
       break;
     case "No":
-      cart_details = _buildColumn("../assets/Icons/cancel.png", roz, 40);
+      cart_details = _buildColumn("assets/Icons/cancel.png", roz, 40);
       decoration = _buildBoxDecoration(gray);
       break;
     case "Yes":
-      cart_details = _buildColumn("../assets/Icons/check.png", roz, 38);
+      cart_details = _buildColumn("assets/Icons/check.png", roz, 38);
       decoration = _buildBoxDecoration(gray);
       break;
     default:
-      cart_details = _buildColumn("../assets/Icons/clock.png", roz, 38);
+      cart_details = _buildColumn("assets/Icons/clock.png", roz, 38);
       decoration = _buildBoxDecoration(gray);
   }
 

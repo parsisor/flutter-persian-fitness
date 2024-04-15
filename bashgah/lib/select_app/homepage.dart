@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Column(
                         children: [
                           Image.asset(
-                            "../../assets/vectors/healthy_mind_icon.png",
+                            "assets/vectors/healthy_mind_icon.png",
                             width: 280,
                             height: 250,
                           ),
@@ -119,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           SizedBox(height: 10),
                           Image.asset(
-                            "../../assets/vectors/healthy_boddy_icon.png",
+                            "assets/vectors/healthy_boddy_icon.png",
                             width: 280,
                             height: 250,
                           ),

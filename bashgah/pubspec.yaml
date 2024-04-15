@@ -49,5 +49,11 @@ flutter:
     - assets/Fonts/irsans.ttf
     - assets/Fonts/NotoNaskhArabic-Medium.ttf
     - assets/Fonts/NotoNaskhArabic-Regular.ttf
+    - assets/App_Logo/
+    - assets/Fonts/
+    - assets/Icons/
+    - assets/photos/
+    - assets/vectors/
+    - assets/workout/
 
   uses-material-design: true
