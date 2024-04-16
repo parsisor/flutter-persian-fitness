@@ -21,9 +21,27 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-
+  flutter_launcher_icons: "^0.13.1"
   hive_generator: ^2.0.1
   build_runner: ^2.4.9
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/App_Logo/Logo.png" 
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/App_Logo/Logo.png" 
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/App_Logo/Logo.png" 
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/App_Logo/Logo.png" 
 
 flutter:
   fonts:
@@ -42,6 +60,8 @@ flutter:
     - family: NotoNaskhArabicRegular
       fonts:
         - asset: assets/Fonts/NotoNaskhArabic-Regular.ttf
+  
+  
 
   assets:
     - assets/splash-screen.png
