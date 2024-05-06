@@ -19,11 +19,7 @@ class _BMIHomePageState extends State<BMIHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-<<<<<<< HEAD
         title: Text('محاسبه گر شاخص توده ی بدنی'),
-=======
-        title: Text('محاسبه کننده ی شاخص توده ی بدنی'),
->>>>>>> f13dbc2e92d2efaf6d68522a420254376ccc43ef
         centerTitle: true,
       ),
       body: Padding(
@@ -33,11 +29,7 @@ class _BMIHomePageState extends State<BMIHomePage> {
           children: [
             DropdownButtonFormField<String>(
               value: gender,
-<<<<<<< HEAD
               hint: Text('جنسیت خود را انتخاب کنید'),
-=======
-              hint: Text('جنسیت را انتخاب کنید'),
->>>>>>> f13dbc2e92d2efaf6d68522a420254376ccc43ef
               onChanged: (value) {
                 setState(() {
                   gender = value;
@@ -85,11 +77,7 @@ class _BMIHomePageState extends State<BMIHomePage> {
               onPressed: () {
                 calculateBMI();
               },
-<<<<<<< HEAD
-              child: Text('ماشین حساب شاخص توده ی بدنی'),
-=======
               child: Text('شاخص را محاسبه کن'),
->>>>>>> f13dbc2e92d2efaf6d68522a420254376ccc43ef
             ),
             SizedBox(height: 16.0),
             Center(
