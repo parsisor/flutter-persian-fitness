@@ -52,8 +52,8 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Streak_Bar(getCurrentWeekDay(-2), "Yes"),
-                  Streak_Bar(getCurrentWeekDay(-1), "No"),
+                  Streak_Bar(getCurrentWeekDay(6), "Yes"),
+                  Streak_Bar(getCurrentWeekDay(7), "No"),
                   Streak_Bar(getCurrentWeekDay(0), "Today"),
                   Streak_Bar(getCurrentWeekDay(1), "future"),
                   Streak_Bar(getCurrentWeekDay(2), "future"),
