@@ -60,7 +60,7 @@ flutter:
     - family: NotoNaskhArabicRegular
       fonts:
         - asset: assets/Fonts/NotoNaskhArabic-Regular.ttf
-  
+
   
 
   assets:
