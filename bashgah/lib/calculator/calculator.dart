@@ -19,7 +19,7 @@ class _BMIHomePageState extends State<BMIHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: Text('محاسبه کننده ی شاخص توده ی بدنی'),
         centerTitle: true,
       ),
       body: Padding(
@@ -29,13 +29,13 @@ class _BMIHomePageState extends State<BMIHomePage> {
           children: [
             DropdownButtonFormField<String>(
               value: gender,
-              hint: Text('Select Gender'),
+              hint: Text('جنسیت را انتخاب کنید'),
               onChanged: (value) {
                 setState(() {
                   gender = value;
                 });
               },
-              items: ['Male', 'Female'].map((String value) {
+              items: ['آقا', 'خانم'].map((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
@@ -44,7 +44,7 @@ class _BMIHomePageState extends State<BMIHomePage> {
             ),
             SizedBox(height: 16.0),
             TextFormField(
-              decoration: InputDecoration(labelText: 'Age'),
+              decoration: InputDecoration(labelText: 'سن'),
               keyboardType: TextInputType.number,
               onChanged: (value) {
                 setState(() {
@@ -54,7 +54,7 @@ class _BMIHomePageState extends State<BMIHomePage> {
             ),
             SizedBox(height: 16.0),
             TextFormField(
-              decoration: InputDecoration(labelText: 'Height (cm)'),
+              decoration: InputDecoration(labelText: 'قد (cm)'),
               keyboardType: TextInputType.numberWithOptions(decimal: true),
               onChanged: (value) {
                 setState(() {
@@ -77,7 +77,7 @@ class _BMIHomePageState extends State<BMIHomePage> {
               onPressed: () {
                 calculateBMI();
               },
-              child: Text('Calculate BMI'),
+              child: Text('شاخص را محاسبه کن'),
             ),
             SizedBox(height: 16.0),
             Center(
