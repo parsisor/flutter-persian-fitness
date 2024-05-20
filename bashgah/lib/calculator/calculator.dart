@@ -19,7 +19,7 @@ class _BMIHomePageState extends State<BMIHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('محاسبه کننده ی شاخص توده ی بدنی'),
+        title: Text('محاسبه گر شاخص توده ی بدنی'),
         centerTitle: true,
       ),
       body: Padding(
@@ -29,7 +29,7 @@ class _BMIHomePageState extends State<BMIHomePage> {
           children: [
             DropdownButtonFormField<String>(
               value: gender,
-              hint: Text('جنسیت را انتخاب کنید'),
+              hint: Text('جنسیت خود را انتخاب کنید'),
               onChanged: (value) {
                 setState(() {
                   gender = value;
@@ -64,7 +64,7 @@ class _BMIHomePageState extends State<BMIHomePage> {
             ),
             SizedBox(height: 16.0),
             TextFormField(
-              decoration: InputDecoration(labelText: 'وزن (kg)'),
+              decoration: InputDecoration(labelText: 'وزن(کیلوگرم)'),
               keyboardType: TextInputType.numberWithOptions(decimal: true),
               onChanged: (value) {
                 setState(() {

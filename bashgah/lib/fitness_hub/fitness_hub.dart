@@ -4,6 +4,7 @@ import 'package:fitness/code_assets.dart/consts.dart';
 import 'package:fitness/fitness_hub/streak_bar/streak_bar.dart';
 import 'package:fitness/fitness_hub/streak_bar/week_day.dart';
 import 'package:fitness/settings_Page/settings.dart';
+import 'package:fitness/sign_in/sign_in_page.dart';
 import 'package:fitness/workouts/workouts.dart';
 import 'package:flutter/material.dart';
 
@@ -31,13 +32,25 @@ class _Fitness_HubState extends State<Fitness_Hub> {
         ),
         centerTitle: true,
         actions: [
-          IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => SettingsPage(),
-              ));
-            },
+          Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => SignInPage()),
+                  );
+                },
+                icon: Icon(Icons.login),
+              ),
+              IconButton(
+                icon: Icon(Icons.settings),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => SettingsPage(),
+                  ));
+                },
+              ),
+            ],
           ),
         ],
       ),
@@ -80,8 +93,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                         Positioned(
                             top: 20,
                             right: 20,
-                            child:
-                                Image.asset("assets/vectors/calorie.png")),
+                            child: Image.asset("assets/vectors/calorie.png")),
                         Positioned(
                           top: 20,
                           left: 20,
@@ -137,7 +149,10 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                       child: Center(
                         child: Text(
                           'مقاله ها',
-                          style: TextStyle(fontFamily: 'NotoNaskhArabicMedium' , fontSize: 30 , color: sefid),
+                          style: TextStyle(
+                              fontFamily: 'NotoNaskhArabicMedium',
+                              fontSize: 30,
+                              color: sefid),
                         ),
                       ),
                     ),
@@ -159,8 +174,11 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                       ),
                       child: Center(
                         child: Text(
-                          'ماشین حساب', 
-                          style: TextStyle(fontFamily: 'NotoNaskhArabicMedium' , fontSize: 30 , color: sefid),
+                          'ماشین حساب',
+                          style: TextStyle(
+                              fontFamily: 'NotoNaskhArabicMedium',
+                              fontSize: 30,
+                              color: sefid),
                         ),
                       ),
                     ),
@@ -173,13 +191,13 @@ class _Fitness_HubState extends State<Fitness_Hub> {
               SizedBox(
                 height: 10.0,
               ),
-              Workouts(context, "سینه و شکم", "assets/photos/sine.png",
-                  "sine", container_color1),
+              Workouts(context, "سینه و شکم", "assets/photos/sine.png", "sine",
+                  container_color1),
               SizedBox(
                 height: 10,
               ),
-              Workouts(context, "بازو و ساعد", "assets/photos/bazo.png",
-                  "bazo", container_color2),
+              Workouts(context, "بازو و ساعد", "assets/photos/bazo.png", "bazo",
+                  container_color2),
               SizedBox(
                 height: 10,
               ),
@@ -188,8 +206,8 @@ class _Fitness_HubState extends State<Fitness_Hub> {
               SizedBox(
                 height: 10,
               ),
-              Workouts(context, "  کل بدن", "assets/photos/badan.png",
-                  "badan", container_color4),
+              Workouts(context, "  کل بدن", "assets/photos/badan.png", "badan",
+                  container_color4),
             ]),
           ),
         ),

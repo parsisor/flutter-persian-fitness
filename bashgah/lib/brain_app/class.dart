@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+
 class Brain_app extends StatelessWidget {
   const Brain_app({super.key});
 
@@ -7,8 +7,8 @@ class Brain_app extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
-        title: Text('404 Error'),
+        title: Text('404 Error' ,  style: TextStyle(fontSize: 24,
+                fontWeight: FontWeight.bold,)),
         centerTitle: true,
       ),
       body: Center(
@@ -33,17 +33,13 @@ class Brain_app extends StatelessWidget {
               'Page not found',
               style: TextStyle(
                 fontSize: 18,
+                fontFamily: 'Roboto',
               ),
             ),
             SizedBox(height: 20),
-            
           ],
         ),
       ),
     );
   }
 }
-
-
-
-
