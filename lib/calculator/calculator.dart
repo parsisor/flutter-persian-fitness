@@ -82,7 +82,7 @@ class _BMIHomePageState extends State<BMIHomePage> {
             SizedBox(height: 16.0),
             Center(
               child: Text(
-                'BMI: ${bmi.toStringAsFixed(2)}',
+                'شاخص توده بدنی شما: ${bmi.toStringAsFixed(2)}',
                 style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
               ),
             ),

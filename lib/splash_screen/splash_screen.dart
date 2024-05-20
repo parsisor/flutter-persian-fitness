@@ -69,7 +69,7 @@ class _SplashScreenState extends State<SplashScreen>
             ),
             SizedBox(height: 30),
             Text(
-              'یک هلیکوپتر معذرت',
+              'زرنگ',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 40,

@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: InkWell(
                   onTap: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => BrainTrainingApp()));
+                        MaterialPageRoute(builder: (context) => Brain_app()));
                   },
                   child: AnimatedContainer(
                     duration: Duration(milliseconds: 200),
