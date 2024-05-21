@@ -29,7 +29,6 @@ final ColorScheme darkColorScheme = const ColorScheme.dark(
   onSurface: Colors.white,
 );
 
-
 ThemeData lightmode = ThemeData(
   brightness: Brightness.light,
   colorScheme: lightColorScheme,
@@ -41,6 +40,7 @@ ThemeData lightmode = ThemeData(
     displayMedium: TextStyle(fontFamily: 'IRANSansX', fontSize: 24.0, fontWeight: FontWeight.bold),
     labelLarge: TextStyle(fontFamily: 'IRANSansX', fontSize: 16.0, fontWeight: FontWeight.bold),
   ),
+  
 );
 
 ThemeData darkmode = ThemeData(
@@ -54,4 +54,5 @@ ThemeData darkmode = ThemeData(
     displayMedium: TextStyle(fontFamily: 'IRANSansX', fontSize: 24.0, fontWeight: FontWeight.bold),
     labelLarge: TextStyle(fontFamily: 'IRANSansX', fontSize: 16.0, fontWeight: FontWeight.bold),
   ),
+  
 );

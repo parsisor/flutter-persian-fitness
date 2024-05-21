@@ -19,7 +19,7 @@ class _BMIHomePageState extends State<BMIHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('محاسبه گر شاخص توده ی بدنی'),
+        title: Text('محاسبه گر شاخص توده ی بدنی' , textDirection: TextDirection.rtl,),
         centerTitle: true,
       ),
       body: Padding(
@@ -29,7 +29,7 @@ class _BMIHomePageState extends State<BMIHomePage> {
           children: [
             DropdownButtonFormField<String>(
               value: gender,
-              hint: Text('جنسیت خود را انتخاب کنید'),
+              hint: Text('جنسیت خود را انتخاب کنید', textDirection: TextDirection.rtl),
               onChanged: (value) {
                 setState(() {
                   gender = value;
@@ -38,7 +38,7 @@ class _BMIHomePageState extends State<BMIHomePage> {
               items: ['آقا', 'خانم'].map((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
-                  child: Text(value),
+                  child: Text(value , textDirection: TextDirection.rtl),
                 );
               }).toList(),
             ),
