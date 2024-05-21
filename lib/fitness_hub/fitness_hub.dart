@@ -1,11 +1,11 @@
-import 'package:fitness/articles/view_page.dart';
-import 'package:fitness/calculator/calculator.dart';
-import 'package:fitness/code_assets.dart/consts.dart';
-import 'package:fitness/fitness_hub/streak_bar/streak_bar.dart';
-import 'package:fitness/fitness_hub/streak_bar/week_day.dart';
-import 'package:fitness/settings_Page/settings.dart';
-import 'package:fitness/sign_in/sign_in_page.dart';
-import 'package:fitness/workouts/workouts.dart';
+import 'package:Zerang/articles/view_page.dart';
+import 'package:Zerang/calculator/calculator.dart';
+import 'package:Zerang/code_assets.dart/consts.dart';
+import 'package:Zerang/fitness_hub/streak_bar/streak_bar.dart';
+import 'package:Zerang/fitness_hub/streak_bar/week_day.dart';
+import 'package:Zerang/settings_Page/settings.dart';
+import 'package:Zerang/sign_in/sign_in_page.dart';
+import 'package:Zerang/workouts/workouts.dart';
 import 'package:flutter/material.dart';
 
 class Fitness_Hub extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:fitness/Theme/theme_provider.dart';
+import 'package:Zerang/Theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../code_assets.dart/consts.dart';

@@ -1,8 +1,8 @@
 
-import 'package:fitness/brain_app/class.dart';
-import 'package:fitness/fitness_hub/fitness_hub.dart';
+import 'package:Zerang/brain_app/class.dart';
+import 'package:Zerang/fitness_hub/fitness_hub.dart';
 import 'package:flutter/material.dart';
-import 'package:fitness/code_assets.dart/consts.dart';
+import 'package:Zerang/code_assets.dart/consts.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: InkWell(
                   onTap: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => Brain_app()));
+                        MaterialPageRoute(builder: (context) => BrainTrainingApp()));
                   },
                   child: AnimatedContainer(
                     duration: Duration(milliseconds: 200),

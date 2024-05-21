@@ -1,4 +1,4 @@
-import 'package:fitness/Theme/theme.dart';
+import 'package:Zerang/Theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class ThemeProvider with ChangeNotifier {

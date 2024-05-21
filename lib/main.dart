@@ -1,5 +1,5 @@
-import 'package:fitness/Theme/theme_provider.dart';
-import 'package:fitness/splash_screen/splash_screen.dart';
+import 'package:Zerang/Theme/theme_provider.dart';
+import 'package:Zerang/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

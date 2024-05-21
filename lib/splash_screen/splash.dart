@@ -1,5 +1,5 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:fitness/select_app/homepage.dart';
+import 'package:Zerang/select_app/homepage.dart';
 
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';

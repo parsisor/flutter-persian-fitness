@@ -1,4 +1,4 @@
-import 'package:fitness/code_assets.dart/consts.dart';
+import 'package:Zerang/code_assets.dart/consts.dart';
 import 'package:flutter/material.dart';
 
 Widget Streak_Bar(String roz, String vaziat) {

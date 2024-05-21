@@ -1,5 +1,5 @@
-name: fitness
-description: "A new Flutter project."
+name: Zerang
+description: "an app for everyone"
 publish_to: 'none'
 version: 0.1.0
 
@@ -29,20 +29,20 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/App_Logo/Logo.png" 
+  image_path: "assets/App_Logo/Logo.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
   web:
     generate: true
-    image_path: "assets/App_Logo/Logo.png" 
+    image_path: "assets/App_Logo/Logo.png"
     background_color: "#hexcode"
     theme_color: "#hexcode"
   windows:
     generate: true
-    image_path: "assets/App_Logo/Logo.png" 
+    image_path: "assets/App_Logo/Logo.png"
     icon_size: 48 # min:48, max:256, default: 48
   macos:
     generate: true
-    image_path: "assets/App_Logo/Logo.png" 
+    image_path: "assets/App_Logo/Logo.png"
 
 flutter:
   fonts:
@@ -62,7 +62,56 @@ flutter:
       fonts:
         - asset: assets/Fonts/NotoNaskhArabic-Regular.ttf
 
-  
+    - family: IRANSansX
+      fonts:
+        - asset: assets/Fonts/iransansX/IRANSansX-Black.ttf
+          weight: 900
+        - asset: assets/Fonts/iransansX/IRANSansX-Bold.ttf
+          weight: 700
+        - asset: assets/Fonts/iransansX/IRANSansX-DemiBold.ttf
+          weight: 600
+        - asset: assets/Fonts/iransansX/IRANSansX-ExtraBlack.ttf
+          weight: 800
+        - asset: assets/Fonts/iransansX/IRANSansX-ExtraBold.ttf
+          weight: 700
+        - asset: assets/Fonts/iransansX/IRANSansX-Heavy.ttf
+          weight: 800
+        - asset: assets/Fonts/iransansX/IRANSansX-Light.ttf
+          weight: 300
+        - asset: assets/Fonts/iransansX/IRANSansX-Medium.ttf
+          weight: 500
+        - asset: assets/Fonts/iransansX/IRANSansX-Regular.ttf
+          weight: 400
+        - asset: assets/Fonts/iransansX/IRANSansX-Thin.ttf
+          weight: 100
+        - asset: assets/Fonts/iransansX/IRANSansX-UltraLight.ttf
+          weight: 200
+
+    - family: Roboto
+      fonts:
+        - asset: assets/Fonts/Roboto/Roboto-Black.ttf
+          weight: 900
+        - asset: assets/Fonts/Roboto/Roboto-BlackItalic.ttf
+          weight: 900
+        - asset: assets/Fonts/Roboto/Roboto-Bold.ttf
+          weight: 700
+        - asset: assets/Fonts/Roboto/Roboto-BoldItalic.ttf
+          weight: 700
+        - asset: assets/Fonts/Roboto/Roboto-Italic.ttf
+        - asset: assets/Fonts/Roboto/Roboto-Light.ttf
+          weight: 300
+        - asset: assets/Fonts/Roboto/Roboto-LightItalic.ttf
+          weight: 300
+        - asset: assets/Fonts/Roboto/Roboto-Medium.ttf
+          weight: 500
+        - asset: assets/Fonts/Roboto/Roboto-MediumItalic.ttf
+          weight: 500
+        - asset: assets/Fonts/Roboto/Roboto-Regular.ttf
+          weight: 400
+        - asset: assets/Fonts/Roboto/Roboto-Thin.ttf
+          weight: 100
+        - asset: assets/Fonts/Roboto/Roboto-ThinItalic.ttf
+          weight: 100
 
   assets:
     - assets/splash-screen.png

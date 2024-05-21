@@ -1,6 +1,6 @@
+import 'package:Zerang/code_assets.dart/consts.dart';
 import 'package:flutter/material.dart';
-
-
+import 'package:flutter/services.dart';
 
 class SignInPage extends StatefulWidget {
   @override
@@ -9,16 +9,57 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _weightController = TextEditingController();
+  final TextEditingController _heightController = TextEditingController();
+  String _userInfo = "";
+  String? _errorText;
 
   @override
   void dispose() {
     _nameController.dispose();
+    _weightController.dispose();
+    _heightController.dispose();
     super.dispose();
   }
 
-  void _signIn() {
+  bool _validateInput() {
     final String name = _nameController.text;
-    print("Signed in as $name");
+    final String weight = _weightController.text;
+    final String height = _heightController.text;
+    if (name.isEmpty) {
+      setState(() {
+        _errorText = "لطفا نام خود را وارد کنید";
+      });
+      return false;
+    }
+    if (weight.isEmpty || int.tryParse(weight) == null) {
+      setState(() {
+        _errorText = "وزن باید به صورت عدد وارد شود";
+      });
+      return false;
+    }
+    if (height.isEmpty || int.tryParse(height) == null) {
+      setState(() {
+        _errorText = "قد باید به صورت عدد وارد شود";
+      });
+      return false;
+    }
+    setState(() {
+      _errorText = null;
+    });
+    return true;
+  }
+
+  void _signIn() {
+    if (_validateInput()) {
+      final String name = _nameController.text;
+      final String weight = _weightController.text;
+      final String height = _heightController.text;
+      setState(() {
+        _userInfo = 'نام: $name\nوزن: $weight کیلوگرم\nقد: $height سانتی‌متر';
+      });
+      print("Signed in as $name, Weight: $weight kg, Height: $height cm");
+    }
   }
 
   @override
@@ -29,7 +70,7 @@ class _SignInPageState extends State<SignInPage> {
         centerTitle: true,
       ),
       body: Directionality(
-        textDirection: TextDirection.rtl, 
+        textDirection: TextDirection.rtl,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -40,17 +81,53 @@ class _SignInPageState extends State<SignInPage> {
                 decoration: InputDecoration(
                   labelText: 'آیدی خود را وارد کنید',
                   border: OutlineInputBorder(),
+                  errorText: _errorText,
                 ),
-                textAlign: TextAlign.right, 
+                textAlign: TextAlign.right,
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: _weightController,
+                keyboardType: TextInputType.number,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                decoration: InputDecoration(
+                  labelText: 'وزن خود را وارد کنید (کیلوگرم)',
+                  border: OutlineInputBorder(),
+                  errorText: _errorText,
+                ),
+                textAlign: TextAlign.right,
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: _heightController,
+                keyboardType: TextInputType.number,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                decoration: InputDecoration(
+                  labelText: 'قد خود را وارد کنید (سانتی‌متر)',
+                  border: OutlineInputBorder(),
+                  errorText: _errorText,
+                ),
+                textAlign: TextAlign.right,
               ),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _signIn,
-                child: Text('ثبت نام', style: TextStyle(fontFamily: 'Vazir')),
+                child: Text('ثبت نام', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
                 style: ElevatedButton.styleFrom(
-                  
+                  backgroundColor: Colors.blue,
                 ),
               ),
+              SizedBox(height: 20),
+              if (_userInfo.isNotEmpty)
+                Text(
+                  _userInfo,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: button_color,
+                    fontFamily: 'Vazir',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
             ],
           ),
         ),
