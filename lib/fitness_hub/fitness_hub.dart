@@ -22,7 +22,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
       appBar: AppBar(
         title: Text(
           'صفحه اصلی',
-          style: TextStyle(fontFamily: 'NotoNaskhArabicMedium'),
+          
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -102,7 +102,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                             style: TextStyle(
                               color: white,
                               fontSize: 70,
-                              fontFamily: 'NotoNaskhArabicMedium',
+                              
                             ),
                           ),
                         ),
@@ -114,7 +114,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                             style: TextStyle(
                               color: sefid,
                               fontSize: 18,
-                              fontFamily: 'NotoNaskhArabicMedium',
+                              
                             ),
                           ),
                         ),
@@ -150,7 +150,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                         child: Text(
                           'مقاله ها',
                           style: TextStyle(
-                              fontFamily: 'NotoNaskhArabicMedium',
+                              
                               fontSize: 30,
                               color: sefid),
                         ),
@@ -176,7 +176,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                         child: Text(
                           'ماشین حساب',
                           style: TextStyle(
-                              fontFamily: 'NotoNaskhArabicMedium',
+                              
                               fontSize: 30,
                               color: sefid),
                         ),
@@ -263,7 +263,7 @@ Widget Workouts(
             style: TextStyle(
               color: sefid,
               fontSize: 32,
-              fontFamily: 'NotoNaskhArabicMedium',
+              
             ),
           ),
           SizedBox(width: 10)

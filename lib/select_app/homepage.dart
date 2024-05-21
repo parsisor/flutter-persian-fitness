@@ -61,8 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             "عقل سالم",
                             style: TextStyle(
                                 fontSize: 20,
-                                fontFamily: "Iransans",
-                                fontWeight: FontWeight.bold),
+                                ),
                           )
                         ],
                       ),
@@ -77,8 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 "در",
                 style: TextStyle(
                   fontSize: 20,
-                  fontFamily: "Iransans",
-                  fontWeight: FontWeight.bold,
+                  
                 ),
               ),
             ),
@@ -114,8 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             "بدن سالم",
                             style: TextStyle(
                                 fontSize: 20,
-                                fontFamily: "Iransans",
-                                fontWeight: FontWeight.bold),
+                              ),
                           ),
                           SizedBox(height: 10),
                           Image.asset(
