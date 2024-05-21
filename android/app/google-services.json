@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "482748024871",
-    "project_id": "zerang-93c43",
-    "storage_bucket": "zerang-93c43.appspot.com"
+    "project_number": "405370794420",
+    "project_id": "zerang-2d68b",
+    "storage_bucket": "zerang-2d68b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:482748024871:android:0de835df5115af9b626602",
+        "mobilesdk_app_id": "1:405370794420:android:911c591fc17f0ea584c2e1",
         "android_client_info": {
           "package_name": "com.example.bashgah"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAexFP3_JunDr-VsAuMtD34n55hKtyla8U"
+          "current_key": "AIzaSyA1LgEHV6kwc68mc2FAbN_dJ_TCf5TFSIk"
         }
       ],
       "services": {
