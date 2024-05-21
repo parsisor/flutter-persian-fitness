@@ -50,38 +50,39 @@ class ArticlePage extends StatelessWidget {
 
 
   @override
-Widget build(BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(
-      title: Text('Articles'),
-    ),
-    body: ListView.builder(
-      itemCount: articles.length,
-      itemBuilder: (context, index) {
-        return Column(
-          children: [
-            ListTile(
-              title: Text(articles[index].title),
-              subtitle: Text(articles[index].sub),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        ArticleDetailPage(article: articles[index]),
-                  ),
-                );
-              },
-            ),
-            Divider(),
-          ],
-        );
-      },
-    ),
-  );
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Articles'),
+      ),
+      body: ListView.builder(
+        itemCount: articles.length,
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              ListTile(
+                title: Text(articles[index].title, textDirection: TextDirection.rtl), // تغییر جهت متن به rtl
+                subtitle: Text(articles[index].sub, textDirection: TextDirection.rtl), // تغییر جهت متن به rtl
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          ArticleDetailPage(article: articles[index]),
+                    ),
+                  );
+                },
+              ),
+              Divider(),
+            ],
+          );
+        },
+      ),
+    );
+  }
 }
 
-}
+
 
 class Article {
   final String title;
@@ -90,6 +91,7 @@ class Article {
 
   Article({required this.title, required this.content, required this.sub});
 }
+
 
 class ArticleDetailPage extends StatelessWidget {
   final Article article;
@@ -112,7 +114,7 @@ class ArticleDetailPage extends StatelessWidget {
               SizedBox(height: 20.0),
               Text(
                 article.content,
-                textDirection: TextDirection.rtl,
+                textDirection: TextDirection.rtl, 
                 style: TextStyle(
                   fontSize: 16.0,
                 ),

@@ -1,22 +1,9 @@
 import 'package:Zerang/select_app/homepage.dart';
 import 'package:flutter/material.dart';
 
-class BrainTrainingApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'مرکز آموزش مغز',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        fontFamily: 'Vazir',
-      ),
-      home: HomeScreen(),
-    );
-  }
-}
 
-class HomeScreen extends StatelessWidget {
+
+class BrainTrainingApp extends StatelessWidget {
   final List<Choice> choices = [
     Choice(title: 'ذهن', icon: Icons.flash_on, color: Colors.green),
     Choice(title: 'سرعت', icon: Icons.speed, color: Colors.red),
