@@ -69,7 +69,7 @@ class _SplashScreenState extends State<SplashScreen>
             ),
             SizedBox(height: 30),
             Text(
-              'زرنگ',
+              'ایران بگا رفت',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 40,
