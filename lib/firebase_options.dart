@@ -41,48 +41,48 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDJlC85N6gpYWZ9s3Y_EcHwarEeSCMLfVU',
-    appId: '1:482748024871:web:756f6f2729ac1ebc626602',
-    messagingSenderId: '482748024871',
-    projectId: 'zerang-93c43',
-    authDomain: 'zerang-93c43.firebaseapp.com',
-    storageBucket: 'zerang-93c43.appspot.com',
-    measurementId: 'G-KWJYTV7M5P',
+    apiKey: 'AIzaSyCG0wh0je0niVxivb6z1KMB57lsDENOUc0',
+    appId: '1:405370794420:web:ceba66152385f98484c2e1',
+    messagingSenderId: '405370794420',
+    projectId: 'zerang-2d68b',
+    authDomain: 'zerang-2d68b.firebaseapp.com',
+    storageBucket: 'zerang-2d68b.appspot.com',
+    measurementId: 'G-T68NVBBEWT',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAexFP3_JunDr-VsAuMtD34n55hKtyla8U',
-    appId: '1:482748024871:android:0de835df5115af9b626602',
-    messagingSenderId: '482748024871',
-    projectId: 'zerang-93c43',
-    storageBucket: 'zerang-93c43.appspot.com',
+    apiKey: 'AIzaSyA1LgEHV6kwc68mc2FAbN_dJ_TCf5TFSIk',
+    appId: '1:405370794420:android:911c591fc17f0ea584c2e1',
+    messagingSenderId: '405370794420',
+    projectId: 'zerang-2d68b',
+    storageBucket: 'zerang-2d68b.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAmciGtxj0FI23uD0Aw4p6AZvcJc4glG8I',
-    appId: '1:482748024871:ios:4775149e33e9313c626602',
-    messagingSenderId: '482748024871',
-    projectId: 'zerang-93c43',
-    storageBucket: 'zerang-93c43.appspot.com',
+    apiKey: 'AIzaSyCGtL6IAOLhesfYyoMgx4Vow-Z67BMszkY',
+    appId: '1:405370794420:ios:79cc0e9d69e9d6c184c2e1',
+    messagingSenderId: '405370794420',
+    projectId: 'zerang-2d68b',
+    storageBucket: 'zerang-2d68b.appspot.com',
     iosBundleId: 'com.example.bashgah',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAmciGtxj0FI23uD0Aw4p6AZvcJc4glG8I',
-    appId: '1:482748024871:ios:4775149e33e9313c626602',
-    messagingSenderId: '482748024871',
-    projectId: 'zerang-93c43',
-    storageBucket: 'zerang-93c43.appspot.com',
+    apiKey: 'AIzaSyCGtL6IAOLhesfYyoMgx4Vow-Z67BMszkY',
+    appId: '1:405370794420:ios:79cc0e9d69e9d6c184c2e1',
+    messagingSenderId: '405370794420',
+    projectId: 'zerang-2d68b',
+    storageBucket: 'zerang-2d68b.appspot.com',
     iosBundleId: 'com.example.bashgah',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyDJlC85N6gpYWZ9s3Y_EcHwarEeSCMLfVU',
-    appId: '1:482748024871:web:39de7cbc472729e0626602',
-    messagingSenderId: '482748024871',
-    projectId: 'zerang-93c43',
-    authDomain: 'zerang-93c43.firebaseapp.com',
-    storageBucket: 'zerang-93c43.appspot.com',
-    measurementId: 'G-6JGG67DX57',
+    apiKey: 'AIzaSyCG0wh0je0niVxivb6z1KMB57lsDENOUc0',
+    appId: '1:405370794420:web:6f2a435b9b6ec96d84c2e1',
+    messagingSenderId: '405370794420',
+    projectId: 'zerang-2d68b',
+    authDomain: 'zerang-2d68b.firebaseapp.com',
+    storageBucket: 'zerang-2d68b.appspot.com',
+    measurementId: 'G-R9EZFDCRH6',
   );
 }
