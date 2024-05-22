@@ -9,6 +9,7 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _weightController = TextEditingController();
   final TextEditingController _heightController = TextEditingController();
   String _userInfo = "";
@@ -17,6 +18,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   void dispose() {
     _nameController.dispose();
+    _emailController.dispose();
     _weightController.dispose();
     _heightController.dispose();
     super.dispose();
@@ -26,9 +28,16 @@ class _SignInPageState extends State<SignInPage> {
     final String name = _nameController.text;
     final String weight = _weightController.text;
     final String height = _heightController.text;
+    final String email = _emailController.text;
     if (name.isEmpty) {
       setState(() {
         _errorText = "لطفا نام خود را وارد کنید";
+      });
+      return false;
+    }
+    if (email.isEmpty) {
+      setState(() {
+        _errorText = "لطفا پست الکترونیک خود را وارد کنید";
       });
       return false;
     }
@@ -55,6 +64,7 @@ class _SignInPageState extends State<SignInPage> {
       final String name = _nameController.text;
       final String weight = _weightController.text;
       final String height = _heightController.text;
+      final String email = _emailController.text;
       setState(() {
         _userInfo = 'نام: $name\nوزن: $weight کیلوگرم\nقد: $height سانتی‌متر';
       });
@@ -77,9 +87,18 @@ class _SignInPageState extends State<SignInPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               TextField(
+                controller: _emailController,
+                decoration: InputDecoration(
+                  labelText: 'پست الکترونیک خود را وارد کنید',
+                  border: OutlineInputBorder(),
+                  errorText: _errorText,
+                ),
+                textAlign: TextAlign.right,
+              ),
+              TextField(
                 controller: _nameController,
                 decoration: InputDecoration(
-                  labelText: 'آیدی خود را وارد کنید',
+                  labelText: 'نام کاربری خود را وارد کنید',
                   border: OutlineInputBorder(),
                   errorText: _errorText,
                 ),
