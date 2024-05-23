@@ -140,8 +140,8 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                       );
                     },
                     child: Container(
-                      width: 200,
-                      height: 200,
+                      width: 175,
+                      height: 175,
                       decoration: BoxDecoration(
                         color: button_color,
                         borderRadius: BorderRadius.circular(12),
@@ -151,7 +151,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                           'مقاله ها',
                           style: TextStyle(
                               
-                              fontSize: 30,
+                              fontSize: 25,
                               color: sefid),
                         ),
                       ),
@@ -166,8 +166,8 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                       );
                     },
                     child: Container(
-                      width: 200,
-                      height: 200,
+                      width: 175,
+                      height: 175,
                       decoration: BoxDecoration(
                         color: button_color,
                         borderRadius: BorderRadius.circular(12),
@@ -177,7 +177,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                           'ماشین حساب',
                           style: TextStyle(
                               
-                              fontSize: 30,
+                              fontSize: 25,
                               color: sefid),
                         ),
                       ),

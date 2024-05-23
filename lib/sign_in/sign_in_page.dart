@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:Zerang/sign_in/LoginPage.dart';
+import 'package:Zerang/sign_in/PasswordRecoveryPage.dart';
+
 
 class SignInPage extends StatefulWidget {
   @override
@@ -7,11 +11,10 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _weightController = TextEditingController();
   final TextEditingController _heightController = TextEditingController();
-  String _userInfo = "";
   String? _nameErrorText;
   String? _emailErrorText;
   String? _weightErrorText;
@@ -19,7 +22,7 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   void dispose() {
-    _nameController.dispose();
+    _passController.dispose();
     _emailController.dispose();
     _weightController.dispose();
     _heightController.dispose();
@@ -35,7 +38,7 @@ class _SignInPageState extends State<SignInPage> {
       _heightErrorText = null;
     });
 
-    final String name = _nameController.text;
+    final String name = _passController.text;
     final String weight = _weightController.text;
     final String height = _heightController.text;
     final String email = _emailController.text;
@@ -67,16 +70,48 @@ class _SignInPageState extends State<SignInPage> {
     return isValid;
   }
 
-  void _signIn() {
-    if (_validateInput()) {
-      final String name = _nameController.text;
-      final String weight = _weightController.text;
-      final String height = _heightController.text;
-      final String email = _emailController.text;
-      setState(() {
-        _userInfo = 'نام: $name\nوزن: $weight کیلوگرم\nقد: $height سانتی‌متر';
-      });
-      print("Signed in as $name, Weight: $weight kg, Height: $height cm");
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('خطا'),
+          content: Text(message),
+          actions: [
+            TextButton(
+              child: Text('باشه'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _signUp() async {
+    if (!_validateInput()) {
+      _showErrorDialog('لطفا اطلاعات خود را به درستی وارد کنید.');
+      return;
+    }
+
+    try {
+      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passController.text,
+      );
+      _showErrorDialog('ثبت‌نام با موفقیت انجام شد');
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        _showErrorDialog('گذرواژه خیلی ضعیف است');
+      } else if (e.code == 'email-already-in-use') {
+        _showErrorDialog('این ایمیل قبلا ثبت شده است');
+      } else {
+        _showErrorDialog('خطایی رخ داد: ${e.message}');
+      }
+    } catch (e) {
+      _showErrorDialog('خطایی رخ داد: $e');
     }
   }
 
@@ -84,6 +119,8 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: double.infinity,
+        height: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [Colors.blueAccent, Colors.lightBlueAccent],
@@ -91,78 +128,103 @@ class _SignInPageState extends State<SignInPage> {
             end: Alignment.bottomRight,
           ),
         ),
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  SizedBox(height: 80),
-                  Center(
-                    child: Text(
-                      'ثبت نام',
-                      style: TextStyle(
-                        fontFamily: 'Vazir',
-                        fontSize: 32,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+        child: SafeArea(
+          child: Directionality(
+            textDirection: TextDirection.rtl,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    SizedBox(height: 40),
+                    Center(
+                      child: Text(
+                        'ثبت نام',
+                        style: TextStyle(
+                          fontFamily: 'Vazir',
+                          fontSize: 32,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 20),
-                  _buildTextField(
-                    controller: _emailController,
-                    label: 'پست الکترونیک خود را وارد کنید',
-                    errorText: _emailErrorText,
-                  ),
-                  SizedBox(height: 20),
-                  _buildTextField(
-                    controller: _nameController,
-                    label: 'نام کاربری خود را وارد کنید',
-                    errorText: _nameErrorText,
-                  ),
-                  SizedBox(height: 20),
-                  _buildTextField(
-                    controller: _weightController,
-                    label: 'وزن خود را وارد کنید (کیلوگرم)',
-                    errorText: _weightErrorText,
-                    inputType: TextInputType.number,
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  ),
-                  SizedBox(height: 20),
-                  _buildTextField(
-                    controller: _heightController,
-                    label: 'قد خود را وارد کنید (سانتی‌متر)',
-                    errorText: _heightErrorText,
-                    inputType: TextInputType.number,
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  ),
-                  SizedBox(height: 30),
-                  ElevatedButton(
-                    onPressed: _signIn,
-                    child: Text('ثبت نام', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 16.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      backgroundColor: Colors.deepPurple,
+                    SizedBox(height: 40),
+                    _buildTextField(
+                      controller: _emailController,
+                      label: 'پست الکترونیک خود را وارد کنید',
+                      errorText: _emailErrorText,
                     ),
-                  ),
-                  SizedBox(height: 20),
-                  if (_userInfo.isNotEmpty)
-                    Text(
-                      _userInfo,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                        fontFamily: 'Vazir',
-                      ),
-                      textAlign: TextAlign.center,
+                    SizedBox(height: 20),
+                    _buildTextField(
+                      controller: _passController,
+                      label: 'گذرواژه خود را وارد کنید',
+                      errorText: _nameErrorText,
                     ),
-                ],
+                    SizedBox(height: 20),
+                    _buildTextField(
+                      controller: _weightController,
+                      label: 'وزن خود را وارد کنید (کیلوگرم)',
+                      errorText: _weightErrorText,
+                      inputType: TextInputType.number,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    ),
+                    SizedBox(height: 20),
+                    _buildTextField(
+                      controller: _heightController,
+                      label: 'قد خود را وارد کنید (سانتی‌متر)',
+                      errorText: _heightErrorText,
+                      inputType: TextInputType.number,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    ),
+                    SizedBox(height: 30),
+                    ElevatedButton(
+                      onPressed: _signUp,
+                      child: Text('ثبت نام', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(vertical: 16.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        backgroundColor: Colors.deepPurple,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        );
+                      },
+                      child: Text('ورود به حساب کاربری', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(vertical: 16.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        backgroundColor: Colors.deepPurple,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PasswordRecoveryPage()),
+                        );
+                      },
+                      child: Text('بازیابی گذرواژه', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(vertical: 16.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        backgroundColor: Colors.deepPurple,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
