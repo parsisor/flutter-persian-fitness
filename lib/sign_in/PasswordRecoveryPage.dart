@@ -8,13 +8,6 @@ class PasswordRecoveryPage extends StatefulWidget {
 
 class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
   final TextEditingController _emailController = TextEditingController();
-  String _recoveryInfo = "";
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    super.dispose();
-  }
 
   void _showErrorDialog(String message) {
     showDialog(
@@ -36,14 +29,20 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
     );
   }
 
-  void _recoverPassword() async {
+  void _resetPassword() async {
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(
         email: _emailController.text,
       );
-      _showErrorDialog('لینک بازیابی گذرواژه به ایمیل شما ارسال شد');
+      _showErrorDialog('ایمیل بازیابی گذرواژه ارسال شد');
     } on FirebaseAuthException catch (e) {
-      _showErrorDialog('خطایی رخ داد: ${e.message}');
+      if (e.code == 'user-not-found') {
+        _showErrorDialog('کاربری با این ایمیل یافت نشد');
+      } else {
+        _showErrorDialog('خطایی رخ داد: ${e.message}');
+      }
+    } catch (e) {
+      _showErrorDialog('خطایی رخ داد: $e');
     }
   }
 
@@ -88,7 +87,7 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
                     ),
                     SizedBox(height: 30),
                     ElevatedButton(
-                      onPressed: _recoverPassword,
+                      onPressed: _resetPassword,
                       child: Text('بازیابی گذرواژه', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 16.0),
@@ -98,17 +97,6 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
                         backgroundColor: Colors.deepPurple,
                       ),
                     ),
-                    SizedBox(height: 20),
-                    if (_recoveryInfo.isNotEmpty)
-                      Text(
-                        _recoveryInfo,
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontFamily: 'Vazir',
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
                   ],
                 ),
               ),

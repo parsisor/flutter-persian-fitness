@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:Zerang/fitness_hub/fitness_hub.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -9,14 +10,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
-  String _loginInfo = "";
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passController.dispose();
-    super.dispose();
-  }
 
   void _showErrorDialog(String message) {
     showDialog(
@@ -38,23 +31,26 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void _login() async {
+  void _signIn() async {
     try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailController.text,
         password: _passController.text,
       );
-      setState(() {
-        _loginInfo = 'ورود با موفقیت انجام شد';
-      });
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Fitness_Hub()),
+      );
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
+      if (e.code == 'wrong-password') {
+        _showErrorDialog('گذرواژه نادرست است');
+      } else if (e.code == 'user-not-found') {
         _showErrorDialog('کاربری با این ایمیل یافت نشد');
-      } else if (e.code == 'wrong-password') {
-        _showErrorDialog('گذرواژه اشتباه است');
       } else {
         _showErrorDialog('خطایی رخ داد: ${e.message}');
       }
+    } catch (e) {
+      _showErrorDialog('خطایی رخ داد: $e');
     }
   }
 
@@ -83,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 40),
                     Center(
                       child: Text(
-                        'ورود به حساب کاربری',
+                        'ورود',
                         style: TextStyle(
                           fontFamily: 'Vazir',
                           fontSize: 32,
@@ -101,11 +97,10 @@ class _LoginPageState extends State<LoginPage> {
                     _buildTextField(
                       controller: _passController,
                       label: 'گذرواژه خود را وارد کنید',
-                      isPassword: true,
                     ),
                     SizedBox(height: 30),
                     ElevatedButton(
-                      onPressed: _login,
+                      onPressed: _signIn,
                       child: Text('ورود', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 16.0),
@@ -115,17 +110,6 @@ class _LoginPageState extends State<LoginPage> {
                         backgroundColor: Colors.deepPurple,
                       ),
                     ),
-                    SizedBox(height: 20),
-                    if (_loginInfo.isNotEmpty)
-                      Text(
-                        _loginInfo,
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontFamily: 'Vazir',
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
                   ],
                 ),
               ),
@@ -139,11 +123,9 @@ class _LoginPageState extends State<LoginPage> {
   Widget _buildTextField({
     required TextEditingController controller,
     required String label,
-    bool isPassword = false,
   }) {
     return TextField(
       controller: controller,
-      obscureText: isPassword,
       decoration: InputDecoration(
         labelText: label,
         labelStyle: TextStyle(color: Colors.white),

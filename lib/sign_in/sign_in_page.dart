@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:Zerang/sign_in/LoginPage.dart';
 import 'package:Zerang/sign_in/PasswordRecoveryPage.dart';
 
@@ -101,6 +102,14 @@ class _SignInPageState extends State<SignInPage> {
         email: _emailController.text,
         password: _passController.text,
       );
+
+      // Save additional user data in Firestore
+      await FirebaseFirestore.instance.collection('users').doc(credential.user!.uid).set({
+        'email': _emailController.text,
+        'weight': _weightController.text,
+        'height': _heightController.text,
+      });
+
       _showErrorDialog('ثبت‌نام با موفقیت انجام شد');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -114,6 +123,42 @@ class _SignInPageState extends State<SignInPage> {
       _showErrorDialog('خطایی رخ داد: $e');
     }
   }
+
+  Future<void> _fetchUserData() async {
+  int retryCount = 0;
+  const maxRetries = 5;
+  const retryDelay = Duration(seconds: 2);
+
+  while (retryCount < maxRetries) {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        DocumentSnapshot userData = await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
+        if (userData.exists) {
+          Map<String, dynamic>? data = userData.data() as Map<String, dynamic>?;
+          String email = data?['email'] ?? 'N/A';
+          String weight = data?['weight'] ?? 'N/A';
+          String height = data?['height'] ?? 'N/A';
+          _showErrorDialog('User Data:\nEmail: $email\nWeight: $weight\nHeight: $height');
+        } else {
+          _showErrorDialog('No user data found');
+        }
+      } else {
+        _showErrorDialog('No user is currently signed in');
+      }
+      break; // Exit loop if successful
+    } catch (e) {
+      if (retryCount < maxRetries - 1) {
+        await Future.delayed(retryDelay);
+        retryCount++;
+      } else {
+        _showErrorDialog('Failed to fetch user data: $e');
+        break;
+      }
+    }
+  }
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -181,6 +226,18 @@ class _SignInPageState extends State<SignInPage> {
                     ElevatedButton(
                       onPressed: _signUp,
                       child: Text('ثبت نام', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(vertical: 16.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        backgroundColor: Colors.deepPurple,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: _fetchUserData,
+                      child: Text('دریافت اطلاعات کاربر', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 16.0),
                         shape: RoundedRectangleBorder(
