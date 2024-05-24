@@ -1,12 +1,13 @@
+import 'package:Zerang/code_assets.dart/consts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class SignInPage extends StatefulWidget {
+class SignInPage_ui extends StatefulWidget {
   @override
   _SignInPageState createState() => _SignInPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignInPageState extends State<SignInPage_ui> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _weightController = TextEditingController();
@@ -83,118 +84,57 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.blueAccent, Colors.lightBlueAccent],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  SizedBox(height: 80),
-                  Center(
-                    child: Text(
-                      'ثبت نام',
-                      style: TextStyle(
-                        fontFamily: 'Vazir',
-                        fontSize: 32,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  _buildTextField(
-                    controller: _emailController,
-                    label: 'پست الکترونیک خود را وارد کنید',
-                    errorText: _emailErrorText,
-                  ),
-                  SizedBox(height: 20),
-                  _buildTextField(
-                    controller: _nameController,
-                    label: 'نام کاربری خود را وارد کنید',
-                    errorText: _nameErrorText,
-                  ),
-                  SizedBox(height: 20),
-                  _buildTextField(
-                    controller: _weightController,
-                    label: 'وزن خود را وارد کنید (کیلوگرم)',
-                    errorText: _weightErrorText,
-                    inputType: TextInputType.number,
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  ),
-                  SizedBox(height: 20),
-                  _buildTextField(
-                    controller: _heightController,
-                    label: 'قد خود را وارد کنید (سانتی‌متر)',
-                    errorText: _heightErrorText,
-                    inputType: TextInputType.number,
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  ),
-                  SizedBox(height: 30),
-                  ElevatedButton(
-                    onPressed: _signIn,
-                    child: Text('ثبت نام', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 16.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      backgroundColor: Colors.deepPurple,
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  if (_userInfo.isNotEmpty)
-                    Text(
-                      _userInfo,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                        fontFamily: 'Vazir',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                ],
-              ),
-            ),
-          ),
-        ),
+      appBar: AppBar(
+        title: Text('ثبت نام'),
+        iconTheme: IconThemeData(color: sefid),
+        centerTitle: true,
       ),
-    );
-  }
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          
+          children: [
+            Container(
+              height: 200,
+              width: 500,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(8.0) , color: button_color),
+            )
 
-  Widget _buildTextField({
-    required TextEditingController controller,
-    required String label,
-    String? errorText,
-    TextInputType inputType = TextInputType.text,
-    List<TextInputFormatter>? inputFormatters,
-  }) {
-    return TextField(
-      controller: controller,
-      keyboardType: inputType,
-      inputFormatters: inputFormatters,
-      decoration: InputDecoration(
-        labelText: label,
-        labelStyle: TextStyle(color: Colors.white),
-        filled: true,
-        fillColor: Colors.white.withOpacity(0.3),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.0),
-          borderSide: BorderSide.none,
-        ),
-        errorText: errorText,
+          ],
+          
+        )
+
       ),
-      style: TextStyle(color: Colors.white),
-      textAlign: TextAlign.right,
     );
   }
 }
+
+
+
+//   Widget _buildTextField({
+//     required TextEditingController controller,
+//     required String label,
+//     String? errorText,
+//     TextInputType inputType = TextInputType.text,
+//     List<TextInputFormatter>? inputFormatters,
+//   }) {
+//     return TextField(
+//       controller: controller,
+//       keyboardType: inputType,
+//       inputFormatters: inputFormatters,
+//       decoration: InputDecoration(
+//         labelText: label,
+//         labelStyle: TextStyle(color: Colors.white),
+//         filled: true,
+//         fillColor: Colors.white.withOpacity(0.3),
+//         border: OutlineInputBorder(
+//           borderRadius: BorderRadius.circular(30.0),
+//           borderSide: BorderSide.none,
+//         ),
+//         errorText: errorText,
+//       ),
+//       style: TextStyle(color: Colors.white),
+//       textAlign: TextAlign.right,
+//     );
+//   }
+// }

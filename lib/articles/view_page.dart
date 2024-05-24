@@ -61,8 +61,8 @@ class ArticlePage extends StatelessWidget {
           return Column(
             children: [
               ListTile(
-                title: Text(articles[index].title, textDirection: TextDirection.rtl), // تغییر جهت متن به rtl
-                subtitle: Text(articles[index].sub, textDirection: TextDirection.rtl), // تغییر جهت متن به rtl
+                title: Text(articles[index].title, textDirection: TextDirection.rtl), 
+                subtitle: Text(articles[index].sub, textDirection: TextDirection.rtl), 
                 onTap: () {
                   Navigator.push(
                     context,
