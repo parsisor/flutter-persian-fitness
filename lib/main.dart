@@ -1,19 +1,20 @@
-import 'package:Zerang/fitness_hub/fitness_hub.dart';
 import 'package:Zerang/sign_in/sign_in_UI.dart';
-import 'package:Zerang/sign_in/sign_in_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:Zerang/Theme/theme_provider.dart';
 import 'package:Zerang/splash_screen/splash_screen.dart';
-import 'package:Zerang/select_app/homepage.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(),
       child: const MyApp(),
     ),
   );
+  Firebase.initializeApp();
+  
 }
 
 class MyApp extends StatelessWidget {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SignInPage_ui(),
+        home: SignIn(),
         theme: Provider.of<ThemeProvider>(context).themeData,
       ),
     );

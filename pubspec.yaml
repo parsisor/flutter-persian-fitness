@@ -17,6 +17,8 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   firebase_auth: ^4.19.6
+  cloud_firestore: ^4.1.0
+
 
 dev_dependencies:
   flutter_test:
@@ -126,5 +128,7 @@ flutter:
     - assets/photos/
     - assets/vectors/
     - assets/workout/
+    - assets/gifs/
+
 
   uses-material-design: true

@@ -4,6 +4,7 @@ import 'package:Zerang/code_assets.dart/consts.dart';
 import 'package:Zerang/fitness_hub/streak_bar/streak_bar.dart';
 import 'package:Zerang/fitness_hub/streak_bar/week_day.dart';
 import 'package:Zerang/settings_Page/settings.dart';
+import 'package:Zerang/sign_in/sign_in_UI.dart';
 import 'package:Zerang/sign_in/sign_in_page.dart';
 import 'package:Zerang/workouts/workouts.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
               IconButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => SignInPage_ui()),
+                    MaterialPageRoute(builder: (context) => SignIn()),
                   );
                 },
                 icon: Icon(Icons.login),
@@ -156,8 +157,8 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                       );
                     },
                     child: Container(
-                      width: 200,
-                      height: 200,
+                      width: 175,
+                      height: 175,
                       decoration: BoxDecoration(
                         color: button_color,
                         borderRadius: BorderRadius.circular(12),
@@ -166,6 +167,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                         child: Text(
                           'مقاله ها',
                           style: TextStyle(fontSize: 30, color: sefid),
+                          
                         ),
                       ),
                     ),
@@ -179,8 +181,8 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                       );
                     },
                     child: Container(
-                      width: 200,
-                      height: 200,
+                      width: 175,
+                      height: 175,
                       decoration: BoxDecoration(
                         color: button_color,
                         borderRadius: BorderRadius.circular(12),

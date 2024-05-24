@@ -1,51 +1,26 @@
 {
   "project_info": {
-    "project_number": "405370794420",
-    "project_id": "zerang-2d68b",
-    "storage_bucket": "zerang-2d68b.appspot.com"
+    "project_number": "69137107981",
+    "project_id": "zerang-b8965",
+    "storage_bucket": "zerang-b8965.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:405370794420:android:911c591fc17f0ea584c2e1",
+        "mobilesdk_app_id": "1:69137107981:android:c0ac91c761465e50469944",
         "android_client_info": {
-          "package_name": "com.example.bashgah"
+          "package_name": "com.pija.zerang"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "405370794420-bqko8kqh4m144feb33p2ej893ptk5agt.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.bashgah",
-            "certificate_hash": "21ea8ed8413328b07eea8962f6d29a6978ee06f0"
-          }
-        },
-        {
-          "client_id": "405370794420-vqrqp4rfidvr1g0ncto0oag036e1j88a.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA1LgEHV6kwc68mc2FAbN_dJ_TCf5TFSIk"
+          "current_key": "AIzaSyDSOY-SoC-W2pSJGoyI8e4G8GoYT2itlBg"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "405370794420-vqrqp4rfidvr1g0ncto0oag036e1j88a.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "405370794420-tjdki5olr4cp6c0fm4o26o0c4qfkmi29.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.bashgah"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

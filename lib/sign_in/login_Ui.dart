@@ -1,16 +1,15 @@
 import 'package:Zerang/code_assets.dart/consts.dart';
 import 'package:Zerang/sign_in/LoginPage.dart';
-import 'package:Zerang/sign_in/login_Ui.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+class Login_ui extends StatefulWidget {
+  const Login_ui({super.key});
 
   @override
-  State<SignIn> createState() => _SignInState();
+  State<Login_ui> createState() => _SignInState();
 }
 
-class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
+class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -39,8 +38,9 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
               Navigator.of(context).pop();
             },
             
+          )
           ),
-        ),
+        
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -50,9 +50,9 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      height: 150,
+                      height: 100,
                       child: Image.asset(
-                        "assets/gifs/sign_in.gif",
+                        "assets/gifs/login.gif",
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -60,7 +60,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                       height: 20,
                     ),
                     Text(
-                      "ثبت نام",
+                      "ورود",
                       style: TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
@@ -68,14 +68,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                       ),
                       textAlign: TextAlign.right,
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    _buildTextField(
-                      controller: _usernameController,
-                      label: "نام کاربری",
-                      icon: Icons.person,
-                    ),
+                    
                     SizedBox(
                       height: 20,
                     ),
@@ -102,11 +95,11 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                         // نمیدونم کلیک بشه چی میشه
                       },
                       child: Text(
-                        "ثبت نام",
+                        "ورود",
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor:Colors.blueAccent ,
+                        backgroundColor: Colors.blueAccent,
                       ),
                     ),
                     SizedBox(
@@ -128,13 +121,17 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                           Navigator.push(
                             context,
                             PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => Login_ui(),
-                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) =>
+                                      LoginPage(),
+                              transitionsBuilder: (context, animation,
+                                  secondaryAnimation, child) {
                                 const begin = Offset(1.0, 0.0);
                                 const end = Offset.zero;
                                 const curve = Curves.ease;
 
-                                var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                                var tween = Tween(begin: begin, end: end)
+                                    .chain(CurveTween(curve: curve));
 
                                 return SlideTransition(
                                   position: animation.drive(tween),
@@ -146,14 +143,16 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                         },
                         child: AnimatedDefaultTextStyle(
                           style: TextStyle(
-                            color: isHovering ? selectedbutton_color : Colors.blueAccent,
+                            color: isHovering
+                                ? selectedbutton_color
+                                : Colors.blueAccent,
                             fontSize: 16,
                             decoration: TextDecoration.underline,
                           ),
                           duration: Duration(milliseconds: 200),
                           curve: Curves.easeInOut,
                           child: Text(
-                            "از قبل اکانت دارم/میخواهم ورود کنم",
+                            "رمز خود را فراموش کردم",
                           ),
                         ),
                       ),
