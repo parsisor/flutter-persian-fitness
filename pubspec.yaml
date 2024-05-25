@@ -27,7 +27,7 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
   flutter_launcher_icons: "^0.13.1"
-  firebase_core: ^2.31.0
+  firebase_core: ^2.31.1
   hive_generator: ^2.0.1
   build_runner: ^2.4.9
 
