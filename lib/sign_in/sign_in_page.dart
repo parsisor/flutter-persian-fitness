@@ -163,17 +163,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.blueAccent, Colors.lightBlueAccent],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
-        child: SafeArea(
+      body:  SafeArea(
           child: Directionality(
             textDirection: TextDirection.rtl,
             child: Padding(
@@ -286,8 +276,8 @@ class _SignInPageState extends State<SignInPage> {
             ),
           ),
         ),
-      ),
-    );
+    );}
+    
   }
 
   Widget _buildTextField({
@@ -316,4 +306,3 @@ class _SignInPageState extends State<SignInPage> {
       textAlign: TextAlign.right,
     );
   }
-}

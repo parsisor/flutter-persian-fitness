@@ -4,6 +4,7 @@ import 'package:Zerang/code_assets.dart/consts.dart';
 import 'package:Zerang/fitness_hub/streak_bar/streak_bar.dart';
 import 'package:Zerang/fitness_hub/streak_bar/week_day.dart';
 import 'package:Zerang/settings_Page/settings.dart';
+import 'package:Zerang/sign_in/sign_in_UI.dart';
 import 'package:Zerang/sign_in/sign_in_page.dart';
 import 'package:Zerang/workouts/workouts.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,6 @@ class _Fitness_HubState extends State<Fitness_Hub> {
       appBar: AppBar(
         title: Text(
           'صفحه اصلی',
-          
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -37,7 +37,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
               IconButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => SignInPage()),
+                    MaterialPageRoute(builder: (context) => SignIn()),
                   );
                 },
                 icon: Icon(Icons.login),
@@ -45,11 +45,30 @@ class _Fitness_HubState extends State<Fitness_Hub> {
               IconButton(
                 icon: Icon(Icons.settings),
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => SettingsPage(),
-                  ));
+                  Navigator.of(context).push(
+                    PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            SettingsPage(),
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1.0, 0.0);
+                          const end = Offset.zero;
+                          const curve = Curves.easeInOut;
+
+                          var tween = Tween(begin: begin, end: end)
+                              .chain(CurveTween(curve: curve));
+                          var offsetAnimation = animation.drive(tween);
+
+                          return SlideTransition(
+                            position: offsetAnimation,
+                            child: child,
+                          );
+                        },
+                        transitionDuration: Duration(milliseconds: 400),
+                        reverseTransitionDuration: Duration(milliseconds: 400)),
+                  );
                 },
-              ),
+              )
             ],
           ),
         ],
@@ -102,7 +121,6 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                             style: TextStyle(
                               color: white,
                               fontSize: 70,
-                              
                             ),
                           ),
                         ),
@@ -114,7 +132,6 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                             style: TextStyle(
                               color: sefid,
                               fontSize: 18,
-                              
                             ),
                           ),
                         ),
@@ -149,10 +166,8 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                       child: Center(
                         child: Text(
                           'مقاله ها',
-                          style: TextStyle(
-                              
-                              fontSize: 25,
-                              color: sefid),
+                          style: TextStyle(fontSize: 30, color: sefid),
+                          
                         ),
                       ),
                     ),
@@ -175,10 +190,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                       child: Center(
                         child: Text(
                           'ماشین حساب',
-                          style: TextStyle(
-                              
-                              fontSize: 25,
-                              color: sefid),
+                          style: TextStyle(fontSize: 30, color: sefid),
                         ),
                       ),
                     ),
@@ -243,9 +255,29 @@ Widget Workouts(
     ),
     child: InkWell(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => WorkoutDetailPage(id),
-        ));
+        Navigator.of(context).push(
+          PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                WorkoutDetailPage(id),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              var begin = 0.0;
+              var end = 1.0;
+              var curve = Curves.easeInOut;
+
+              var tween =
+                  Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+              var opacityAnimation = animation.drive(tween);
+
+              return FadeTransition(
+                opacity: opacityAnimation,
+                child: child,
+              );
+            },
+            transitionDuration:
+                Duration(milliseconds: 100), 
+          ),
+        );
       },
       child: Row(
         children: [
@@ -263,7 +295,6 @@ Widget Workouts(
             style: TextStyle(
               color: sefid,
               fontSize: 32,
-              
             ),
           ),
           SizedBox(width: 10)
