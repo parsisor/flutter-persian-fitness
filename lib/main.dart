@@ -1,3 +1,4 @@
+
 import 'package:Zerang/sign_in/sign_in_UI.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SignIn(),
+        home: SplashScreen(),
         theme: Provider.of<ThemeProvider>(context).themeData,
       ),
     );
