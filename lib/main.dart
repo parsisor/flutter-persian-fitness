@@ -4,16 +4,15 @@ import 'package:Zerang/Theme/theme_provider.dart';
 import 'package:Zerang/splash_screen/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(),
       child: const MyApp(),
     ),
   );
-  Firebase.initializeApp();
-  
 }
 
 class MyApp extends StatelessWidget {
