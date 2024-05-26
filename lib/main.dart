@@ -1,14 +1,27 @@
-
-import 'package:Zerang/sign_in/sign_in_UI.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:Zerang/Theme/theme_provider.dart';
 import 'package:Zerang/splash_screen/splash_screen.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  
+  // Your web app's Firebase configuration
+
+  // Initialize Firebase
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: "AIzaSyA9nb0kCxJ-EALOSryZcXm7vks2FA-JdwQ",
+      authDomain: "zerang-b8965.firebaseapp.com",
+      projectId: "zerang-b8965",
+      storageBucket: "zerang-b8965.appspot.com",
+      messagingSenderId: "69137107981",
+      appId: "1:69137107981:web:eaf54820c36142fa469944",
+      measurementId: "G-1KSP3YV58K",
+    ),
+  );
+
   runApp(
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(),

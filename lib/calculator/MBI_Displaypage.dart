@@ -11,13 +11,13 @@ class BMIDisplayPage extends StatelessWidget {
     String description;
 
     if (bmi < 18.5) {
-      imagePath = '../../assets/vectors/MBI/body_type_1.png';
+      imagePath = 'assets/vectors/MBI/body_type_1.png';
       description = 'به این نتیجه رسیدم کون میدی.';
     } else if (bmi >= 18.5 && bmi < 24.9) {
-      imagePath = '../../assets/vectors/MBI/body_type_1.png';
+      imagePath = 'assets/vectors/MBI/body_type_1.png';
       description = 'جون چه بدنی.';
     } else {
-      imagePath = '../../assets/vectors/MBI/body_type_1.png';
+      imagePath = 'assets/vectors/MBI/body_type_1.png';
       description = 'شما گی هستید';
     }
 
