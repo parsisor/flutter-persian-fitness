@@ -2,6 +2,8 @@ import 'package:Zerang/code_assets.dart/consts.dart';
 import 'package:Zerang/sign_in/LoginPage.dart';
 import 'package:Zerang/sign_in/login_Ui.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -25,20 +27,62 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
+  Future<void> _signUp() async {
+    final String username = _usernameController.text.trim();
+    final String email = _emailController.text.trim();
+    final String password = _passwordController.text.trim();
+
+    if (username.isEmpty || email.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('لطفاً همه فیلدها را پر کنید'),
+      ));
+      return;
+    }
+
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      await FirebaseFirestore.instance.collection('users').doc(userCredential.user!.uid).set({
+        'username': username,
+        'email': email,
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('ثبت نام با موفقیت انجام شد'),
+      ));
+    } on FirebaseAuthException catch (e) {
+      String message;
+      if (e.code == 'weak-password') {
+        message = 'رمز عبور ضعیف است';
+      } else if (e.code == 'email-already-in-use') {
+        message = 'این ایمیل قبلاً ثبت شده است';
+      } else {
+        message = 'خطایی رخ داد. دوباره تلاش کنید';
+      }
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(message),
+      ));
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('خطایی رخ داد. دوباره تلاش کنید'),
+      ));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          
           leading: IconButton(
-            
             icon: Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.of(context).pop();
             },
-            
           ),
         ),
         body: SafeArea(
@@ -98,15 +142,13 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                       height: 20,
                     ),
                     ElevatedButton(
-                      onPressed: () {
-                        // نمیدونم کلیک بشه چی میشه
-                      },
+                      onPressed: _signUp,
                       child: Text(
                         "ثبت نام",
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor:Colors.blueAccent ,
+                        backgroundColor: Colors.blueAccent,
                       ),
                     ),
                     SizedBox(

@@ -1,6 +1,7 @@
 import 'package:Zerang/code_assets.dart/consts.dart';
 import 'package:Zerang/sign_in/LoginPage.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Login_ui extends StatefulWidget {
   const Login_ui({super.key});
@@ -10,7 +11,6 @@ class Login_ui extends StatefulWidget {
 }
 
 class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
-  final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -18,10 +18,51 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
 
   @override
   void dispose() {
-    _usernameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+
+  Future<void> _login() async {
+    final String email = _emailController.text.trim();
+    final String password = _passwordController.text.trim();
+
+    if (email.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('لطفاً همه فیلدها را پر کنید'),
+      ));
+      return;
+    }
+
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('ورود با موفقیت انجام شد'),
+      ));
+
+      // Navigate to another page if login is successful
+      // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
+    } on FirebaseAuthException catch (e) {
+      String message;
+      if (e.code == 'user-not-found') {
+        message = 'کاربری با این ایمیل وجود ندارد';
+      } else if (e.code == 'wrong-password') {
+        message = 'رمز عبور اشتباه است';
+      } else {
+        message = 'خطایی رخ داد. دوباره تلاش کنید';
+      }
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(message),
+      ));
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('خطایی رخ داد. دوباره تلاش کنید'),
+      ));
+    }
   }
 
   @override
@@ -30,17 +71,13 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          
           leading: IconButton(
-            
             icon: Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.of(context).pop();
             },
-            
           )
-          ),
-        
+        ),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -68,7 +105,6 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
                       ),
                       textAlign: TextAlign.right,
                     ),
-                    
                     SizedBox(
                       height: 20,
                     ),
@@ -91,9 +127,7 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
                       height: 20,
                     ),
                     ElevatedButton(
-                      onPressed: () {
-                        // نمیدونم کلیک بشه چی میشه
-                      },
+                      onPressed: _login,
                       child: Text(
                         "ورود",
                         style: TextStyle(fontSize: 18, color: Colors.white),
@@ -121,17 +155,13 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
                           Navigator.push(
                             context,
                             PageRouteBuilder(
-                              pageBuilder:
-                                  (context, animation, secondaryAnimation) =>
-                                      LoginPage(),
-                              transitionsBuilder: (context, animation,
-                                  secondaryAnimation, child) {
+                              pageBuilder: (context, animation, secondaryAnimation) => LoginPage(),
+                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                 const begin = Offset(1.0, 0.0);
                                 const end = Offset.zero;
                                 const curve = Curves.ease;
 
-                                var tween = Tween(begin: begin, end: end)
-                                    .chain(CurveTween(curve: curve));
+                                var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
                                 return SlideTransition(
                                   position: animation.drive(tween),
@@ -143,9 +173,7 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
                         },
                         child: AnimatedDefaultTextStyle(
                           style: TextStyle(
-                            color: isHovering
-                                ? selectedbutton_color
-                                : Colors.blueAccent,
+                            color: isHovering ? selectedbutton_color : Colors.blueAccent,
                             fontSize: 16,
                             decoration: TextDecoration.underline,
                           ),
