@@ -38,7 +38,26 @@ class _Fitness_HubState extends State<Fitness_Hub> {
               IconButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => SignIn()),
+                    PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            SignIn(),
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1.0, 0.0);
+                          const end = Offset.zero;
+                          const curve = Curves.easeInOut;
+
+                          var tween = Tween(begin: begin, end: end)
+                              .chain(CurveTween(curve: curve));
+                          var offsetAnimation = animation.drive(tween);
+
+                          return SlideTransition(
+                            position: offsetAnimation,
+                            child: child,
+                          );
+                        },
+                        transitionDuration: Duration(milliseconds: 400),
+                        reverseTransitionDuration: Duration(milliseconds: 400)),
                   );
                 },
                 icon: Icon(Icons.login),
@@ -100,7 +119,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                   borderRadius: BorderRadius.circular(21.0),
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Image.asset("assets/vectors/Dumbbell.png"),
                     Stack(
@@ -147,9 +166,10 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                 height: 10,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBox(width: 10,),
                   InkWell(
                     onTap: () {
                       Navigator.push(
@@ -195,7 +215,9 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                         ),
                       ),
                     ),
+                    
                   ),
+                  SizedBox(width: 10,)
                 ],
               ),
               SizedBox(

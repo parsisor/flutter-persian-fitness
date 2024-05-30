@@ -41,7 +41,7 @@ class WorkoutDetailPage extends StatelessWidget {
                   style: TextStyle(
                     color: sefid,
                     fontSize: 32,
-                    fontFamily: "Lalezar",
+                    
                   ),
                 ),
               ),
@@ -91,8 +91,7 @@ class WorkoutDetailPage extends StatelessWidget {
                 workoutTitle,
                 style: TextStyle(
                     fontSize: 20,
-
-                    fontFamily: 'NotoNaskhArabicMedium'),
+),
               ),
               SizedBox(height: 10),
               Divider(),
@@ -102,7 +101,7 @@ class WorkoutDetailPage extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 16,
                     
-                    fontFamily: 'NotoNaskhArabicMedium'),
+                  ),
               ),
               SizedBox(height: 10),
               Column(

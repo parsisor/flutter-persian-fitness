@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text(
                         'ورود',
                         style: TextStyle(
-                          fontFamily: 'Vazir',
+                          
                           fontSize: 32,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 30),
                     ElevatedButton(
                       onPressed: _signIn,
-                      child: Text('ورود', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
+                      child: Text('ورود', style: TextStyle( color: Colors.white)),
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 16.0),
                         shape: RoundedRectangleBorder(

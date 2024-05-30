@@ -15,7 +15,8 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('خطا'),
+          title: Text("توجه"),
+          
           content: Text(message),
           actions: [
             TextButton(
@@ -53,7 +54,7 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("بازیابی رمز عبور"),
+          
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {

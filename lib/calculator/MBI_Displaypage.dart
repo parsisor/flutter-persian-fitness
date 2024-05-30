@@ -12,13 +12,13 @@ class BMIDisplayPage extends StatelessWidget {
 
     if (bmi < 18.5) {
       imagePath = 'assets/vectors/MBI/body_type_1.png';
-      description = 'به این نتیجه رسیدم کون میدی.';
+      description = 'لاغر هستی بهتر است رژیم غذایی بهتری انتخاب کنید';
     } else if (bmi >= 18.5 && bmi < 24.9) {
       imagePath = 'assets/vectors/MBI/body_type_1.png';
-      description = 'جون چه بدنی.';
+      description = 'بدن شما روی فرم است';
     } else {
       imagePath = 'assets/vectors/MBI/body_type_1.png';
-      description = 'شما گی هستید';
+      description = 'اضافه وزن دارید بهتر است ورزش را شروع کنید';
     }
 
     return Scaffold(
