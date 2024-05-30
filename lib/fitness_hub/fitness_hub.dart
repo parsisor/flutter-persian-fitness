@@ -21,6 +21,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        
         title: Text(
           'صفحه اصلی',
         ),

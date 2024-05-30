@@ -2,7 +2,7 @@ String getCurrentWeekDay(int day) {
   DateTime now = DateTime.now();
   int currentWeekDay = (now.weekday + day) % 7;
   if (currentWeekDay <= 0) {
-   currentWeekDay += 7;
+    currentWeekDay += 7;
   }
 
   String dayOfWeek = '';
@@ -28,6 +28,9 @@ String getCurrentWeekDay(int day) {
       break;
     case 7:
       dayOfWeek = 'یک شنبه';
+      break;
+    default: 
+      dayOfWeek = 'نامعتبر'; 
       break;
   }
 

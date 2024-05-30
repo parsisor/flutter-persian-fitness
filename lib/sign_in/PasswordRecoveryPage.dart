@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:lottie/lottie.dart';
 
 class PasswordRecoveryPage extends StatefulWidget {
   @override
@@ -48,53 +49,65 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.blueAccent, Colors.lightBlueAccent],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("بازیابی رمز عبور"),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
           ),
         ),
-        child: SafeArea(
-          child: Directionality(
-            textDirection: TextDirection.rtl,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
               child: SingleChildScrollView(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    SizedBox(height: 40),
-                    Center(
-                      child: Text(
-                        'بازیابی گذرواژه',
-                        style: TextStyle(
-                          fontFamily: 'Vazir',
-                          fontSize: 32,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 150,
+                      child: Lottie.asset(
+                        '../../assets/gifs/lotties/Password.json',
+                        fit: BoxFit.contain,
                       ),
                     ),
-                    SizedBox(height: 40),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "بازیابی رمز عبور",
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blueAccent,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
                     _buildTextField(
                       controller: _emailController,
-                      label: 'پست الکترونیک خود را وارد کنید',
+                      label: "آدرس ایمیل",
+                      icon: Icons.email,
+                      keyboardType: TextInputType.emailAddress,
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(
+                      height: 20,
+                    ),
                     ElevatedButton(
                       onPressed: _resetPassword,
-                      child: Text('بازیابی گذرواژه', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
+                      child: Text(
+                        "ارسال ایمیل بازیابی",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 16.0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        backgroundColor: Colors.deepPurple,
+                        backgroundColor: Colors.blueAccent,
                       ),
                     ),
                   ],
@@ -110,21 +123,25 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
   Widget _buildTextField({
     required TextEditingController controller,
     required String label,
+    required IconData icon,
+    TextInputType keyboardType = TextInputType.text,
+    bool obscureText = false,
   }) {
     return TextField(
       controller: controller,
+      keyboardType: keyboardType,
+      obscureText: obscureText,
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.only(right: 24.0),
         labelText: label,
-        labelStyle: TextStyle(color: Colors.white),
-        filled: true,
-        fillColor: Colors.white.withOpacity(0.3),
+        prefixIcon: Icon(icon),
+        prefixIconConstraints: BoxConstraints(minWidth: 80, minHeight: 0),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
-          borderSide: BorderSide.none,
         ),
       ),
-      style: TextStyle(color: Colors.white),
       textAlign: TextAlign.right,
+      textDirection: TextDirection.rtl,
     );
   }
 }

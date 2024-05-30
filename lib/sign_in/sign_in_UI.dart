@@ -4,6 +4,7 @@ import 'package:Zerang/sign_in/login_Ui.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:lottie/lottie.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -95,8 +96,8 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                   children: [
                     Container(
                       height: 150,
-                      child: Image.asset(
-                        "assets/gifs/sign_in.gif",
+                      child: Lottie.asset(
+                        "../../assets/gifs/lotties/sign_in.json",
                         fit: BoxFit.contain,
                       ),
                     ),

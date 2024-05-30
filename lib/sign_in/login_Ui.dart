@@ -1,3 +1,6 @@
+import 'package:Zerang/sign_in/PasswordRecoveryPage.dart';
+import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:Zerang/code_assets.dart/consts.dart';
 import 'package:Zerang/sign_in/LoginPage.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +79,7 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
             onPressed: () {
               Navigator.of(context).pop();
             },
-          )
+          ),
         ),
         body: SafeArea(
           child: Padding(
@@ -88,8 +91,8 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
                   children: [
                     Container(
                       height: 100,
-                      child: Image.asset(
-                        "assets/gifs/login.gif",
+                      child: Lottie.asset(
+                        'assets/gifs/lotties/Login.json',
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -155,7 +158,7 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
                           Navigator.push(
                             context,
                             PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => LoginPage(),
+                              pageBuilder: (context, animation, secondaryAnimation) => PasswordRecoveryPage(),
                               transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                 const begin = Offset(1.0, 0.0);
                                 const end = Offset.zero;

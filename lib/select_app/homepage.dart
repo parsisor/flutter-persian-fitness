@@ -15,119 +15,122 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(30),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: MouseRegion(
-                onEnter: (_) {
-                  setState(() {
-                    isHovered1 = true;
-                  });
-                },
-                onExit: (_) {
-                  setState(() {
-                    isHovered1 = false;
-                  });
-                },
-                child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => BrainTrainingApp()));
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        body: Padding(
+          padding: EdgeInsets.all(30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: MouseRegion(
+                  onEnter: (_) {
+                    setState(() {
+                      isHovered1 = true;
+                    });
                   },
-                  child: AnimatedContainer(
-                    duration: Duration(milliseconds: 200),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: isHovered1 ? selectedbutton_color : button_color,
-                      borderRadius: BorderRadius.circular(20),
+                  onExit: (_) {
+                    setState(() {
+                      isHovered1 = false;
+                    });
+                  },
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => BrainTrainingApp()));
+                    },
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 200),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: isHovered1 ? selectedbutton_color : button_color,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              "assets/vectors/healthy_mind_icon.png",
+                              width: 280,
+                              height: 250,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "عقل سالم",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  ),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            "assets/vectors/healthy_mind_icon.png",
-                            width: 280,
-                            height: 250,
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "عقل سالم",
-                            style: TextStyle(
-                                fontSize: 20,
+                  ),
+                ),
+              ),
+              Container(
+                height: 30,
+                child: Text(
+                  "در",
+                  style: TextStyle(
+                    fontSize: 20,
+                    
+                  ),
+                ),
+              ),
+              Expanded(
+                child: MouseRegion(
+                  onEnter: (_) {
+                    setState(() {
+                      isHovered2 = true;
+                    });
+                  },
+                  onExit: (_) {
+                    setState(() {
+                      isHovered2 = false;
+                    });
+                  },
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Fitness_Hub()));
+                    },
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 200),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: isHovered2 ? selectedbutton_color : button_color,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                          children: [
+                            Text(
+                              "بدن سالم",
+                              style: TextStyle(
+                                  fontSize: 20,
                                 ),
-                          )
-                        ],
+                            ),
+                            SizedBox(height: 10),
+                            Image.asset(
+                              "assets/vectors/healthy_boddy_icon.png",
+                              width: 280,
+                              height: 250,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Container(
-              height: 30,
-              child: Text(
-                "در",
-                style: TextStyle(
-                  fontSize: 20,
-                  
-                ),
-              ),
-            ),
-            Expanded(
-              child: MouseRegion(
-                onEnter: (_) {
-                  setState(() {
-                    isHovered2 = true;
-                  });
-                },
-                onExit: (_) {
-                  setState(() {
-                    isHovered2 = false;
-                  });
-                },
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Fitness_Hub()));
-                  },
-                  child: AnimatedContainer(
-                    duration: Duration(milliseconds: 200),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: isHovered2 ? selectedbutton_color : button_color,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            "بدن سالم",
-                            style: TextStyle(
-                                fontSize: 20,
-                              ),
-                          ),
-                          SizedBox(height: 10),
-                          Image.asset(
-                            "assets/vectors/healthy_boddy_icon.png",
-                            width: 280,
-                            height: 250,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

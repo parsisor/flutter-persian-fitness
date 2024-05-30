@@ -19,6 +19,7 @@ dependencies:
   firebase_auth: ^4.19.6
   cloud_firestore: ^4.1.0
   font_awesome_flutter: ^10.7.0
+  lottie: ^2.1.0
 
 
 
@@ -135,6 +136,7 @@ flutter:
     - assets/vectors/MBI/body_type_2.png
     - assets/vectors/MBI/body_type_3.png
     - assets/vectors/MBI/
+    - assets/gifs/lotties/
 
 
   uses-material-design: true
