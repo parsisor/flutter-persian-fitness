@@ -11,13 +11,13 @@ class BMIDisplayPage extends StatelessWidget {
     String description;
 
     if (bmi < 18.5) {
-      imagePath = 'assets/vectors/MBI/body_type_1.png';
+      imagePath = 'assets/vectors/MBI/skinny.png';
       description = 'لاغر هستی بهتر است رژیم غذایی بهتری انتخاب کنید';
     } else if (bmi >= 18.5 && bmi < 24.9) {
-      imagePath = 'assets/vectors/MBI/body_type_1.png';
+      imagePath = 'assets/vectors/MBI/medium.png';
       description = 'بدن شما روی فرم است';
     } else {
-      imagePath = 'assets/vectors/MBI/body_type_1.png';
+      imagePath = 'assets/vectors/MBI/fat.png';
       description = 'اضافه وزن دارید بهتر است ورزش را شروع کنید';
     }
 
@@ -30,7 +30,16 @@ class BMIDisplayPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(imagePath),
+            Flexible(
+                            child: FractionallySizedBox(
+                                widthFactor: 0.9,
+                                heightFactor: 0.9,
+                                child: Image.asset(
+                                  imagePath,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
             SizedBox(height: 16.0),
             Text(
               'شاخص توده بدنی شما: ${bmi.toStringAsFixed(2)}',

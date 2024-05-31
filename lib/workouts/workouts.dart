@@ -1,52 +1,63 @@
+import 'package:Zerang/code_assets.dart/assets.dart';
 import 'package:flutter/material.dart';
 import '../code_assets.dart/consts.dart';
-import 'workout_data.dart';
-import 'tozihat.dart';
 
+import 'tozihat.dart';
 
 class WorkoutDetailPage extends StatelessWidget {
   final String workoutId;
 
   WorkoutDetailPage(this.workoutId);
 
-  Widget showmyworkout(int s, String imagePath, BuildContext context,
-      {required int exerciseCode}) {
+  Widget _buildWorkoutCard(BuildContext context, int index) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double cardWidth = screenWidth * 0.9; // Adjust the width as needed
+    double cardHeight = 160; // Fixed height, you can adjust this as needed
+
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: InkWell(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: GestureDetector(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) =>
-                Tozihat(workoutId, exerciseCode, imagePath, s),
+            builder: (context) => Tozihat(
+              workoutId,
+              getWorkoutCode(workoutId)[index],
+              getWorkoutImagesById(workoutId)[index],
+              index,
+            ),
           ));
         },
         child: Container(
-          width: double.infinity,
-          height: 160,
+          width: cardWidth,
+          height: cardHeight,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             color: gray,
           ),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset(
-                imagePath,
-                width: 80,
-                height: 80,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(
+                  getWorkoutImagesById(workoutId)[index],
+                  width: cardHeight * 0.7,
+                  height: cardHeight * 0.7,
+                  fit: BoxFit.cover,
+                ),
               ),
-              SizedBox(width: 40),
-              Expanded(
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Text(
-                  getWorkoutsById(workoutId)[s],
+                  getWorkoutsById(workoutId)[index],
                   style: TextStyle(
                     color: sefid,
-                    fontSize: 32,
-                    
+                    fontSize: 20,
                   ),
                 ),
               ),
             ],
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
           ),
         ),
       ),
@@ -58,40 +69,24 @@ class WorkoutDetailPage extends StatelessWidget {
     String workoutTitle = getWorkoutTitleById(workoutId);
     String workoutDescription = getWorkoutDescriptionById(workoutId);
 
-    List<Widget> workoutWidgets = [];
-    List workoutList = getWorkoutsById(workoutId);
-    List workoutImages = getWorkoutImagesById(workoutId);
-
-    List<dynamic> exerciseCodes = getWorkoutCode(workoutId);
-
-    for (int i = 0; i < workoutList.length; i++) {
-      workoutWidgets.add(
-        showmyworkout(
-          i,
-          workoutImages[i],
-          context,
-          exerciseCode: exerciseCodes[i],
-        ),
-      );
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: Text('ورزش ها'),
         centerTitle: true,
-
       ),
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 workoutTitle,
                 style: TextStyle(
-                    fontSize: 20,
-),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               SizedBox(height: 10),
               Divider(),
@@ -99,93 +94,21 @@ class WorkoutDetailPage extends StatelessWidget {
               Text(
                 workoutDescription,
                 style: TextStyle(
-                    fontSize: 16,
-                    
-                  ),
+                  fontSize: 18,
+                ),
               ),
-              SizedBox(height: 10),
-              Column(
-                children: workoutWidgets,
+              SizedBox(height: 20),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: getWorkoutsById(workoutId).length,
+                itemBuilder: (context, index) {
+                  return _buildWorkoutCard(context, index);
+                },
               ),
             ],
           ),
         ),
       ),
     );
-  }
-}
-
-String getWorkoutTitleById(String id) {
-  switch (id) {
-    case 'sine':
-      return 'سینه و شکم';
-    case 'bazo':
-      return 'بازو و ساعد';
-    case 'pa':
-      return 'ران و ساق';
-    case 'badan':
-      return 'کل بدن';
-    default:
-      return 'ورزش ناشناخته';
-  }
-}
-
-String getWorkoutDescriptionById(String id) {
-  switch (id) {
-    case 'sine':
-      return 'تمریناتی برای بهبود سینه و شکم.';
-    case 'bazo':
-      return 'تمریناتی برای تقویت بازوها و ساعد.';
-    case 'pa':
-      return 'تمریناتی برای بهبود ران و ساق.';
-    case 'badan':
-      return 'تمریناتی کلی برای بهبود ورزش کل بدن.';
-    default:
-      return 'توضیحاتی برای ورزش ناشناخته.';
-  }
-}
-
-List getWorkoutsById(String id) {
-  switch (id) {
-    case 'sine':
-      return exercise_list_sine;
-    case 'bazo':
-      return exercise_list_bazo;
-    case 'pa':
-      return exercise_list_pa;
-    case 'badan':
-      return exercise_list_all;
-    default:
-      return exercise_list_all;
-  }
-}
-
-List getWorkoutImagesById(String id) {
-  switch (id) {
-    case 'sine':
-      return exercise_img_sine;
-    case 'bazo':
-      return exercise_img_bazo;
-    case 'pa':
-      return exercise_img_pa;
-    case 'badan':
-      return exercise_img_all;
-    default:
-      return exercise_img_all;
-  }
-}
-
-List getWorkoutCode(String id) {
-  switch (id) {
-    case 'sine':
-      return exercise_code_sine;
-    case 'bazo':
-      return exercise_code_bazo;
-    case 'pa':
-      return exercise_code_pa;
-    case 'badan':
-      return exercise_code_all;
-    default:
-      return exercise_code_all;
   }
 }

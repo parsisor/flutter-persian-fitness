@@ -1,8 +1,6 @@
 import 'package:Zerang/select_app/homepage.dart';
 import 'package:flutter/material.dart';
 
-
-
 class BrainTrainingApp extends StatelessWidget {
   final List<Choice> choices = [
     Choice(title: 'ذهن', icon: Icons.flash_on, color: Colors.green),
@@ -22,8 +20,7 @@ class BrainTrainingApp extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => MyHomePage()));
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomePage()));
           },
         ),
       ),
@@ -42,7 +39,10 @@ class BrainTrainingApp extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => TicTacToeGame()),
                   );
                 } else {
-                  
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ComingSoonPage(choice.title)),
+                  );
                 }
               },
             ),
@@ -71,6 +71,7 @@ class SelectCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
         color: choice.color,
         child: Center(
           child: Column(
@@ -82,7 +83,7 @@ class SelectCard extends StatelessWidget {
             ],
           ),
         ),
-        elevation: 2.0,
+        elevation: 5.0,
       ),
     );
   }
@@ -124,7 +125,7 @@ class _TicTacToeGameState extends State<TicTacToeGame> {
       if (board[combo[0]] == player &&
           board[combo[1]] == player &&
           board[combo[2]] == player) {
-        _showEndDialog(' بردش $player');
+        _showEndDialog('بردش $player');
         return true;
       }
     }
@@ -184,6 +185,29 @@ class _TicTacToeGameState extends State<TicTacToeGame> {
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+class ComingSoonPage extends StatelessWidget {
+  final String title;
+
+  ComingSoonPage(this.title);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Text(
+          'این صفحه در به‌روزرسانی بعدی اضافه خواهد شد!',
+          style: TextStyle(fontSize: 24),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }

@@ -21,7 +21,6 @@ class _Fitness_HubState extends State<Fitness_Hub> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
         title: Text(
           'صفحه اصلی',
         ),
@@ -169,7 +168,9 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(width: 10,),
+                  SizedBox(
+                    width: 10,
+                  ),
                   InkWell(
                     onTap: () {
                       Navigator.push(
@@ -187,8 +188,7 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                       child: Center(
                         child: Text(
                           'مقاله ها',
-                          style: TextStyle(fontSize: 30, color: sefid),
-                          
+                          style: TextStyle(fontSize: 26, color: sefid),
                         ),
                       ),
                     ),
@@ -211,13 +211,14 @@ class _Fitness_HubState extends State<Fitness_Hub> {
                       child: Center(
                         child: Text(
                           'ماشین حساب',
-                          style: TextStyle(fontSize: 30, color: sefid),
+                          style: TextStyle(fontSize: 26, color: sefid),
                         ),
                       ),
                     ),
-                    
                   ),
-                  SizedBox(width: 10,)
+                  SizedBox(
+                    width: 10,
+                  )
                 ],
               ),
               SizedBox(
@@ -297,32 +298,34 @@ Widget Workouts(
                 child: child,
               );
             },
-            transitionDuration:
-                Duration(milliseconds: 100), 
+            transitionDuration: Duration(milliseconds: 300),
           ),
         );
       },
-      child: Row(
-        children: [
-          Container(
-            width: 120,
-            height: 120,
-            child: Image.asset(
-              img,
-              fit: BoxFit.contain,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Container(
+              width: 120,
+              height: 120,
+              child: Image.asset(
+                img,
+                fit: BoxFit.contain,
+              ),
             ),
-          ),
-          SizedBox(width: 40),
-          Text(
-            part,
-            style: TextStyle(
-              color: sefid,
-              fontSize: 32,
+            SizedBox(width: 40),
+            Text(
+              part,
+              style: TextStyle(
+                color: sefid,
+                fontSize: 32,
+              ),
             ),
-          ),
-          SizedBox(width: 10)
-        ],
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            SizedBox(width: 10)
+          ],
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        ),
       ),
     ),
   );

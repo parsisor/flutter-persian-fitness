@@ -164,7 +164,7 @@ class _BMIHomePageState extends State<BMIHomePage>
                         }
                         final doubleHeight = double.tryParse(value);
                         if (doubleHeight == null ||
-                            doubleHeight <= 50 ||
+                            doubleHeight <= 10 ||
                             doubleHeight > 250) {
                           return 'لطفا قد معتبر وارد کنید';
                         }
@@ -194,7 +194,7 @@ class _BMIHomePageState extends State<BMIHomePage>
                         }
                         final doubleWeight = double.tryParse(value);
                         if (doubleWeight == null ||
-                            doubleWeight <= 10 ||
+                            doubleWeight <= 1 ||
                             doubleWeight > 300) {
                           return 'لطفا وزن معتبر وارد کنید';
                         }

@@ -29,10 +29,10 @@ String getCurrentWeekDay(int day) {
     case 7:
       dayOfWeek = 'یک شنبه';
       break;
-    default: 
-      dayOfWeek = 'نامعتبر'; 
+    default:
+      dayOfWeek = 'نامعتبر';
       break;
   }
-
+  
   return dayOfWeek;
 }

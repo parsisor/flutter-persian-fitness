@@ -134,9 +134,6 @@ flutter:
     - assets/vectors/
     - assets/workout/
     - assets/gifs/
-    - assets/vectors/MBI/body_type_1.png
-    - assets/vectors/MBI/body_type_2.png
-    - assets/vectors/MBI/body_type_3.png
     - assets/vectors/MBI/
     - assets/gifs/lotties/
 

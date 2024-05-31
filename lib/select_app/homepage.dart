@@ -1,4 +1,3 @@
-
 import 'package:Zerang/brain_app/class.dart';
 import 'package:Zerang/fitness_hub/fitness_hub.dart';
 import 'package:flutter/material.dart';
@@ -47,14 +46,19 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: isHovered1 ? selectedbutton_color : button_color,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
+                      child: Center(
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset(
-                              "assets/vectors/healthy_mind_icon.png",
-                              width: 280,
-                              height: 250,
+                            Flexible(
+                              child: FractionallySizedBox(
+                                widthFactor: 0.9,
+                                heightFactor: 0.9,
+                                child: Image.asset(
+                                  "assets/vectors/healthy_mind_icon.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
                             ),
                             SizedBox(
                               height: 10,
@@ -62,9 +66,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             Text(
                               "عقل سالم",
                               style: TextStyle(
-                                  fontSize: 20,
-                                  ),
-                            )
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -72,16 +77,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              Container(
-                height: 30,
-                child: Text(
-                  "در",
-                  style: TextStyle(
-                    fontSize: 20,
-                    
-                  ),
+              SizedBox(height: 5),
+              Text(
+                "در",
+                style: TextStyle(
+                  fontSize: 20,
                 ),
               ),
+              SizedBox(height: 5),
               Expanded(
                 child: MouseRegion(
                   onEnter: (_) {
@@ -106,21 +109,27 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: isHovered2 ? selectedbutton_color : button_color,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
+                      child: Center(
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               "بدن سالم",
                               style: TextStyle(
-                                  fontSize: 20,
-                                ),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500
+                              ),
                             ),
                             SizedBox(height: 10),
-                            Image.asset(
-                              "assets/vectors/healthy_boddy_icon.png",
-                              width: 280,
-                              height: 250,
+                            Flexible(
+                              child: FractionallySizedBox(
+                                widthFactor: 0.9,
+                                heightFactor: 0.9,
+                                child: Image.asset(
+                                  "assets/vectors/healthy_boddy_icon.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
                             ),
                           ],
                         ),
