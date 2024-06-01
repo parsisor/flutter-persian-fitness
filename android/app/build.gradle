@@ -25,6 +25,8 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+apply plugin: 'kotlin-android'
+
 android {
     namespace "com.example.bashgah"
     compileSdkVersion flutter.compileSdkVersion
@@ -69,7 +71,7 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
         // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
 
