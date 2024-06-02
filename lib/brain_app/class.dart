@@ -204,7 +204,7 @@ class ComingSoonPage extends StatelessWidget {
       ),
       body: Center(
         child: Text(
-          'این صفحه در به‌روزرسانی بعدی اضافه خواهد شد!',
+          '!این صفحه در به‌روزرسانی بعدی اضافه خواهد شد',
           style: TextStyle(fontSize: 24),
           textAlign: TextAlign.center,
         ),
