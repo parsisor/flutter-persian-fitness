@@ -8,6 +8,20 @@ public class MyVpnService extends VpnService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
+         if (prepare() != null) {
+            Intent vpnIntent = VpnService.prepare(this);
+            if (vpnIntent != null) {
+                PendingIntent pendingIntent = PendingIntent.getActivity(this, VPN_REQUEST_CODE, vpnIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                try {
+                    pendingIntent.send();
+                } catch (PendingIntent.CanceledException e) {
+                    e.printStackTrace();
+                }
+                return START_NOT_STICKY;
+            }
+        }
+        
         Builder builder = new Builder();
         builder.addAddress("10.0.0.2", 24);  // Local VPN IP address within the 10.0.0.0/24 subnet
         builder.addRoute("0.0.0.0", 0);  // Route all traffic through VPN

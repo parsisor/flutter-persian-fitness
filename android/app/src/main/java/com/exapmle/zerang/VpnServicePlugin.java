@@ -1,10 +1,8 @@
-package com.example.yourapp;
+package com.example.zerang;
 
 import android.content.Context;
 import android.content.Intent;
-
 import androidx.annotation.NonNull;
-
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
