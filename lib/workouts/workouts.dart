@@ -11,8 +11,8 @@ class WorkoutDetailPage extends StatelessWidget {
 
   Widget _buildWorkoutCard(BuildContext context, int index) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double cardWidth = screenWidth * 0.9; // Adjust the width as needed
-    double cardHeight = 160; // Fixed height, you can adjust this as needed
+    double cardWidth = screenWidth * 0.9; 
+    double cardHeight = 160; 
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -99,6 +99,7 @@ class WorkoutDetailPage extends StatelessWidget {
               ),
               SizedBox(height: 20),
               ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: getWorkoutsById(workoutId).length,
                 itemBuilder: (context, index) {

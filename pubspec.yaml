@@ -129,6 +129,7 @@ flutter:
     - assets/App_Logo/
     - assets/Fonts/
     - assets/Icons/
+    - assets/Icons/tick.png
     - assets/photos/
     - assets/vectors/
     - assets/workout/

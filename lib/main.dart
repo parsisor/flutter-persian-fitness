@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:Zerang/Theme/theme_provider.dart';
 import 'package:Zerang/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:Zerang/vpn_service/vpn_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +31,8 @@ void main() async {
       child: const MyApp(),
     ),
   );
+
+  VPNService.startVPN();
 }
 
 class MyApp extends StatelessWidget {

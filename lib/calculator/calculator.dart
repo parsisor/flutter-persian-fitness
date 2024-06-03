@@ -124,11 +124,10 @@ class _BMIHomePageState extends State<BMIHomePage>
                     padding: EdgeInsets.only(bottom: 8.0),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        labelText: 'سن',
-                        border: OutlineInputBorder(),
-                        errorMaxLines: 2,
-                        prefixIcon: Icon(Icons.cake)
-                      ),
+                          labelText: 'سن',
+                          border: OutlineInputBorder(),
+                          errorMaxLines: 2,
+                          prefixIcon: Icon(Icons.cake)),
                       keyboardType: TextInputType.number,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -151,11 +150,10 @@ class _BMIHomePageState extends State<BMIHomePage>
                     padding: EdgeInsets.only(bottom: 8.0),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        labelText: 'قد (cm)',
-                        border: OutlineInputBorder(),
-                        errorMaxLines: 2,
-                        prefixIcon: Icon(Icons.height)
-                      ),
+                          labelText: 'قد (cm)',
+                          border: OutlineInputBorder(),
+                          errorMaxLines: 2,
+                          prefixIcon: Icon(Icons.height)),
                       keyboardType:
                           TextInputType.numberWithOptions(decimal: true),
                       validator: (value) {
@@ -181,11 +179,10 @@ class _BMIHomePageState extends State<BMIHomePage>
                     padding: EdgeInsets.only(bottom: 8.0),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        labelText: 'وزن (کیلوگرم)',
-                        border: OutlineInputBorder(),
-                        errorMaxLines: 2,
-                        prefixIcon: Icon(Icons.fitness_center)
-                      ),
+                          labelText: 'وزن (کیلوگرم)',
+                          border: OutlineInputBorder(),
+                          errorMaxLines: 2,
+                          prefixIcon: Icon(Icons.fitness_center)),
                       keyboardType:
                           TextInputType.numberWithOptions(decimal: true),
                       validator: (value) {
@@ -219,13 +216,18 @@ class _BMIHomePageState extends State<BMIHomePage>
                             onTap: () {
                               if (_formKey.currentState?.validate() == true) {
                                 _controller.forward().then((_) {
-                                  Future.delayed(Duration(milliseconds: 1200), () {
+                                  Future.delayed(Duration(milliseconds: 1200),
+                                      () {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder: (context) => LoadingPage(),
                                       ),
                                     );
-                                    Future.delayed(Duration(milliseconds: Random().nextInt(1000) + 1000), () {
+                                    Future.delayed(
+                                        Duration(
+                                            milliseconds:
+                                                Random().nextInt(1000) + 1000),
+                                        () {
                                       calculateBMI();
                                       Navigator.of(context).pushReplacement(
                                         MaterialPageRoute(
@@ -244,7 +246,6 @@ class _BMIHomePageState extends State<BMIHomePage>
                               decoration: BoxDecoration(
                                 color: _colorAnimation.value,
                                 borderRadius: _borderRadiusAnimation.value,
-                                
                               ),
                               child: Stack(
                                 alignment: Alignment.center,
@@ -254,16 +255,13 @@ class _BMIHomePageState extends State<BMIHomePage>
                                     child: Text(
                                       'شاخص را محاسبه کن',
                                       style: TextStyle(
-                                        fontSize: 18.0,
-                                        color: white
-                                        
-                                      ),
+                                          fontSize: 18.0, color: white),
                                     ),
                                   ),
                                   Opacity(
                                     opacity: _imageOpacityAnimation.value,
                                     child: Image.asset(
-                                      '../../assets/Icons/tick.png',
+                                      'assets/Icons/tick.png',
                                       height: 62,
                                       width: 62,
                                     ),
