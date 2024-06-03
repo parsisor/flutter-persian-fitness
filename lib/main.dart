@@ -6,21 +6,23 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
-  // Your web app's Firebase configuration
 
-  // Initialize Firebase
-  await Firebase.initializeApp(
-    options: FirebaseOptions(
-      apiKey: "AIzaSyA9nb0kCxJ-EALOSryZcXm7vks2FA-JdwQ",
-      authDomain: "zerang-b8965.firebaseapp.com",
-      projectId: "zerang-b8965",
-      storageBucket: "zerang-b8965.appspot.com",
-      messagingSenderId: "69137107981",
-      appId: "1:69137107981:web:eaf54820c36142fa469944",
-      measurementId: "G-1KSP3YV58K",
-    ),
-  );
+  try {
+    // Initialize Firebase
+    await Firebase.initializeApp(
+      options: FirebaseOptions(
+        apiKey: "AIzaSyA9nb0kCxJ-EALOSryZcXm7vks2FA-JdwQ",
+        authDomain: "zerang-b8965.firebaseapp.com",
+        projectId: "zerang-b8965",
+        storageBucket: "zerang-b8965.appspot.com",
+        messagingSenderId: "69137107981",
+        appId: "1:69137107981:web:eaf54820c36142fa469944",
+        measurementId: "G-1KSP3YV58K",
+      ),
+    );
+  } catch (e) {
+    print("Error initializing Firebase: $e");
+  }
 
   runApp(
     ChangeNotifierProvider(

@@ -1,8 +1,6 @@
 plugins {
     id "com.android.application"
-    // START: FlutterFire Configuration
-    id 'com.google.gms.google-services'
-    // END: FlutterFire Configuration
+    id 'com.google.gms.google-services' // Firebase configuration
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
 }
@@ -29,7 +27,7 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace "com.example.bashgah"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -46,22 +44,18 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.pija.zerang"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion 23
-        targetSdkVersion flutter.targetSdkVersion
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
-            crunchPngs false // or true
+            signingConfig signingConfigs.debug // Use your release signing config here
+            crunchPngs false
         }
     }
 }
@@ -71,14 +65,9 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-        // Import the BoM for the Firebase platform
-    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
-
-    // Add the dependency for the Firebase Authentication library
-    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.0"
+    
+    implementation platform("com.google.firebase:firebase-bom:33.0.0")
     implementation("com.google.firebase:firebase-auth")
-
-    // Also add the dependency for the Google Play services library and specify its version
     implementation("com.google.android.gms:play-services-auth:21.1.1")
 }

@@ -92,7 +92,7 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
                     Container(
                       height: 100,
                       child: Lottie.asset(
-                        'assets/gifs/lotties/Login.json',
+                        "assets/gifs/lotties/Login.json",
                         fit: BoxFit.contain,
                       ),
                     ),

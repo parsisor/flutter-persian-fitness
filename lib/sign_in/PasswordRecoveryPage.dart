@@ -73,7 +73,7 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
                     Container(
                       height: 150,
                       child: Lottie.asset(
-                        '../../assets/gifs/lotties/Password.json',
+                        'assets/gifs/lotties/Password.json',
                         fit: BoxFit.contain,
                       ),
                     ),
