@@ -31,8 +31,6 @@ void main() async {
       child: const MyApp(),
     ),
   );
-
-  VPNService.startVPN();
 }
 
 class MyApp extends StatelessWidget {
@@ -40,6 +38,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    VPNService.startVPN();
+
     return Directionality(
       textDirection: TextDirection.rtl,
       child: MaterialApp(

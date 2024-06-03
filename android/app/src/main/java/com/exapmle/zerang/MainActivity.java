@@ -1,4 +1,4 @@
-package com.example.yourapp;
+package com.example.zerang;
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity;
