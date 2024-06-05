@@ -1,3 +1,4 @@
+import 'package:Zerang/workouts/workoutsplus/workout_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:Zerang/Theme/theme_provider.dart';
@@ -7,11 +8,11 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Your web app's Firebase configuration
+  print("Initializing Firebase...");
 
   // Initialize Firebase
   await Firebase.initializeApp(
-    options: FirebaseOptions(
+    options: const FirebaseOptions(
       apiKey: "AIzaSyA9nb0kCxJ-EALOSryZcXm7vks2FA-JdwQ",
       authDomain: "zerang-b8965.firebaseapp.com",
       projectId: "zerang-b8965",
@@ -21,6 +22,8 @@ void main() async {
       measurementId: "G-1KSP3YV58K",
     ),
   );
+
+  print("Firebase initialized successfully");
 
   runApp(
     ChangeNotifierProvider(
@@ -39,7 +42,7 @@ class MyApp extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SplashScreen(),
+        home:  WorkoutPage(),
         theme: Provider.of<ThemeProvider>(context).themeData,
       ),
     );

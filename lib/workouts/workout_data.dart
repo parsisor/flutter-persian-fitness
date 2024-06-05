@@ -12,7 +12,7 @@ const exercise_list_sine = [
 ];
 const exercise_code_sine = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const exercise_img_sine = [
-  "assets/workout/sine.png",
+  "assets/gifs/workout_gifs/push_up.gif",
   "assets/workout/sine.png",
   "assets/workout/sine.png",
   "assets/workout/sine.png",

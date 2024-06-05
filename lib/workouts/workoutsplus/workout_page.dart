@@ -6,115 +6,91 @@ class WorkoutPage extends StatefulWidget {
   const WorkoutPage({super.key});
 
   @override
-  _WorkoutPageState createState() => _WorkoutPageState();
+  State<WorkoutPage> createState() => _WorkoutPageState();
 }
 
 class _WorkoutPageState extends State<WorkoutPage> {
-  final WorkoutStorage _storage = WorkoutStorage();
-  List<Workout> _workouts = [];
-
   @override
-  void initState() {
-    super.initState();
-    _loadWorkouts();
-  }
-
-  Future<void> _loadWorkouts() async {
-    final workouts = await _storage.readWorkouts();
-    setState(() {
-      _workouts = workouts;
-    });
-  }
-
-  void _addWorkout() async {
-    final newWorkout = await showDialog<Workout>(
-      context: context,
-      builder: (BuildContext context) {
-        String imagePath = '';
-        int workoutTime = 0;
-        String workoutInfo = '';
-
-        return AlertDialog(
-          title: Text('افزودن تمرین جدید'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                decoration: InputDecoration(labelText: 'مسیر تصویر'),
-                onChanged: (value) {
-                  imagePath = value;
-                },
-              ),
-              TextField(
-                decoration: InputDecoration(labelText: 'زمان تمرین (دقیقه)'),
-                keyboardType: TextInputType.number,
-                onChanged: (value) {
-                  workoutTime = int.tryParse(value) ?? 0;
-                },
-              ),
-              TextField(
-                decoration: InputDecoration(labelText: 'توضیحات تمرین'),
-                onChanged: (value) {
-                  workoutInfo = value;
-                },
-              ),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('لغو'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop(Workout(
-                  id: _workouts.length + 1,
-                  imagePath: imagePath,
-                  workoutTime: workoutTime,
-                  workoutInfo: workoutInfo,
-                ));
-              },
-              child: Text('افزودن'),
-            ),
-          ],
-        );
-      },
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ورزش‌ها'),
+      ),
+      body: ListView.builder(
+        itemCount: wdataset.length,
+        itemBuilder: (context, index) {
+          final workout = wdataset[index];
+          return ListTile(
+            leading: Image.asset(workout.wGif, width: 50, height: 50, fit: BoxFit.cover),
+            title: Text(workout.name),
+            subtitle: Text(workout.wlevel),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => WorkoutDetailPage(workout: workout),
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
-
-    if (newWorkout != null) {
-      setState(() {
-        _workouts.add(newWorkout);
-      });
-      _storage.writeWorkouts(_workouts);
-    }
   }
+}
+
+class WorkoutDetailPage extends StatelessWidget {
+  final WorkoutBase workout;
+
+  WorkoutDetailPage({required this.workout});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('تمرین‌ها'),
+        title: Text(workout.name),
       ),
-      body: Center(
-        child: _workouts.isEmpty
-            ? Text('هیچ تمرینی وجود ندارد.')
-            : ListView.builder(
-                itemCount: _workouts.length,
-                itemBuilder: (context, index) {
-                  final workout = _workouts[index];
-                  return ListTile(
-                    leading: Image.asset(workout.imagePath),
-                    title: Text(workout.workoutInfo),
-                    subtitle: Text('${workout.workoutTime} دقیقه'),
-                  );
-                },
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset(workout.wGif),
+              SizedBox(height: 16),
+              Text(
+                workout.name,
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _addWorkout,
-        child: Icon(Icons.add),
+              SizedBox(height: 8),
+              Text(
+                'سطح: ${workout.wlevel}',
+                style: TextStyle(fontSize: 18),
+              ),
+              Text(
+                'نوع: ${workout.wType}',
+                style: TextStyle(fontSize: 18),
+              ),
+              Text(
+                'نیازمندی‌ها: ${workout.wneeds}',
+                style: TextStyle(fontSize: 18),
+              ),
+              Text(
+                'هدف عضلات: ${workout.targetMuscle.map((m) => m.muscle).join(', ')}',
+                style: TextStyle(fontSize: 18),
+              ),
+              SizedBox(height: 16),
+              Text(
+                'مراحل:',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+              ...workout.steps.map((step) => Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Text('${step.description} (مدت زمان: ${step.duration} ثانیه)'),
+              )),
+            ],
+          ),
+        ),
       ),
     );
   }

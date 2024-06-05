@@ -1,35 +1,37 @@
+class WorkoutStep {
+  final String description;
+  final int duration;
 
+  WorkoutStep({required this.description, required this.duration});
+}
 
-class Workout {
-  final int id;
-  final String imagePath;
-  final int workoutTime; 
-  final String workoutInfo;
+class targetMuscles {
+  final String muscle;
+  targetMuscles({required this.muscle});
+}
 
-  Workout({
-    required this.id,
-    required this.imagePath,
-    required this.workoutTime,
-    required this.workoutInfo,
+class WorkoutBase {
+  final int wid;
+  final String name;
+  final String wGif;
+  final int wstime;
+  final int avcalorie;
+  final String wlevel;
+  final String wType;
+  final List<targetMuscles> targetMuscle;
+  final String wneeds;
+  final List<WorkoutStep> steps;
+
+  WorkoutBase({
+    required this.wid,
+    required this.name,
+    required this.wGif,
+    required this.wstime,
+    required this.avcalorie,
+    required this.wlevel,
+    required this.wType,
+    required this.targetMuscle,
+    required this.wneeds,
+    required this.steps,
   });
-
-  
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'imagePath': imagePath,
-      'workoutTime': workoutTime,
-      'workoutInfo': workoutInfo,
-    };
-  }
-
-  
-  factory Workout.fromJson(Map<String, dynamic> json) {
-    return Workout(
-      id: json['id'],
-      imagePath: json['imagePath'],
-      workoutTime: json['workoutTime'],
-      workoutInfo: json['workoutInfo'],
-    );
-  }
 }
