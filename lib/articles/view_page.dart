@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:connectivity/connectivity.dart';
+
 
 @override
 class Article {
@@ -32,17 +32,6 @@ class _ArticlePageState extends State<ArticlePage> {
   StreamSubscription? connectivitySubscription;
   bool isConnected = true;
 
-  @override
-  void initState() {
-    super.initState();
-    connectivitySubscription = Connectivity()
-        .onConnectivityChanged
-        .listen((ConnectivityResult result) {
-      setState(() {
-        isConnected = (result != ConnectivityResult.none);
-      });
-    });
-  }
 
   @override
   void dispose() {
