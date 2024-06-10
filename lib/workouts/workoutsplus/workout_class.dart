@@ -12,6 +12,7 @@ class targetMuscles {
 
 class WorkoutBase {
   final int wid;
+  final List<String> wsection;
   final String name;
   final String wGif;
   final int wstime;
@@ -24,6 +25,7 @@ class WorkoutBase {
 
   WorkoutBase({
     required this.wid,
+    required this.wsection,
     required this.name,
     required this.wGif,
     required this.wstime,

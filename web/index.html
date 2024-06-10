@@ -27,29 +27,30 @@
   <script src="flutter.js" defer></script>
 
   <!-- Firebase scripts -->
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyA9nb0kCxJ-EALOSryZcXm7vks2FA-JdwQ",
-      authDomain: "zerang-b8965.firebaseapp.com",
-      projectId: "zerang-b8965",
-      storageBucket: "zerang-b8965.appspot.com",
-      messagingSenderId: "69137107981",
-      appId: "1:69137107981:web:eaf54820c36142fa469944",
-      measurementId: "G-1KSP3YV58K"
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID",
+      measurementId: "YOUR_MEASUREMENT_ID"
     };
+
     // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
   </script>
 </head>
 <body>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
+      _flutter.loader.load({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         },

@@ -1,13 +1,13 @@
 buildscript {
-    ext.kotlin_version = '2.0.0' // or a newer compatible version
+    ext.kotlin_version = '1.9.10' // استفاده از نسخه سازگار Kotlin
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.0"
-        classpath 'com.android.tools.build:gradle:8.4.0' // Ensure this is compatible with Kotlin 1.8.21
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:8.4.0'
         classpath 'com.google.gms:google-services:4.3.10'
     }
 }
@@ -17,14 +17,12 @@ allprojects {
         google()
         mavenCentral()
     }
+
+    rootProject.buildDir = '../build'
 }
 
-rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
-}
-
-subprojects {
     project.evaluationDependsOn(':app')
 }
 

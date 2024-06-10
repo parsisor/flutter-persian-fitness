@@ -18,14 +18,21 @@ class SettingsPage extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: ListView(
             children: [
-              
               Divider(),
               ListTile(
                 title: Text('تغییر تم'),
-                onTap: () {
-                  Provider.of<ThemeProvider>(context, listen: false)
-                      .toggleTheme();
-                },
+                trailing: Consumer<ThemeProvider>(
+                  builder: (context, themeProvider, child) {
+                    return Switch(
+                      value: themeProvider.themeData.brightness == Brightness.dark,
+                      onChanged: (value) {
+                        Future.microtask(() {
+                          themeProvider.toggleTheme();
+                        });
+                      },
+                    );
+                  },
+                ),
               ),
               Divider(),
             ],

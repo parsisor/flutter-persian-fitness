@@ -1,4 +1,6 @@
-import 'package:Zerang/workouts/workoutsplus/workout_page.dart';
+import 'package:Zerang/fitness_hub/fitness_hub.dart';
+import 'package:Zerang/workouts/workoutsplus/workout_Page.dart';
+import 'package:Zerang/workouts/workoutsplus/workout_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:Zerang/Theme/theme_provider.dart';
@@ -10,23 +12,21 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   try {
-    // Initialize Firebase
     await Firebase.initializeApp(
       options: FirebaseOptions(
-        apiKey: "AIzaSyA9nb0kCxJ-EALOSryZcXm7vks2FA-JdwQ",
-        authDomain: "zerang-b8965.firebaseapp.com",
-        projectId: "zerang-b8965",
-        storageBucket: "zerang-b8965.appspot.com",
-        messagingSenderId: "69137107981",
-        appId: "1:69137107981:web:eaf54820c36142fa469944",
-        measurementId: "G-1KSP3YV58K",
+        apiKey: "API_KEY",
+        authDomain: "DOMAIN",
+        projectId: "PROJECT_ID",
+        storageBucket: "BUCKET",
+        messagingSenderId: "SENDER_ID",
+        appId: "APP_ID",
+        measurementId: "MEASUREMENT_ID",
       ),
     );
+    print("Firebase initialized successfully");
   } catch (e) {
     print("Error initializing Firebase: $e");
   }
-
-  print("Firebase initialized successfully");
 
   runApp(
     ChangeNotifierProvider(
@@ -41,15 +41,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     VPNService.startVPN();
 
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home:  SplashScreen(),
-        theme: Provider.of<ThemeProvider>(context).themeData,
+      child: Consumer<ThemeProvider>(
+        builder: (context, themeProvider, child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: Fitness_Hub(),
+            theme: themeProvider.themeData,
+          );
+        },
       ),
     );
   }

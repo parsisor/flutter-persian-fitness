@@ -1,7 +1,6 @@
 import 'package:Zerang/code_assets.dart/assets.dart';
 import 'package:flutter/material.dart';
 import '../code_assets.dart/consts.dart';
-
 import 'tozihat.dart';
 
 class WorkoutDetailPage extends StatelessWidget {
@@ -11,8 +10,8 @@ class WorkoutDetailPage extends StatelessWidget {
 
   Widget _buildWorkoutCard(BuildContext context, int index) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double cardWidth = screenWidth * 0.9; 
-    double cardHeight = 160; 
+    double cardWidth = screenWidth * 0.9;
+    double cardHeight = 160;
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -47,13 +46,15 @@ class WorkoutDetailPage extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Text(
-                  getWorkoutsById(workoutId)[index],
-                  style: TextStyle(
-                    color: sefid,
-                    fontSize: 20,
+              Expanded( // تغییر اعمال شده
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Text(
+                    getWorkoutsById(workoutId)[index],
+                    style: TextStyle(
+                      color: sefid,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ),

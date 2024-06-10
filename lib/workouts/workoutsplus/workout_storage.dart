@@ -3,11 +3,12 @@ import 'package:Zerang/workouts/workoutsplus/workout_class.dart';
 final List<WorkoutBase> wdataset = [
   WorkoutBase(
     wid: 1,
+    wsection: ["sine", "bazo"],
     name: "شنا سوئدی",
     wGif: 'assets/gifs/workout_gifs/push_up.gif',
     wstime: 120,
     avcalorie: 300,
-    wlevel: "متوسط/medium",
+    wlevel: "متوسط/Medium",
     wType: "تمرینات بدنی/compound bodyweight",
     targetMuscle: [
       targetMuscles(muscle: "سینه"),
@@ -41,6 +42,7 @@ final List<WorkoutBase> wdataset = [
   ),
   WorkoutBase(
     wid: 2,
+    wsection: ["pa"],
     name: "اسکات",
     wGif: 'assets/gifs/workout_gifs/push_up.gif',
     wstime: 60,
@@ -68,11 +70,12 @@ final List<WorkoutBase> wdataset = [
   ),
   WorkoutBase(
     wid: 3,
+    wsection: ["pa"],
     name: "لانژ",
     wGif: 'assets/gifs/workout_gifs/push_up.gif',
     wstime: 90,
     avcalorie: 150,
-    wlevel: "متوسط/medium",
+    wlevel: "متوسط/Medium",
     wType: "تمرینات بدنی/compound bodyweight",
     targetMuscle: [
       targetMuscles(muscle: "ران"),
@@ -97,6 +100,7 @@ final List<WorkoutBase> wdataset = [
   ),
   WorkoutBase(
     wid: 4,
+    wsection: ["bazo"],
     name: "بارفیکس",
     wGif: 'assets/gifs/workout_gifs/push_up.gif',
     wstime: 30,
@@ -125,11 +129,12 @@ final List<WorkoutBase> wdataset = [
   ),
   WorkoutBase(
     wid: 5,
+    wsection: ["sine","bazo"],
     name: "دیپ",
     wGif: 'assets/gifs/workout_gifs/push_up.gif',
     wstime: 30,
     avcalorie: 80,
-    wlevel: "متوسط/medium",
+    wlevel: "متوسط/Medium",
     wType: "تمرینات بدنی/compound bodyweight",
     targetMuscle: [
       targetMuscles(muscle: "سینه"),
@@ -151,6 +156,7 @@ final List<WorkoutBase> wdataset = [
   ),
   WorkoutBase(
     wid: 6,
+    wsection: ["sine"],
     name: "کرانچ",
     wGif: 'assets/gifs/workout_gifs/push_up.gif',
     wstime: 60,
@@ -172,6 +178,7 @@ final List<WorkoutBase> wdataset = [
   ),
   WorkoutBase(
     wid: 7,
+    wsection: ["sine", "pa", "bazo"],
     name: "برپی",
     wGif: 'assets/gifs/workout_gifs/push_up.gif',
     wstime: 30,
@@ -195,6 +202,7 @@ final List<WorkoutBase> wdataset = [
   ),
   WorkoutBase(
     wid: 8,
+    wsection: ["sine", "pa", "bazo"],
     name: "جامپینگ جک",
     wGif: 'assets/gifs/workout_gifs/push_up.gif',
     wstime: 60,

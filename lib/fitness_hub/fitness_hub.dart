@@ -6,6 +6,8 @@ import 'package:Zerang/fitness_hub/streak_bar/week_day.dart';
 import 'package:Zerang/settings_Page/settings.dart';
 import 'package:Zerang/sign_in/sign_in_UI.dart';
 import 'package:Zerang/workouts/workouts.dart';
+import 'package:Zerang/workouts/workoutsplus/workout_Page.dart';
+import 'package:Zerang/workouts/workoutsplus/workout_class.dart';
 import 'package:flutter/material.dart';
 
 class Fitness_Hub extends StatefulWidget {
@@ -557,7 +559,7 @@ Widget Workouts(BuildContext context, String part, String img, String id, Color 
       onTap: () {
         Navigator.of(context).push(
           PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) => WorkoutDetailPage(id),
+            pageBuilder: (context, animation, secondaryAnimation) => WorkoutPage(id : id),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               var begin = 0.0;
               var end = 1.0;
