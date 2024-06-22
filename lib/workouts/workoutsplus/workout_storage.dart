@@ -1,4 +1,44 @@
-import 'package:Zerang/workouts/workoutsplus/workout_class.dart';
+
+class WorkoutStep {
+  final String description;
+  final int duration;
+
+  WorkoutStep({required this.description, required this.duration});
+}
+
+class targetMuscles {
+  final String muscle;
+  targetMuscles({required this.muscle});
+}
+
+class WorkoutBase {
+  final int wid;
+  final List<String> wsection;
+  final String name;
+  final String wGif;
+  final int wstime;
+  final int avcalorie;
+  final String wlevel;
+  final String wType;
+  final List<targetMuscles> targetMuscle;
+  final String wneeds;
+  final List<WorkoutStep> steps;
+
+  WorkoutBase({
+    required this.wid,
+    required this.wsection,
+    required this.name,
+    required this.wGif,
+    required this.wstime,
+    required this.avcalorie,
+    required this.wlevel,
+    required this.wType,
+    required this.targetMuscle,
+    required this.wneeds,
+    required this.steps,
+  });
+}
+
 
 final List<WorkoutBase> wdataset = [
   WorkoutBase(
@@ -225,4 +265,150 @@ final List<WorkoutBase> wdataset = [
           duration: 50),
     ],
   ),
+
+  WorkoutBase(
+    wid: 9,
+    wsection: ["pa"],
+    name: "سکانتر",
+    wGif: 'assets/gifs/workout_gifs/push_up.gif',
+    wstime: 90,
+    avcalorie: 180,
+    wlevel: "متوسط/Medium",
+    wType: "تمرینات بدنی/compound bodyweight",
+    targetMuscle: [
+      targetMuscles(muscle: "پایینی بدن"),
+      targetMuscles(muscle: "lower body"),
+    ],
+    wneeds: "بدون نیاز به وسیله (no need for equipment)",
+    steps: [
+      WorkoutStep(
+        description: "قدم به جلو بردارید و زانوی جلو را به زاویه 90 درجه خم کنید.",
+        duration: 30,
+      ),
+      WorkoutStep(
+        description: "با استفاده از عضلات پاها به حالت اولیه برگردید.",
+        duration: 60,
+      ),
+    ],
+  ),
+
+  WorkoutBase(
+    wid: 10,
+    wsection: ["sine", "pa"],
+    name: "پلانک",
+    wGif: 'assets/gifs/workout_gifs/push_up.gif',
+    wstime: 120,
+    avcalorie: 250,
+    wlevel: "متوسط/Medium",
+    wType: "تمرینات بدنی/core bodyweight",
+    targetMuscle: [
+      targetMuscles(muscle: "مرکز بدن"),
+      targetMuscles(muscle: "core"),
+    ],
+    wneeds: "بدون نیاز به وسیله (no need for equipment)",
+    steps: [
+      WorkoutStep(
+        description: "به حالت پلانک بروید با کمر صاف و عضلات شکم فشرده.",
+        duration: 120,
+      ),
+    ],
+  ),
+
+  WorkoutBase(
+    wid: 11,
+    wsection: ["bazo"],
+    name: "سنگ کشی",
+    wGif: 'assets/gifs/workout_gifs/push_up.gif',
+    wstime: 60,
+    avcalorie: 150,
+    wlevel: "متوسط/Medium",
+    wType: "تمرینات بدنی/compound bodyweight",
+    targetMuscle: [
+      targetMuscles(muscle: "بازو"),
+      targetMuscles(muscle: "biceps"),
+      targetMuscles(muscle: "پشت"),
+      targetMuscles(muscle: "back"),
+    ],
+    wneeds: "بدون نیاز به وسیله (no need for equipment)",
+    steps: [
+      WorkoutStep(
+        description: "برای شروع، بازوها را با کمر به بالا ببرید و سپس بازگشت به حالت اولیه.",
+        duration: 60,
+      ),
+    ],
+  ),
+
+  WorkoutBase(
+    wid: 12,
+    wsection: ["sine", "pa", "bazo"],
+    name: "فلکه",
+    wGif: 'assets/gifs/workout_gifs/push_up.gif',
+    wstime: 90,
+    avcalorie: 200,
+    wlevel: "متوسط/Medium",
+    wType: "تمرینات بدنی/compound bodyweight",
+    targetMuscle: [
+      targetMuscles(muscle: "کل بدن"),
+      targetMuscles(muscle: "full body"),
+    ],
+    wneeds: "بدون نیاز به وسیله (no need for equipment)",
+    steps: [
+      WorkoutStep(
+        description: "به حالت پلانک بروید و سپس بازگشت به حالت اولیه با کمک دست‌ها.",
+        duration: 30,
+      ),
+      WorkoutStep(
+        description: "پاها را به طرف دست راست ببرید و سپس بازگشت به حالت اولیه.",
+        duration: 60,
+      ),
+    ],
+  ),
+
+  WorkoutBase(
+    wid: 13,
+    wsection: ["sine", "pa"],
+    name: "پرش",
+    wGif: 'assets/gifs/workout_gifs/push_up.gif',
+    wstime: 60,
+    avcalorie: 120,
+    wlevel: "متوسط/Medium",
+    wType: "تمرینات بدنی/aerobic bodyweight",
+    targetMuscle: [
+      targetMuscles(muscle: "پایینی بدن"),
+      targetMuscles(muscle: "lower body"),
+    ],
+    wneeds: "بدون نیاز به وسیله (no need for equipment)",
+    steps: [
+      WorkoutStep(
+        description: "پاها را به بالا ببرید و به طرف بالا پرش کنید.",
+        duration: 60,
+      ),
+    ],
+  ),
+
+  WorkoutBase(
+    wid: 14,
+    wsection: ["bazo"],
+    name: "رالی",
+    wGif: 'assets/gifs/workout_gifs/push_up.gif',
+    wstime: 45,
+    avcalorie: 100,
+    wlevel: "آسان/easy",
+    wType: "تمرینات بدنی/compound bodyweight",
+    targetMuscle: [
+      targetMuscles(muscle: "بازو"),
+      targetMuscles(muscle: "biceps"),
+      targetMuscles(muscle: "پشت"),
+      targetMuscles(muscle: "back"),
+    ],
+    wneeds: "بدون نیاز به وسیله (no need for equipment)",
+    steps: [
+      WorkoutStep(
+        description: "در حالی که پاها را به طرف جلو ببرید، بازوها را به بالا بکشید.",
+        duration: 45,
+      ),
+    ],
+  ),
 ];
+
+  

@@ -1,4 +1,4 @@
-import 'package:Zerang/code_assets.dart/consts.dart';
+import 'package:Zerang/Theme/consts.dart';
 import 'package:Zerang/fitness_hub/fitness_hub.dart';
 import 'package:Zerang/sign_in/login_Ui.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +31,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
 
   Future<void> _signUp() async {
     if (!_formKey.currentState!.validate()) {
-      return; // If form is not valid, stop the sign up process
+      return; 
     }
 
     final String username = _usernameController.text.trim();
@@ -53,7 +53,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
         'email': email,
       });
 
-      // Show success dialog
+      
       _showSuccessDialog();
     } on FirebaseAuthException catch (e) {
       String message;
@@ -259,7 +259,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                           child: AnimatedDefaultTextStyle(
                             style: TextStyle(
                               color: isHovering
-                                  ? selectedbutton_color
+                                  ? selectedButtonColor
                                   : Colors.blueAccent,
                               fontSize: 16,
                               decoration: TextDecoration.underline,

@@ -1,7 +1,7 @@
 import 'package:Zerang/brain_app/class.dart';
 import 'package:Zerang/fitness_hub/fitness_hub.dart';
 import 'package:flutter/material.dart';
-import 'package:Zerang/code_assets.dart/consts.dart';
+import 'package:Zerang/Theme/consts.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       duration: Duration(milliseconds: 200),
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: isHovered1 ? selectedbutton_color : button_color,
+                        color: isHovered1 ? selectedButtonColor : buttonColor,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Center(
@@ -106,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       duration: Duration(milliseconds: 200),
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: isHovered2 ? selectedbutton_color : button_color,
+                        color: isHovered2 ? selectedButtonColor : buttonColor,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Center(
