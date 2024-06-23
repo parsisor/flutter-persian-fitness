@@ -1,10 +1,9 @@
 import 'dart:math';
-
-import 'package:Zerang/calculator/MBI_Displaypage.dart';
-import 'package:Zerang/calculator/loading.dart';
-import 'package:Zerang/code_assets.dart/consts.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:Zerang/calculator/MBI_Displaypage.dart';
+import 'package:Zerang/calculator/loading.dart';
+import 'package:Zerang/Theme/consts.dart';
 
 class BMIHomePage extends StatefulWidget {
   @override
@@ -39,16 +38,16 @@ class _BMIHomePageState extends State<BMIHomePage>
     );
 
     _widthAnimation =
-        Tween<double>(begin: 600.0, end: 200.0).animate(_controller);
+        Tween<double>(begin: 250.0, end: 75.0).animate(_controller);
     _heightAnimation =
-        Tween<double>(begin: 200.0, end: 200.0).animate(_controller);
+        Tween<double>(begin: 80.0, end: 75.0).animate(_controller);
     _borderRadiusAnimation = BorderRadiusTween(
-      begin: BorderRadius.circular(100.0),
-      end: BorderRadius.circular(100.0),
+      begin: BorderRadius.circular(8.0),
+      end: BorderRadius.circular(37.5),
     ).animate(_controller);
     _colorAnimation = ColorTween(
-      begin: (button_color),
-      end: (button_color),
+      begin: buttonColor,
+      end: buttonColor,
     ).animate(_controller);
     _textOpacityAnimation =
         Tween<double>(begin: 1.0, end: 0.0).animate(_controller);
@@ -205,73 +204,68 @@ class _BMIHomePageState extends State<BMIHomePage>
                     ),
                   ),
                   SizedBox(height: 20.0),
-                  Container(
-                    width: 150,
-                    height: 75,
-                    child: AnimatedBuilder(
-                      animation: _controller,
-                      builder: (context, child) {
-                        return Center(
-                          child: GestureDetector(
-                            onTap: () {
-                              if (_formKey.currentState?.validate() == true) {
-                                _controller.forward().then((_) {
-                                  Future.delayed(Duration(milliseconds: 1200),
-                                      () {
-                                    Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                        builder: (context) => LoadingPage(),
-                                      ),
-                                    );
-                                    Future.delayed(
-                                        Duration(
-                                            milliseconds:
-                                                Random().nextInt(1000) + 1000),
-                                        () {
-                                      calculateBMI();
-                                      Navigator.of(context).pushReplacement(
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              BMIDisplayPage(bmi: bmi),
-                                        ),
-                                      );
-                                    });
-                                  });
-                                });
-                              }
-                            },
-                            child: Container(
-                              width: _widthAnimation.value,
-                              height: _heightAnimation.value,
-                              decoration: BoxDecoration(
-                                color: _colorAnimation.value,
-                                borderRadius: _borderRadiusAnimation.value,
-                              ),
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Opacity(
-                                    opacity: _textOpacityAnimation.value,
-                                    child: Text(
-                                      'شاخص را محاسبه کن',
-                                      style: TextStyle(
-                                          fontSize: 18.0, color: white),
-                                    ),
+                  Center(
+                    child: GestureDetector(
+                      onTap: () {
+                        if (_formKey.currentState?.validate() == true) {
+                          _controller.forward().then((_) {
+                            Future.delayed(Duration(milliseconds: 1200), () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => LoadingPage(),
+                                ),
+                              );
+                              Future.delayed(
+                                  Duration(
+                                      milliseconds:
+                                          Random().nextInt(1000) + 1000), () {
+                                calculateBMI();
+                                Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        BMIDisplayPage(bmi: bmi),
                                   ),
-                                  Opacity(
-                                    opacity: _imageOpacityAnimation.value,
-                                    child: Image.asset(
-                                      'assets/Icons/tick.png',
-                                      height: 62,
-                                      width: 62,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        );
+                                );
+                                _controller.reverse();
+                              });
+                            });
+                          });
+                        }
                       },
+                      child: AnimatedBuilder(
+                        animation: _controller,
+                        builder: (context, child) {
+                          return Container(
+                            width: _widthAnimation.value,
+                            height: _heightAnimation.value,
+                            decoration: BoxDecoration(
+                              color: _colorAnimation.value,
+                              borderRadius: _borderRadiusAnimation.value,
+                            ),
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Opacity(
+                                  opacity: _textOpacityAnimation.value,
+                                  child: Text(
+                                    'نمایش شاخص توده ی بدنی',
+                                    style: TextStyle(
+                                        fontSize: 18.0, color: Colors.white),
+                                  ),
+                                ),
+                                Opacity(
+                                  opacity: _imageOpacityAnimation.value,
+                                  child: Icon(
+                                    Icons.check,
+                                    color: Colors.white,
+                                    size: 40.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ),
                   SizedBox(height: 16.0),

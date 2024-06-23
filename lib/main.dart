@@ -1,12 +1,11 @@
-import 'package:Zerang/fitness_hub/fitness_hub.dart';
-import 'package:Zerang/workouts/workoutsplus/workout_Page.dart';
-import 'package:Zerang/workouts/workoutsplus/workout_detail_page.dart';
+import 'package:Zerang/Onboarding/onboarding_screen.dart';
+import 'package:Zerang/fitness_hub/Hub.dart';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:Zerang/Theme/theme_provider.dart';
 import 'package:Zerang/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:Zerang/vpn_service/vpn_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,7 +40,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VPNService.startVPN();
+    
 
     return Directionality(
       textDirection: TextDirection.rtl,
@@ -49,7 +48,7 @@ class MyApp extends StatelessWidget {
         builder: (context, themeProvider, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: Fitness_Hub(),
+            home: OnboardingScreen(),
             theme: themeProvider.themeData,
           );
         },

@@ -1,7 +1,7 @@
-import 'package:Zerang/Theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../code_assets.dart/consts.dart';
+import 'package:Zerang/Theme/theme_provider.dart';
+import '../Theme/consts.dart';
 
 class SettingsPage extends StatelessWidget {
   @override
@@ -19,20 +19,25 @@ class SettingsPage extends StatelessWidget {
           child: ListView(
             children: [
               Divider(),
-              ListTile(
-                title: Text('تغییر تم'),
-                trailing: Consumer<ThemeProvider>(
-                  builder: (context, themeProvider, child) {
-                    return Switch(
+              Consumer<ThemeProvider>(
+                builder: (context, themeProvider, child) {
+                  return ListTile(
+                    title: Text('تغییر تم'),
+                    trailing: Switch(
                       value: themeProvider.themeData.brightness == Brightness.dark,
                       onChanged: (value) {
                         Future.microtask(() {
                           themeProvider.toggleTheme();
                         });
                       },
-                    );
-                  },
-                ),
+                    ),
+                    onTap: () {
+                      Future.microtask(() {
+                        themeProvider.toggleTheme();
+                      });
+                    },
+                  );
+                },
               ),
               Divider(),
             ],

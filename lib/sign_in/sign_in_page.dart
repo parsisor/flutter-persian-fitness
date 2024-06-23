@@ -103,7 +103,7 @@ class _SignInPageState extends State<SignInPage> {
         password: _passController.text,
       );
 
-      // Save additional user data in Firestore
+      
       await FirebaseFirestore.instance.collection('users').doc(credential.user!.uid).set({
         'email': _emailController.text,
         'weight': _weightController.text,
@@ -146,7 +146,7 @@ class _SignInPageState extends State<SignInPage> {
       } else {
         _showErrorDialog('No user is currently signed in');
       }
-      break; // Exit loop if successful
+      break; 
     } catch (e) {
       if (retryCount < maxRetries - 1) {
         await Future.delayed(retryDelay);

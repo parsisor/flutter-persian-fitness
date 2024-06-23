@@ -23,6 +23,10 @@ dependencies:
   shared_preferences: ^2.2.3
   flutter_localization: ^0.2.0
   http: ^1.2.1
+  iconsax: ^0.0.8
+  fl_chart: ^0.68.0
+  
+
 
 dev_dependencies:
   flutter_test:
@@ -138,5 +142,11 @@ flutter:
     - assets/gifs/lotties/
     - assets/gifs/workout_gifs/
     - assets/vectors/calorie.png
+    - assets/vectors/Onboarding/power.png
+    - assets/vectors/Onboarding/regime.png
+    - assets/vectors/Onboarding/health.png  
+    - assets/Icons/feelings_icons/1x/
+    - lib/fitness_hub/otherPages/components/Qoutes/data.json
+
 
   uses-material-design: true

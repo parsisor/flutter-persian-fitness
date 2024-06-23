@@ -1,4 +1,4 @@
-class WorkoutStep {
+/* class WorkoutStep {
   final String description;
   final int duration;
 
@@ -37,3 +37,4 @@ class WorkoutBase {
     required this.steps,
   });
 }
+ */

@@ -1,6 +1,6 @@
 import 'package:Zerang/code_assets.dart/assets.dart';
 import 'package:flutter/material.dart';
-import '../code_assets.dart/consts.dart';
+import '../Theme/consts.dart';
 import 'tozihat.dart';
 
 class WorkoutDetailPage extends StatelessWidget {

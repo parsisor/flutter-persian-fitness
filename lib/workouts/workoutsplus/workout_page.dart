@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:Zerang/code_assets.dart/consts.dart';
+import 'package:Zerang/Theme/consts.dart';
 import 'package:Zerang/workouts/workoutsplus/workout_detail_page.dart';
 import 'package:Zerang/workouts/workoutsplus/workout_storage.dart';
-import 'package:Zerang/workouts/workoutsplus/workout_class.dart'; // Import necessary classes
+import 'package:Zerang/workouts/workoutsplus/workout_class.dart'; 
 
 class WorkoutPage extends StatefulWidget {
   final String id;
@@ -102,7 +102,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                     padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                     child: GestureDetector(
                       onLongPress: () {
-                        // Add your long press action here
+                        
                       },
                       child: AnimatedContainer(
                         duration: Duration(milliseconds: 300),

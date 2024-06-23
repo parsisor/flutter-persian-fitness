@@ -1,7 +1,7 @@
 import 'package:Zerang/sign_in/PasswordRecoveryPage.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:Zerang/code_assets.dart/consts.dart';
+import 'package:Zerang/Theme/consts.dart';
 import 'package:Zerang/sign_in/LoginPage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -47,8 +47,8 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
         content: Text('ورود با موفقیت انجام شد'),
       ));
 
-      // Navigate to another page if login is successful
-      // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
+      
+      
     } on FirebaseAuthException catch (e) {
       String message;
       if (e.code == 'user-not-found') {
@@ -176,7 +176,7 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
                         },
                         child: AnimatedDefaultTextStyle(
                           style: TextStyle(
-                            color: isHovering ? selectedbutton_color : Colors.blueAccent,
+                            color: isHovering ? selectedButtonColor : Colors.blueAccent,
                             fontSize: 16,
                             decoration: TextDecoration.underline,
                           ),
