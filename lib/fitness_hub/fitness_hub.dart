@@ -9,6 +9,8 @@ import 'package:Zerang/workouts/workouts.dart';
 import 'package:Zerang/workouts/workoutsplus/workout_Page.dart';
 import 'package:Zerang/workouts/workoutsplus/workout_class.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class Fitness_Hub extends StatefulWidget {
   const Fitness_Hub({super.key});
@@ -25,15 +27,45 @@ class _Fitness_HubState extends State<Fitness_Hub> {
   ];
   final ScrollController _scrollController = ScrollController();
 
-  void _sendMessage() {
-    if (_chatController.text.isNotEmpty) {
+  void _sendMessage() async {
+  if (_chatController.text.isNotEmpty) {
+    setState(() {
+      _messages.add({"name": "کاربر", "text": _chatController.text});
+    });
+
+    try {
+      var response = await http.post(
+        Uri.parse('https://ninety-experts-bow.loca.lt/bodybuilding_plan'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'input_text': _chatController.text}),
+      );
+
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body);
+
+        // Ensure the response is parsed as a string
+        String message = data is String ? data : data['response'] ?? "No response";
+
+        setState(() {
+          _messages.add({"name": "ابی", "text": message});
+        });
+      } else {
+        setState(() {
+          _messages.add({"name": "ابی", "text": "Error: ${response.statusCode}"});
+        });
+      }
+    } catch (e) {
       setState(() {
-        _messages.add({"name": "کاربر", "text": _chatController.text});
-        _chatController.clear();
+        _messages.add({"name": "ابی", "text": "Connection error: $e"});
       });
-      _scrollToBottom();
     }
+
+    _chatController.clear();
+    _scrollToBottom();
   }
+}
+
+
 
   void _scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
