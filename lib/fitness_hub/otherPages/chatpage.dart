@@ -22,42 +22,43 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   void _sendMessage() async {
-    if (_chatController.text.isNotEmpty) {
-      setState(() {
-        _messages.add({'name': 'کاربر', 'text': _chatController.text});
-      });
+  if (_chatController.text.isNotEmpty) {
+    setState(() {
+      _messages.add({'name': 'کاربر', 'text': _chatController.text});
+    });
 
-      try {
-        var response = await http.post(
-          Uri.parse('https://easy-ads-arrive.loca.lt/bodybuilding_plan'),
-          headers: {'Content-Type': 'application/json'},
-          body: jsonEncode({'input_text': _chatController.text}),
-        );
+    try {
+      var response = await http.post(
+        Uri.parse('https://fresh-pugs-glow.loca.lt/bodybuilding_plan'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'input_text': _chatController.text}),
+      );
 
-        if (response.statusCode == 200) {
-          var data = jsonDecode(response.body);
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body);
 
-          // Ensure the response is parsed as a string
-          String message = data is String ? data : data['response'] ?? 'No response';
+        // Ensure the response is parsed as a string
+        String message = data is String ? data : data['response'] ?? 'No response';
 
-          setState(() {
-            _messages.add({'name': 'ابی', 'text': message});
-          });
-        } else {
-          setState(() {
-            _messages.add({'name': 'ابی', 'text': 'Error ${response.statusCode}'});
-          });
-        }
-      } catch (e) {
         setState(() {
-          _messages.add({'name': 'ابی', 'text': 'Connection error $e'});
+          _messages.add({'name': 'ابی', 'text': message});
+        });
+      } else {
+        setState(() {
+          _messages.add({'name': 'ابی', 'text': 'Error ${response.statusCode}'});
         });
       }
-
-      _chatController.clear();
-      _scrollToBottom();
+    } catch (e) {
+      print("Error: $e"); // Add this line for debugging
+      setState(() {
+        _messages.add({'name': 'ابی', 'text': 'Connection error $e'});
+      });
     }
+
+    _chatController.clear();
+    _scrollToBottom();
   }
+}
 
   @override
   Widget build(BuildContext context) {
