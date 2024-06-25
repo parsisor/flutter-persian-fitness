@@ -1,7 +1,9 @@
-// chat_page.dart
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:record/record.dart';
+import 'package:path_provider/path_provider.dart';
 
 class ChatPage extends StatefulWidget {
   @override
@@ -14,6 +16,9 @@ class _ChatPageState extends State<ChatPage> {
     {'name': 'ابی', 'text': 'چطور میتونم کمکتون کنم؟'}
   ];
   final ScrollController _scrollController = ScrollController();
+  final Record _audioRecorder = Record();
+  bool _isRecording = false;
+  late String _recordFilePath;
 
   void _scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -22,43 +27,117 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   void _sendMessage() async {
-  if (_chatController.text.isNotEmpty) {
+    if (_chatController.text.isNotEmpty) {
+      setState(() {
+        _messages.add({"name": "کاربر", "text": _chatController.text});
+      });
+
+      try {
+        var response = await http.post(
+          Uri.parse('https://real-teams-push.loca.lt/bodybuilding_plan'),
+          headers: {'Content-Type': 'application/json'},
+          body: jsonEncode({'input_text': _chatController.text}),
+        );
+
+        if (response.statusCode == 200) {
+          var data = jsonDecode(response.body);
+
+          // Ensure the response is parsed as a string
+          String message = data['response'] ?? "No response";
+
+          setState(() {
+            _messages.add({"name": "ابی", "text": message});
+          });
+        } else {
+          setState(() {
+            _messages.add({"name": "ابی", "text": "Error: ${response.statusCode}, ${response.reasonPhrase}"});
+          });
+          print("Error: ${response.statusCode}, ${response.reasonPhrase}");
+        }
+      } catch (e) {
+        setState(() {
+          _messages.add({"name": "ابی", "text": "Connection error: $e"});
+        });
+        print("Connection error: $e");
+      }
+
+      _chatController.clear();
+      _scrollToBottom();
+    }
+  }
+
+  void _startOrStopRecording() async {
+    if (_isRecording) {
+      // Stop recording
+      _stopRecordingAndSend();
+    } else {
+      // Start recording
+      await _startRecording();
+    }
+  }
+
+  Future<void> _startRecording() async {
+    if (await _audioRecorder.hasPermission()) {
+      final directory = await getApplicationDocumentsDirectory();
+      _recordFilePath = '${directory.path}/audio.wav';
+      await _audioRecorder.start(path: _recordFilePath);
+      setState(() {
+        _isRecording = true;
+      });
+    } else {
+      print('No recording permissions');
+    }
+  }
+
+  Future<void> _stopRecordingAndSend() async {
+    await _audioRecorder.stop();
     setState(() {
-      _messages.add({'name': 'کاربر', 'text': _chatController.text});
+      _isRecording = false;
     });
 
-    try {
-      var response = await http.post(
-        Uri.parse('https://fresh-pugs-glow.loca.lt/bodybuilding_plan'),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({'input_text': _chatController.text}),
-      );
-
-      if (response.statusCode == 200) {
-        var data = jsonDecode(response.body);
-
-        // Ensure the response is parsed as a string
-        String message = data is String ? data : data['response'] ?? 'No response';
-
+    if (_recordFilePath != null) {
+      File audioFile = File(_recordFilePath);
+      if (audioFile.existsSync()) {
         setState(() {
-          _messages.add({'name': 'ابی', 'text': message});
+          _messages.add({"name": "کاربر", "text": "Sending audio..."});
         });
-      } else {
-        setState(() {
-          _messages.add({'name': 'ابی', 'text': 'Error ${response.statusCode}'});
-        });
+
+        try {
+          var request = http.MultipartRequest(
+            'POST',
+            Uri.parse('https://real-teams-push.loca.lt/transcribe_audio'),
+          );
+          request.files.add(await http.MultipartFile.fromPath('audio', _recordFilePath));
+
+          var response = await request.send();
+          if (response.statusCode == 200) {
+            var responseData = await http.Response.fromStream(response);
+            var data = jsonDecode(responseData.body);
+
+            String transcription = data['transcription'] ?? "No transcription available";
+
+            setState(() {
+              _messages.add({"name": "کاربر", "text": transcription});
+            });
+
+            // Send the transcription as a message to the server
+            _chatController.text = transcription;
+            _sendMessage();
+          } else {
+            setState(() {
+              _messages.add({"name": "ابی", "text": "Error: ${response.statusCode}, ${response.reasonPhrase}"});
+            });
+            print("Error: ${response.statusCode}, ${response.reasonPhrase}");
+          }
+        } catch (e) {
+          setState(() {
+            _messages.add({"name": "ابی", "text": "Connection error: $e"});
+          });
+          print("Connection error: $e");
+        }
       }
-    } catch (e) {
-      print("Error: $e"); // Add this line for debugging
-      setState(() {
-        _messages.add({'name': 'ابی', 'text': 'Connection error $e'});
-      });
     }
-
-    _chatController.clear();
-    _scrollToBottom();
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -111,6 +190,10 @@ class _ChatPageState extends State<ChatPage> {
                 IconButton(
                   icon: Icon(Icons.send),
                   onPressed: _sendMessage,
+                ),
+                IconButton(
+                  icon: Icon(_isRecording ? Icons.stop : Icons.mic),
+                  onPressed: _startOrStopRecording,
                 ),
               ],
             ),
