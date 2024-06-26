@@ -82,7 +82,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           style: TextStyle(
                             fontFamily: "Mulish",
                             fontWeight: FontWeight.w600,
-                            fontSize: (width <= 650) ? 30 : 35,
+                            fontSize: (width <= 650) ? 25 : 35,
                           ),
                         ),
                         const SizedBox(height: 15),
@@ -91,7 +91,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           style: TextStyle(
                             fontFamily: "Mulish",
                             fontWeight: FontWeight.w300,
-                            fontSize: (width <= 550) ? 17 : 25,
+                            fontSize: (width <= 550) ? 16 : 25,
                           ),
                           textAlign: TextAlign.center,
                         )

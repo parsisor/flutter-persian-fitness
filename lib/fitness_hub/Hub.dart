@@ -1,11 +1,12 @@
 import 'package:Zerang/Theme/consts.dart';
-import 'package:Zerang/fitness_hub/otherPages/brainWorkout.dart';
-import 'package:Zerang/fitness_hub/otherPages/components/BarChartsample.dart';
-import 'package:Zerang/fitness_hub/otherPages/components/Qoutes/quotes.dart';
-import 'package:Zerang/fitness_hub/otherPages/settings.dart';
-import 'package:Zerang/fitness_hub/otherPages/Tools.dart';
-import 'package:Zerang/fitness_hub/otherPages/workout.dart';
-import 'package:Zerang/fitness_hub/streak_bar/streak_bar.dart';
+import 'package:Zerang/fitness_hub/components/profile.dart';
+import 'package:Zerang/fitness_hub/otherPages/Brain/brainWorkout.dart';
+import 'package:Zerang/fitness_hub/components/BarChartsample.dart';
+import 'package:Zerang/fitness_hub/components/Qoutes/quotes.dart';
+import 'package:Zerang/fitness_hub/otherPages/Settings/settings.dart';
+import 'package:Zerang/fitness_hub/otherPages/Tools/Tools.dart';
+import 'package:Zerang/fitness_hub/otherPages/Workout/workout.dart';
+import 'package:Zerang/fitness_hub/components/streak_bar/streak_bar.dart';
 import 'package:Zerang/sign_in/sign_in_UI.dart';
 import 'package:Zerang/sign_in/sign_in_page.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +62,7 @@ class _ApplicationHubState extends State<ApplicationHub> {
         ],
         currentIndex: _selectedIndex,
         unselectedItemColor: Colors.grey,
-        selectedItemColor: selectedButtonColor,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
         onTap: _onItemTapped,
       ),
     );
@@ -82,46 +83,45 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.notifications,
-              size: 28, color: Theme.of(context).textTheme.bodyLarge!.color),
+              size: 28, color: Theme.of(context).colorScheme.onSurface),
           onPressed: () {
-            
+            // Implement notification icon action
           },
         ),
         title: Text(
           'Zerang',
           style: TextStyle(
             fontSize: 28.0,
-            color: Theme.of(context).textTheme.bodyLarge!.color,
+            color: Theme.of(context).colorScheme.onSurface,
             fontWeight: FontWeight.bold,
           ),
         ),
-        centerTitle: true, 
+        centerTitle: true,
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: GestureDetector(
-  onTap: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => SignIn()),
-    );
-  },
-  child: Container(
-    padding: const EdgeInsets.all(2.0), 
-    decoration: BoxDecoration(
-      border: Border.all(
-        color: Theme.of(context).primaryColor,
-        width: 2,
-      ),
-      shape: BoxShape.circle,
-    ),
-    child: CircleAvatar(
-      radius: 20.0,
-      backgroundImage: AssetImage("assets/Icons/feelings_icons/1x/Asset 2.png"), 
-    ),
-  ),
-),
-
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Profile()),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.all(2.0),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Theme.of(context).primaryColor,
+                    width: 2,
+                  ),
+                  shape: BoxShape.circle,
+                ),
+                child: CircleAvatar(
+                  radius: 20.0,
+                  backgroundImage: AssetImage("assets/Icons/feelings_icons/1x/Asset 2.png"),
+                ),
+              ),
+            ),
           ),
         ],
       ),
@@ -162,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                           key: UniqueKey(),
                           children: [
                             Expanded(
-                              child: BarChartSample3(), 
+                              child: BarChartSample3(),
                             ),
                           ],
                         )
@@ -193,7 +193,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            ChallengesSection(), 
+            ChallengesSection(),
           ],
         ),
       ),
@@ -207,30 +207,29 @@ class ChallengesSection extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
-        
         children: [
           ChallengeTile(
             title: 'چالش تمرینات ورزشی 30 روزه',
             subtitle: 'تکمیل وظایف ورزشی مختلف هر روز',
-            progress: 0.7, 
+            progress: 0.7,
           ),
           SizedBox(height: 16.0),
           ChallengeTile(
             title: 'چالش ذهن آگاهی',
             subtitle: 'تمرین ذهنی و کاهش استرس',
-            progress: 0.5, 
+            progress: 0.5,
           ),
           SizedBox(height: 16.0),
           ChallengeTile(
             title: 'چالش بدون قند',
             subtitle: '30 روز اجتناب از مصرف قند برای بهبود سلامتی',
-            progress: 0.2, 
+            progress: 0.2,
           ),
           SizedBox(height: 16.0),
           ChallengeTile(
             title: 'چالش خواندن کتاب',
             subtitle: 'خواندن یک کتاب هر هفته',
-            progress: 0.9, 
+            progress: 0.9,
           ),
         ],
       ),
@@ -253,22 +252,24 @@ class ChallengeTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: Icon(Icons.local_fire_department , size: 30,),
-        title: Text(title , textDirection: TextDirection.rtl,),
+        leading: Icon(Icons.local_fire_department, size: 30),
+        title: Text(title, textDirection: TextDirection.rtl),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text(subtitle , textDirection: TextDirection.rtl,),
+            Text(subtitle, textDirection: TextDirection.rtl),
             SizedBox(height: 8.0),
             LinearProgressIndicator(
               value: progress,
               backgroundColor: Colors.grey[300],
-              valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),
+              valueColor: AlwaysStoppedAnimation<Color>(
+                Theme.of(context).colorScheme.primary,
+              ),
             ),
           ],
         ),
         onTap: () {
-          
+          // Handle onTap action
         },
       ),
     );

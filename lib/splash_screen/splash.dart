@@ -1,5 +1,6 @@
+import 'package:Zerang/fitness_hub/Hub.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:Zerang/select_app/homepage.dart';
+
 
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
@@ -20,7 +21,7 @@ class Splash_Screen extends StatelessWidget {
           child: Image.asset("assets/Icons/star.png"),
         ),
       ),
-      nextScreen: MyHomePage(),
+      nextScreen: ApplicationHub(),
     );
   }
 }
