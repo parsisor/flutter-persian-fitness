@@ -13,13 +13,13 @@ void main() async {
   try {
     await Firebase.initializeApp(
       options: FirebaseOptions(
-        apiKey: "API_KEY",
-        authDomain: "DOMAIN",
-        projectId: "PROJECT_ID",
-        storageBucket: "BUCKET",
-        messagingSenderId: "SENDER_ID",
-        appId: "APP_ID",
-        measurementId: "MEASUREMENT_ID",
+        apiKey: "AIzaSyD3cMNl3lfe21u6drjLvMcaXdBFkQZuTBI",
+        authDomain: "zerang-92999.firebaseapp.com",
+        projectId: "zerang-92999",
+        storageBucket: "zerang-92999.appspot.com",
+        messagingSenderId: "465473215123",
+        appId: "1:465473215123:web:6837c20d14868d6c2c8b66",
+        measurementId: "G-6D5V5EFTKD"
       ),
     );
     print("Firebase initialized successfully");

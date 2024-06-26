@@ -34,15 +34,13 @@ class _ChatPageState extends State<ChatPage> {
 
       try {
         var response = await http.post(
-          Uri.parse('https://real-teams-push.loca.lt/bodybuilding_plan'),
+          Uri.parse('https://your-server-url/bodybuilding_plan'), // Replace with your server URL
           headers: {'Content-Type': 'application/json'},
           body: jsonEncode({'input_text': _chatController.text}),
         );
 
         if (response.statusCode == 200) {
           var data = jsonDecode(response.body);
-
-          // Ensure the response is parsed as a string
           String message = data['response'] ?? "No response";
 
           setState(() {
@@ -69,7 +67,7 @@ class _ChatPageState extends State<ChatPage> {
   void _startOrStopRecording() async {
     if (_isRecording) {
       // Stop recording
-      _stopRecordingAndSend();
+      await _stopRecordingAndSend();
     } else {
       // Start recording
       await _startRecording();
@@ -105,7 +103,7 @@ class _ChatPageState extends State<ChatPage> {
         try {
           var request = http.MultipartRequest(
             'POST',
-            Uri.parse('https://real-teams-push.loca.lt/transcribe_audio'),
+            Uri.parse('https://your-server-url/transcribe_audio'), // Replace with your server URL
           );
           request.files.add(await http.MultipartFile.fromPath('audio', _recordFilePath));
 
@@ -114,14 +112,14 @@ class _ChatPageState extends State<ChatPage> {
             var responseData = await http.Response.fromStream(response);
             var data = jsonDecode(responseData.body);
 
-            String transcription = data['transcription'] ?? "No transcription available";
+            String message = data['response'] ?? "No transcription available";
 
             setState(() {
-              _messages.add({"name": "کاربر", "text": transcription});
+              _messages.add({"name": "ابی", "text": message});
             });
 
             // Send the transcription as a message to the server
-            _chatController.text = transcription;
+            _chatController.text = message;
             _sendMessage();
           } else {
             setState(() {

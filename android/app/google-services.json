@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "69137107981",
-    "project_id": "zerang-b8965",
-    "storage_bucket": "zerang-b8965.appspot.com"
+    "project_number": "465473215123",
+    "project_id": "zerang-92999",
+    "storage_bucket": "zerang-92999.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:69137107981:android:c0ac91c761465e50469944",
+        "mobilesdk_app_id": "1:465473215123:android:63d2fffabdf60e142c8b66",
         "android_client_info": {
           "package_name": "com.pija.zerang"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDSOY-SoC-W2pSJGoyI8e4G8GoYT2itlBg"
+          "current_key": "AIzaSyAnYIwrIrFSPVaYACqGVwwc4uhFZ1aid8c"
         }
       ],
       "services": {

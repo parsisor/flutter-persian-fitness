@@ -1,10 +1,12 @@
 import 'package:Zerang/sign_in/PasswordRecoveryPage.dart';
+import 'package:Zerang/Onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:Zerang/Theme/consts.dart';
 import 'package:Zerang/sign_in/LoginPage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:Zerang/fitness_hub/fitness_hub.dart';
 
 class Login_ui extends StatefulWidget {
   const Login_ui({super.key});
@@ -47,7 +49,10 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
         content: Text('ورود با موفقیت انجام شد'),
       ));
 
-      
+      Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => OnboardingScreen()),
+                );
       
     } on FirebaseAuthException catch (e) {
       String message;
