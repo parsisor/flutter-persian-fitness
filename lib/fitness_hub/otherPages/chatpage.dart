@@ -34,7 +34,7 @@ class _ChatPageState extends State<ChatPage> {
 
       try {
         var response = await http.post(
-          Uri.parse('https://your-server-url/bodybuilding_plan'), // Replace with your server URL
+          Uri.parse('https://heavy-wasps-visit.loca.lt/bodybuilding_plan'), // Replace with your server URL
           headers: {'Content-Type': 'application/json'},
           body: jsonEncode({'input_text': _chatController.text}),
         );
@@ -103,7 +103,7 @@ class _ChatPageState extends State<ChatPage> {
         try {
           var request = http.MultipartRequest(
             'POST',
-            Uri.parse('https://your-server-url/transcribe_audio'), // Replace with your server URL
+            Uri.parse('https://crazy-tools-rush.loca.lt/transcribe_audio'), // Replace with your server URL
           );
           request.files.add(await http.MultipartFile.fromPath('audio', _recordFilePath));
 
