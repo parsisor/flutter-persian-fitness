@@ -7,6 +7,7 @@ import 'package:Zerang/sign_in/LoginPage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:Zerang/fitness_hub/fitness_hub.dart';
+import 'package:Zerang/fitness_hub/Hub.dart';
 
 class Login_ui extends StatefulWidget {
   const Login_ui({super.key});
@@ -51,7 +52,7 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
 
       Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => OnboardingScreen()),
+                  MaterialPageRoute(builder: (context) => ApplicationHub()),
                 );
       
     } on FirebaseAuthException catch (e) {

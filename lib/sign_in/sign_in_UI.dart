@@ -1,5 +1,6 @@
 import 'package:Zerang/Theme/consts.dart';
-import 'package:Zerang/Onboarding/onboarding_screen.dart';
+import 'package:Zerang/fitness_hub/Hub.dart';
+import 'package:Zerang/fitness_hub/fitness_hub.dart';
 import 'package:Zerang/sign_in/login_Ui.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -102,7 +103,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                 Navigator.of(context).pop();
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => OnboardingScreen()),
+                  MaterialPageRoute(builder: (context) => ApplicationHub()),
                 );
               },
             ),

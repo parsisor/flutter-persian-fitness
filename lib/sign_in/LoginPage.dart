@@ -1,3 +1,4 @@
+import 'package:Zerang/fitness_hub/Hub.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:Zerang/fitness_hub/fitness_hub.dart';
@@ -39,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
       );
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Fitness_Hub()),
+        MaterialPageRoute(builder: (context) => ApplicationHub()),
       );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'wrong-password') {

@@ -1,7 +1,7 @@
 import 'package:Zerang/Onboarding/onboarding_contents.dart';
 import 'package:Zerang/Onboarding/size_config.dart';
 import 'package:Zerang/Theme/consts.dart';
-import 'package:Zerang/fitness_hub/Hub.dart';
+import 'package:Zerang/sign_in/sign_in_Ui.dart';
 
 import 'package:flutter/material.dart';
 
@@ -82,7 +82,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           style: TextStyle(
                             fontFamily: "Mulish",
                             fontWeight: FontWeight.w600,
-                            fontSize: (width <= 650) ? 30 : 35,
+                            fontSize: (width <= 650) ? 25 : 35,
                           ),
                         ),
                         const SizedBox(height: 15),
@@ -91,7 +91,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           style: TextStyle(
                             fontFamily: "Mulish",
                             fontWeight: FontWeight.w300,
-                            fontSize: (width <= 550) ? 17 : 25,
+                            fontSize: (width <= 550) ? 16 : 25,
                           ),
                           textAlign: TextAlign.center,
                         )
@@ -123,10 +123,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => ApplicationHub()),
+                                    builder: (context) => SignIn()),
                               );
                             },
-                            child: const Text("START" , style: TextStyle(color: Colors.black),),
+                            child: const Text("شروع" , style: TextStyle(color: Colors.black),),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: sefid,
                               shape: RoundedRectangleBorder(
@@ -152,7 +152,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   _controller.jumpToPage(2);
                                 },
                                 child: const Text(
-                                  "SKIP",
+                                  "رد کردن",
                                   style: TextStyle(color: Colors.black),
                                 ),
                                 style: TextButton.styleFrom(
@@ -170,7 +170,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                     curve: Curves.easeIn,
                                   );
                                 },
-                                child: const Text("NEXT" ,style: TextStyle(color: Colors.black),),
+                                child: const Text("بعدی" ,style: TextStyle(color: Colors.black),),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(

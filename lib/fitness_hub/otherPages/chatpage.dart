@@ -12,6 +12,7 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
   final TextEditingController _chatController = TextEditingController();
+  final TextEditingController _urlController = TextEditingController(text: 'https://easy-crews-ring.loca.lt');
   final List<Map<String, String>> _messages = [
     {'name': 'ابی', 'text': 'چطور میتونم کمکتون کنم؟'}
   ];
@@ -19,6 +20,7 @@ class _ChatPageState extends State<ChatPage> {
   final Record _audioRecorder = Record();
   bool _isRecording = false;
   late String _recordFilePath;
+  String baseUrl = 'https://easy-crews-ring.loca.lt';
 
   void _scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -34,7 +36,7 @@ class _ChatPageState extends State<ChatPage> {
 
       try {
         var response = await http.post(
-          Uri.parse('https://heavy-wasps-visit.loca.lt/bodybuilding_plan'), // Replace with your server URL
+          Uri.parse('https://clean-bobcats-pump.loca.lt/bodybuilding_plan'), // Use dynamic base URL
           headers: {'Content-Type': 'application/json'},
           body: jsonEncode({'input_text': _chatController.text}),
         );
@@ -103,7 +105,7 @@ class _ChatPageState extends State<ChatPage> {
         try {
           var request = http.MultipartRequest(
             'POST',
-            Uri.parse('https://crazy-tools-rush.loca.lt/transcribe_audio'), // Replace with your server URL
+            Uri.parse('$baseUrl/transcribe_audio'), // Use dynamic base URL
           );
           request.files.add(await http.MultipartFile.fromPath('audio', _recordFilePath));
 
@@ -145,6 +147,23 @@ class _ChatPageState extends State<ChatPage> {
       ),
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: _urlController,
+              decoration: InputDecoration(
+                hintText: 'Enter base URL',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
+              onChanged: (value) {
+                setState(() {
+                  baseUrl = value;
+                });
+              },
+            ),
+          ),
           Expanded(
             child: ListView.builder(
               controller: _scrollController,

@@ -5,7 +5,7 @@ const Color avalie = Color(0xFF0B0B0B);
 const Color sanavie = Color(0xFFFF6913);
 const Color textSanavie = Color(0xFF434343);
 const Color sefid = Colors.white;
-const Color gray = Color(0xFF8C8C8C);
+const Color gray = Color.fromARGB(255, 226, 226, 226);
 const String calories = "۲۰۰";
 const double boxwidth = 2.0;
 const Color buttonColor = Color(0xFF4CC9F0); // Modified for consistency
@@ -17,19 +17,38 @@ const Color containerColor2 = Color(0xFF03F7FF);
 const Color containerColor3 = Color(0xFFFF6591);
 const Color containerColor4 = Color(0xFF9C5AFF);
 
+final ColorScheme lightColorScheme = ColorScheme.light(
+  brightness: Brightness.light,
+  primary: selectedButtonColor,
+  secondary: Colors.green,
+  error: Colors.red,
+  surface: Colors.white,
+  background: Colors.white,
+  onPrimary: Colors.white,
+  onSecondary: Colors.white,
+  onError: Colors.white,
+  onBackground: Colors.black,
+  onSurface: Colors.black,
+);
+
+final ColorScheme darkColorScheme = ColorScheme.dark(
+  brightness: Brightness.dark,
+  primary: selectedButtonColor,
+  secondary: Colors.lightGreen,
+  error: Colors.red,
+  surface: Colors.grey[800]!,
+  background: Colors.grey[900]!,
+  onPrimary: Colors.black,
+  onSecondary: Colors.black,
+  onError: Colors.white,
+  onBackground: Colors.white,
+  onSurface: Colors.white,
+);
+
 // Light theme
 final lightTheme = ThemeData(
   brightness: Brightness.light,
-  colorScheme: ColorScheme.light(
-    primary: Color.fromARGB(255, 52, 123, 254),
-    secondary: Color.fromARGB(255, 132, 101, 255),
-    error: Color(0xFFEC1B1B),
-    surface: Colors.white,
-    onPrimary: Colors.grey,
-    onSecondary: Colors.grey,
-    onError: Colors.red,
-    onSurface: Colors.black,
-  ),
+  colorScheme: lightColorScheme,
   fontFamily: 'IRANSansX',
   textTheme: const TextTheme(
     bodyLarge: TextStyle(fontFamily: 'IRANSansX', fontSize: 16.0),
@@ -43,17 +62,7 @@ final lightTheme = ThemeData(
 // Dark theme
 final darkTheme = ThemeData(
   brightness: Brightness.dark,
-  colorScheme: ColorScheme.dark(
-    primary: Color(0xFF397EFC),
-    secondary: Color(0xFF03F7FF),
-    error: Colors.red,
-    surface: Colors.black,
-    onPrimary: Colors.black,
-    onSecondary: Colors.black,
-    onError: Colors.red,
-    
-    onSurface: Colors.white,
-  ),
+  colorScheme: darkColorScheme,
   fontFamily: 'IRANSansX',
   textTheme: const TextTheme(
     bodyLarge: TextStyle(fontFamily: 'IRANSansX', fontSize: 16.0),
