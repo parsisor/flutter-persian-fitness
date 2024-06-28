@@ -48,7 +48,7 @@ class _LevelTestPageState extends State<LevelTestPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'آیا شما گی هستید؟',
+              'آیا شما سابقه ورزشی دارید؟',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
