@@ -27,6 +27,20 @@ dependencies:
   fl_chart: ^0.68.0
   record: ^4.0.0
   path_provider: ^2.1.3  
+  animate_do: ^2.0.0
+  smooth_page_indicator: ^1.1.0
+  nb_utils: ^6.1.0
+  dots_indicator: ^2.0.0
+  flutter_svg: 2.0.10+1
+  url_launcher: ^6.0.12
+  cached_network_image: ^3.1.0
+  flutter_staggered_grid_view: ^0.4.1
+  html: ^0.15.0
+  intl: 0.19.0
+  cupertino_icons: ^1.0.2
+  connectivity_plus_web: ^1.2.5
+  path_provider_windows: ^2.2.1
+  shared_preferences_windows: ^2.3.2
 
 
 dev_dependencies:
@@ -148,7 +162,8 @@ flutter:
     - assets/vectors/Onboarding/regime.png
     - assets/vectors/Onboarding/health.png  
     - assets/Icons/feelings_icons/1x/
-    - lib/fitness_hub/otherPages/components/Qoutes/data.json
+    - assets/workout/zerang pack
+    
 
 
   uses-material-design: true

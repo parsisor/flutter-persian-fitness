@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:record/record.dart';
+import 'package:record/record.dart'; // Assuming this is the correct import for the record package
 import 'package:path_provider/path_provider.dart';
 
 class ChatPage extends StatefulWidget {
@@ -17,13 +17,20 @@ class _ChatPageState extends State<ChatPage> {
     {'name': 'ابی', 'text': 'چطور میتونم کمکتون کنم؟'}
   ];
   final ScrollController _scrollController = ScrollController();
-  final Record _audioRecorder = Record();
+  late AudioRecorder _audioRecorder; // Assuming AudioRecorder is the concrete class
+
   bool _isRecording = false;
   late String _recordFilePath;
   String baseUrl = 'https://easy-crews-ring.loca.lt';
 
+  @override
+  void initState() {
+    super.initState();
+    _audioRecorder = AudioRecorder(); // Initialize AudioRecorder
+  }
+
   void _scrollToBottom() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
     });
   }
@@ -75,19 +82,19 @@ class _ChatPageState extends State<ChatPage> {
       await _startRecording();
     }
   }
-
-  Future<void> _startRecording() async {
-    if (await _audioRecorder.hasPermission()) {
-      final directory = await getApplicationDocumentsDirectory();
-      _recordFilePath = '${directory.path}/audio.wav';
-      await _audioRecorder.start(path: _recordFilePath);
-      setState(() {
-        _isRecording = true;
-      });
-    } else {
-      print('No recording permissions');
-    }
+Future<void> _startRecording() async {
+  if (await _audioRecorder.hasPermission()) {
+    final directory = await getApplicationDocumentsDirectory();
+    _recordFilePath = '${directory.path}/audio.wav';
+    await _audioRecorder.start(path: _recordFilePath); // Provide the path argument here
+    setState(() {
+      _isRecording = true;
+    });
+  } else {
+    print('No recording permissions');
   }
+}
+
 
   Future<void> _stopRecordingAndSend() async {
     await _audioRecorder.stop();
