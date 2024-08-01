@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:Zerang/Theme/consts.dart';
-import 'package:Zerang/fitness_hub/otherPages/Workout/Data/workout_detail_page.dart';
-import 'package:Zerang/fitness_hub/otherPages/Workout/Data/workout_storage.dart';
-import 'package:Zerang/fitness_hub/otherPages/Workout/Data/workout_class.dart'; 
+import 'package:zerang/fitness_hub/otherPages/Workout/Data/workout_detail_page.dart';
+import 'package:zerang/fitness_hub/otherPages/Workout/Data/workout_storage.dart';
 
 class WorkoutPage extends StatefulWidget {
   final String id;
 
-  const WorkoutPage({Key? key, required this.id}) : super(key: key);
+  const WorkoutPage({super.key, required this.id});
 
   @override
   State<WorkoutPage> createState() => _WorkoutPageState();
@@ -61,29 +59,29 @@ class _WorkoutPageState extends State<WorkoutPage> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('ورزش‌ها'),
+          title: const Text('ورزش‌ها'),
           centerTitle: true,
           actions: [
             PopupMenuButton<String>(
-              icon: Icon(Icons.filter_list),
+              icon: const Icon(Icons.filter_list),
               onSelected: (String level) {
                 filterWorkouts(level: level);
               },
               itemBuilder: (BuildContext context) {
                 return [
-                  PopupMenuItem<String>(
+                  const PopupMenuItem<String>(
                     value: 'all',
                     child: Text('همه ورزش‌ها'),
                   ),
-                  PopupMenuItem<String>(
+                  const PopupMenuItem<String>(
                     value: 'آسان/easy',
                     child: Text('آسان'),
                   ),
-                  PopupMenuItem<String>(
+                  const PopupMenuItem<String>(
                     value: 'متوسط/Medium',
                     child: Text('متوسط'),
                   ),
-                  PopupMenuItem<String>(
+                  const PopupMenuItem<String>(
                     value: 'سخت/hard',
                     child: Text('سخت'),
                   ),
@@ -93,7 +91,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
           ],
         ),
         body: filteredWorkouts.isEmpty
-            ? Center(child: Text('هیچ ورزشی برای نمایش وجود ندارد'))
+            ? const Center(child: Text('هیچ ورزشی برای نمایش وجود ندارد'))
             : ListView.builder(
                 itemCount: filteredWorkouts.length,
                 itemBuilder: (context, index) {
@@ -105,7 +103,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                         
                       },
                       child: AnimatedContainer(
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         curve: Curves.easeInOut,
                         height: 100,
                         child: Card(

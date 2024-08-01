@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:Zerang/Theme/theme_provider.dart';
+import 'package:zerang/Theme/theme_provider.dart';
 import '../Theme/consts.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -10,19 +10,19 @@ class SettingsPage extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('تنظیمات', style: TextStyle(color: sefid)),
+          title: const Text('تنظیمات', style: TextStyle(color: sefid)),
           backgroundColor: avalie,
-          iconTheme: IconThemeData(color: sefid),
+          iconTheme: const IconThemeData(color: sefid),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: ListView(
             children: [
-              Divider(),
+              const Divider(),
               Consumer<ThemeProvider>(
                 builder: (context, themeProvider, child) {
                   return ListTile(
-                    title: Text('تغییر تم'),
+                    title: const Text('تغییر تم'),
                     trailing: Switch(
                       value: themeProvider.themeData.brightness == Brightness.dark,
                       onChanged: (value) {
@@ -39,7 +39,7 @@ class SettingsPage extends StatelessWidget {
                   );
                 },
               ),
-              Divider(),
+              const Divider(),
             ],
           ),
         ),

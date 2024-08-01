@@ -1,11 +1,13 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:Zerang/calculator/MBI_Displaypage.dart';
-import 'package:Zerang/calculator/loading.dart';
-import 'package:Zerang/Theme/consts.dart';
+import 'package:zerang/calculator/bmi_Displaypage.dart';
+import 'package:zerang/calculator/loading.dart';
+import 'package:zerang/Theme/consts.dart';
 
 class BMIHomePage extends StatefulWidget {
+  const BMIHomePage({super.key});
+
   @override
   _BMIHomePageState createState() => _BMIHomePageState();
 }
@@ -65,7 +67,7 @@ class _BMIHomePageState extends State<BMIHomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'محاسبه گر شاخص توده ی بدنی',
           textDirection: TextDirection.rtl,
         ),
@@ -74,7 +76,7 @@ class _BMIHomePageState extends State<BMIHomePage>
       body: Directionality(
         textDirection: TextDirection.rtl,
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Form(
               key: _formKey,
@@ -86,11 +88,11 @@ class _BMIHomePageState extends State<BMIHomePage>
                       borderRadius: BorderRadius.circular(8.0),
                       color: Colors.blueAccent.withOpacity(0.1),
                     ),
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
                         ListTile(
-                          title: Text('آقا', style: TextStyle(fontSize: 20)),
+                          title: const Text('آقا', style: TextStyle(fontSize: 20)),
                           leading: Radio<String>(
                             value: 'آقا',
                             groupValue: gender,
@@ -100,10 +102,10 @@ class _BMIHomePageState extends State<BMIHomePage>
                               });
                             },
                           ),
-                          trailing: FaIcon(FontAwesomeIcons.mars),
+                          trailing: const FaIcon(FontAwesomeIcons.mars),
                         ),
                         ListTile(
-                          title: Text('خانم', style: TextStyle(fontSize: 20)),
+                          title: const Text('خانم', style: TextStyle(fontSize: 20)),
                           leading: Radio<String>(
                             value: 'خانم',
                             groupValue: gender,
@@ -113,16 +115,16 @@ class _BMIHomePageState extends State<BMIHomePage>
                               });
                             },
                           ),
-                          trailing: FaIcon(FontAwesomeIcons.venus),
+                          trailing: const FaIcon(FontAwesomeIcons.venus),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Container(
-                    padding: EdgeInsets.only(bottom: 8.0),
+                    padding: const EdgeInsets.only(bottom: 8.0),
                     child: TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           labelText: 'سن',
                           border: OutlineInputBorder(),
                           errorMaxLines: 2,
@@ -146,15 +148,15 @@ class _BMIHomePageState extends State<BMIHomePage>
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(bottom: 8.0),
+                    padding: const EdgeInsets.only(bottom: 8.0),
                     child: TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           labelText: 'قد (cm)',
                           border: OutlineInputBorder(),
                           errorMaxLines: 2,
                           prefixIcon: Icon(Icons.height)),
                       keyboardType:
-                          TextInputType.numberWithOptions(decimal: true),
+                          const TextInputType.numberWithOptions(decimal: true),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'لطفا قد را وارد کنید';
@@ -175,15 +177,15 @@ class _BMIHomePageState extends State<BMIHomePage>
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(bottom: 8.0),
+                    padding: const EdgeInsets.only(bottom: 8.0),
                     child: TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           labelText: 'وزن (کیلوگرم)',
                           border: OutlineInputBorder(),
                           errorMaxLines: 2,
                           prefixIcon: Icon(Icons.fitness_center)),
                       keyboardType:
-                          TextInputType.numberWithOptions(decimal: true),
+                          const TextInputType.numberWithOptions(decimal: true),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'لطفا وزن را وارد کنید';
@@ -203,13 +205,13 @@ class _BMIHomePageState extends State<BMIHomePage>
                       },
                     ),
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   Center(
                     child: GestureDetector(
                       onTap: () {
                         if (_formKey.currentState?.validate() == true) {
                           _controller.forward().then((_) {
-                            Future.delayed(Duration(milliseconds: 1200), () {
+                            Future.delayed(const Duration(milliseconds: 1200), () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (context) => LoadingPage(),
@@ -247,7 +249,7 @@ class _BMIHomePageState extends State<BMIHomePage>
                               children: [
                                 Opacity(
                                   opacity: _textOpacityAnimation.value,
-                                  child: Text(
+                                  child: const Text(
                                     'نمایش شاخص توده ی بدنی',
                                     style: TextStyle(
                                         fontSize: 18.0, color: Colors.white),
@@ -255,7 +257,7 @@ class _BMIHomePageState extends State<BMIHomePage>
                                 ),
                                 Opacity(
                                   opacity: _imageOpacityAnimation.value,
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.check,
                                     color: Colors.white,
                                     size: 40.0,
@@ -268,7 +270,7 @@ class _BMIHomePageState extends State<BMIHomePage>
                       ),
                     ),
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                 ],
               ),
             ),
@@ -287,7 +289,7 @@ class _BMIHomePageState extends State<BMIHomePage>
       });
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Center(child: Text('لطفا اطلاعات را بدرستی وارد کنید')),
         ),
       );

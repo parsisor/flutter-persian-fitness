@@ -1,5 +1,6 @@
-import 'package:Zerang/Theme/consts.dart';
+
 import 'package:flutter/material.dart';
+import 'package:zerang/theme/consts.dart';
 
 class ThemeProvider extends ChangeNotifier {
   ThemeData _themeData;

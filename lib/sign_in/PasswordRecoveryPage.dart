@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:lottie/lottie.dart';
 
 class PasswordRecoveryPage extends StatefulWidget {
+  const PasswordRecoveryPage({super.key});
+
   @override
   _PasswordRecoveryPageState createState() => _PasswordRecoveryPageState();
 }
@@ -15,12 +17,12 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("توجه"),
+          title: const Text("توجه"),
           
           content: Text(message),
           actions: [
             TextButton(
-              child: Text('باشه'),
+              child: const Text('باشه'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -56,7 +58,7 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
         appBar: AppBar(
           
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.of(context).pop();
             },
@@ -70,17 +72,17 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
+                    SizedBox(
                       height: 150,
                       child: Lottie.asset(
                         'assets/gifs/lotties/Password.json',
                         fit: BoxFit.contain,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    const Text(
                       "بازیابی رمز عبور",
                       style: TextStyle(
                         fontSize: 40,
@@ -89,7 +91,7 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     _buildTextField(
@@ -98,17 +100,17 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
                       icon: Icons.email,
                       keyboardType: TextInputType.emailAddress,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     ElevatedButton(
                       onPressed: _resetPassword,
-                      child: Text(
-                        "ارسال ایمیل بازیابی",
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blueAccent,
+                      ),
+                      child: const Text(
+                        "ارسال ایمیل بازیابی",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ),
                   ],
@@ -133,10 +135,10 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
       keyboardType: keyboardType,
       obscureText: obscureText,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.only(right: 24.0),
+        contentPadding: const EdgeInsets.only(right: 24.0),
         labelText: label,
         prefixIcon: Icon(icon),
-        prefixIconConstraints: BoxConstraints(minWidth: 80, minHeight: 0),
+        prefixIconConstraints: const BoxConstraints(minWidth: 80, minHeight: 0),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),

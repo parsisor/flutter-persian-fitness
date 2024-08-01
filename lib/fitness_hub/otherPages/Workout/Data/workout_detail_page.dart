@@ -1,12 +1,11 @@
-import 'package:Zerang/Theme/consts.dart';
-import 'package:Zerang/fitness_hub/otherPages/Workout/Data/workout_class.dart';
-import 'package:Zerang/fitness_hub/otherPages/Workout/Data/workout_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:zerang/theme/consts.dart';
+import 'package:zerang/fitness_hub/otherPages/Workout/Data/workout_storage.dart';
 
 class WorkoutDetailPage extends StatelessWidget {
   final WorkoutBase workout;
 
-  WorkoutDetailPage({required this.workout});
+  const WorkoutDetailPage({super.key, required this.workout});
 
   @override
   Widget build(BuildContext context) {
@@ -18,62 +17,62 @@ class WorkoutDetailPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(workout.name),
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.asset(
-                  workout.wGif,
-                  width: double.infinity,
-                  height: 200,
-                  fit: BoxFit.cover,
-                ),
-                SizedBox(height: 16),
-                Center(
-                  child: Text(
-                    workout.name,
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                SizedBox(height: 16),
-                Container(
-                  decoration: BoxDecoration(
-                    color: isDarkMode ? Colors.grey[800] : Colors.blueAccent,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: DataTable(
+        body: ListView(
+          padding: const EdgeInsets.all(16.0),
+          children: [
+            Image.asset(
+              workout.wGif,
+              width: double.infinity,
+              height: 300,
+              fit: BoxFit.contain,
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: Text(
+                workout.name,
+                style: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Container(
+              decoration: BoxDecoration(
+                color: isDarkMode ? Colors.grey[800] :  Colors.grey[300]!,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                children: [
+                  DataTable(
                     columnSpacing: 20,
-                    columns: [
+                    columns: const [
                       DataColumn(
                         label: Text(
                           'مشخصه',
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.white),
+                              fontWeight: FontWeight.bold, color: buttonColor),
                         ),
                       ),
                       DataColumn(
                         label: Text(
                           'مقدار',
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.white),
+                              fontWeight: FontWeight.bold, color: selectedButtonColor),
                         ),
                       ),
                     ],
                     rows: [
                       DataRow(
                         cells: [
-                          DataCell(Text('سطح حرکت')),
+                          const DataCell(Text('سطح حرکت')),
                           DataCell(Text(workout.wlevel)),
                         ],
                       ),
                       DataRow(
                         cells: [
-                          DataCell(Text('عضلات درگیر')),
+                          const DataCell(Text('عضلات درگیر')),
                           DataCell(
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            Wrap(
+                              crossAxisAlignment: WrapCrossAlignment.center,
                               children: workout.targetMuscle.map((target) {
                                 return Padding(
                                   padding: const EdgeInsets.only(left: 10),
@@ -86,32 +85,34 @@ class WorkoutDetailPage extends StatelessWidget {
                       ),
                       DataRow(
                         cells: [
-                          DataCell(Text('نوع تمرین')),
+                          const DataCell(Text('نوع تمرین')),
                           DataCell(Text(workout.wType)),
                         ],
                       ),
                       DataRow(
                         cells: [
-                          DataCell(Text('وسایل مورد نیاز')),
+                          const DataCell(Text('وسایل مورد نیاز')),
                           DataCell(Text(workout.wneeds)),
                         ],
                       ),
                     ],
                   ),
-                ),
-                SizedBox(height: 16),
-                Text(
-                  'مراحل:',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
-                ...workout.steps.map((step) => Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: Text(
-                          '${step.description} (مدت زمان: ${step.duration} ثانیه)'),
-                    )),
-              ],
+                ],
+              ),
             ),
-          ),
+            const SizedBox(height: 16),
+            const Text(
+              'مراحل:',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            ...workout.steps.map((step) => Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Text(
+                '${step.description} (مدت زمان: ${step.duration} ثانیه)',
+                textAlign: TextAlign.justify, // به خط بعدی برود
+              ),
+            )),
+          ],
         ),
       ),
     );

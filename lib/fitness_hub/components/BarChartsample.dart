@@ -1,3 +1,4 @@
+
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -211,18 +212,14 @@ class BarChartSample3State extends State<BarChartSample3> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Weekly Activity"),
+        title: const Text("فعالیت هفتگی"),
       ),
-      body: Column(
+      body: const Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: const Text(
-              "Activity levels for the week",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
+            padding: EdgeInsets.all(16.0),
           ),
-          const AspectRatio(
+          AspectRatio(
             aspectRatio: 1.6,
             child: _BarChart(),
           ),

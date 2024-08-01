@@ -1,13 +1,9 @@
-import 'package:Zerang/sign_in/PasswordRecoveryPage.dart';
-import 'package:Zerang/Onboarding/onboarding_screen.dart';
+import 'package:zerang/sign_in/passwordRecoveryPage.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:Zerang/Theme/consts.dart';
-import 'package:Zerang/sign_in/LoginPage.dart';
-import 'package:flutter/material.dart';
+import 'package:zerang/theme/consts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:Zerang/fitness_hub/fitness_hub.dart';
-import 'package:Zerang/fitness_hub/Hub.dart';
+import 'package:zerang/fitness_hub/Hub.dart';
 
 class Login_ui extends StatefulWidget {
   const Login_ui({super.key});
@@ -34,7 +30,7 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
     final String password = _passwordController.text.trim();
 
     if (email.isEmpty || password.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('لطفاً همه فیلدها را پر کنید'),
       ));
       return;
@@ -46,13 +42,13 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
         password: password,
       );
 
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('ورود با موفقیت انجام شد'),
       ));
 
       Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => ApplicationHub()),
+                  MaterialPageRoute(builder: (context) => const ApplicationHub()),
                 );
       
     } on FirebaseAuthException catch (e) {
@@ -68,7 +64,7 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
         content: Text(message),
       ));
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('خطایی رخ داد. دوباره تلاش کنید'),
       ));
     }
@@ -81,7 +77,7 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.of(context).pop();
             },
@@ -102,10 +98,10 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
                         fit: BoxFit.contain,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    const Text(
                       "ورود",
                       style: TextStyle(
                         fontSize: 40,
@@ -114,7 +110,7 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
                       ),
                       textAlign: TextAlign.right,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     _buildTextField(
@@ -123,7 +119,7 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
                       icon: Icons.email,
                       keyboardType: TextInputType.emailAddress,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     _buildTextField(
@@ -132,20 +128,20 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
                       icon: Icons.lock,
                       obscureText: true,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     ElevatedButton(
                       onPressed: _login,
-                      child: Text(
-                        "ورود",
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blueAccent,
                       ),
+                      child: const Text(
+                        "ورود",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     MouseRegion(
@@ -164,7 +160,7 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
                           Navigator.push(
                             context,
                             PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => PasswordRecoveryPage(),
+                              pageBuilder: (context, animation, secondaryAnimation) => const PasswordRecoveryPage(),
                               transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                 const begin = Offset(1.0, 0.0);
                                 const end = Offset.zero;
@@ -186,9 +182,9 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
                             fontSize: 16,
                             decoration: TextDecoration.underline,
                           ),
-                          duration: Duration(milliseconds: 200),
+                          duration: const Duration(milliseconds: 200),
                           curve: Curves.easeInOut,
-                          child: Text(
+                          child: const Text(
                             "رمز خود را فراموش کردم",
                           ),
                         ),
@@ -216,10 +212,10 @@ class _SignInState extends State<Login_ui> with SingleTickerProviderStateMixin {
       keyboardType: keyboardType,
       obscureText: obscureText,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.only(right: 24.0),
+        contentPadding: const EdgeInsets.only(right: 24.0),
         labelText: label,
         prefixIcon: Icon(icon),
-        prefixIconConstraints: BoxConstraints(minWidth: 80, minHeight: 0),
+        prefixIconConstraints: const BoxConstraints(minWidth: 80, minHeight: 0),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),

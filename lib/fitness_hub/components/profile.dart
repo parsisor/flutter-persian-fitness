@@ -1,229 +1,461 @@
 import 'package:flutter/material.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
+  const Profile({super.key});
+
+  @override
+  _ProfileState createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  String _aboutMe =
+      'المپیادی | امیرحسین اسلامی هستم | متولد 1387 | طراح و ادیتور | کدنویس';
+  int _weight = 68;
+  int _height = 175;
+  int _intelligence = 100;
+  List<String> _interests = ['تقویت عضلات', 'دویدن', 'دانستنی', 'تغذیه صحیح' , 'هنر'];
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: MediaQuery.of(context).size.height * .5,
-                child: Stack(
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: SafeArea(
+        child: Scaffold(
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Stack(
+                  alignment: Alignment.bottomCenter,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 40.0),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.4,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/photos/Profile2.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                       child: Container(
-                        height: MediaQuery.of(context).size.height,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.elliptical(
-                                MediaQuery.of(context).size.width * 0.5, 100.0),
-                            bottomRight: Radius.elliptical(
-                                MediaQuery.of(context).size.width * 0.5, 100.0),
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Colors.transparent,
+                              Colors.black.withOpacity(0.7),
+                            ],
                           ),
-                          image: const DecorationImage(
-                            fit: BoxFit.cover,
-                            image: NetworkImage(
-                                'https://i.pinimg.com/564x/1e/7f/85/1e7f85e354e1a11b4a439ac9d9f7e283.jpg'),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  IconButton(
+                                    icon: const Icon(Icons.arrow_back),
+                                    color: Colors.white,
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  const Text(
+                                    'امیرحسین',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  IconButton(
+                                    icon: const Icon(Icons.edit),
+                                    color: Colors.white,
+                                    onPressed: () async {
+                                      final result =
+                                          await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              EditProfilePage(
+                                            aboutMe: _aboutMe,
+                                            weight: _weight,
+                                            height: _height,
+                                            intelligence: _intelligence,
+                                            interests: List.from(_interests),
+                                          ),
+                                        ),
+                                      );
+                                      if (result != null &&
+                                          result is Map<String, dynamic>) {
+                                        setState(() {
+                                          _aboutMe = result['aboutMe'];
+                                          _weight = result['weight'];
+                                          _height = result['height'];
+                                          _intelligence =
+                                              result['intelligence'];
+                                          _interests =
+                                              List.from(result['interests']);
+                                        });
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          const SnackBar(
+                                            content: Text(
+                                                'تغییرات با موفقیت ذخیره شدند'),
+                                          ),
+                                        );
+                                      }
+                                    },
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 10),
+                              const Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.center,
+                                children: [
+                                  CircleAvatar(
+                                    radius: 60,
+                                    backgroundColor: Colors.white,
+                                    backgroundImage: AssetImage(
+                                        'assets/photos/Profile1.jpg'),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Stack(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10, top: 10),
-                            child: Icon(
-                              Icons.close,
-                              color: Color(0xffC3C3C3),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10, top: 10),
-                            child: Align(
-                              alignment: Alignment.topCenter,
-                              child: Text(
-                                'Cora Richardson',
-                                style: TextStyle(
-                                  color: Color(0xffBDBDBD),
-                                  fontSize: 25,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'درباره من',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Row(
+                      const SizedBox(height: 8),
+                      Text(
+                        _aboutMe, 
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      const SizedBox(height: 16),
+                      const Text(
+                        'علایق',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Wrap(
+                        spacing: 8,
+                        children: _interests
+                            .map(
+                              (interest) => Chip(
+                                label: Text(interest),
+                                deleteIcon: const Icon(Icons.cancel),
+                                onDeleted: () {
+                                  setState(() {
+                                    _interests.remove(interest);
+                                  });
+                                },
+                              ),
+                            )
+                            .toList(),
+                      ),
+                      const SizedBox(height: 16),
+                      const Divider(),
+                      const SizedBox(height: 16),
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Color(0xffD8D8D8),
-                            child: Icon(
-                              Icons.chat,
-                              size: 30,
-                              color: Color(0xff6E6E6E),
-                            ),
+                          Column(
+                            children: [
+                              const Text(
+                                'وزن',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                '$_weight kg', 
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
                           ),
-                          CircleAvatar(
-                            radius: 70,
-                            backgroundImage: NetworkImage(
-                                'https://i.pinimg.com/564x/1e/7f/85/1e7f85e354e1a11b4a439ac9d9f7e283.jpg'),
+                          const VerticalDivider(),
+                          Column(
+                            children: [
+                              const Text(
+                                'قد',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                '$_height cm', 
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
                           ),
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Color(0xffD8D8D8),
-                            child: Icon(
-                              Icons.call,
-                              size: 30,
-                              color: Color(0xff6E6E6E),
-                            ),
+                          const VerticalDivider(),
+                          Column(
+                            children: [
+                              const Text(
+                                'بهره‌وری هوشی',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                '$_intelligence', 
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class EditProfilePage extends StatefulWidget {
+  final String aboutMe;
+  final int weight;
+  final int height;
+  final int intelligence;
+  final List<String> interests;
+
+  const EditProfilePage({
+    super.key,
+    required this.aboutMe,
+    required this.weight,
+    required this.height,
+    required this.intelligence,
+    required this.interests,
+  });
+
+  @override
+  _EditProfilePageState createState() => _EditProfilePageState();
+}
+
+class _EditProfilePageState extends State<EditProfilePage> {
+  late TextEditingController _aboutMeController;
+  late TextEditingController _weightController;
+  late TextEditingController _heightController;
+  late TextEditingController _intelligenceController;
+  List<String> _interests = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _aboutMeController = TextEditingController(text: widget.aboutMe);
+    _weightController = TextEditingController(text: widget.weight.toString());
+    _heightController = TextEditingController(text: widget.height.toString());
+    _intelligenceController =
+        TextEditingController(text: widget.intelligence.toString());
+    _interests = List.from(widget.interests);
+  }
+
+  @override
+  void dispose() {
+    _aboutMeController.dispose();
+    _weightController.dispose();
+    _heightController.dispose();
+    _intelligenceController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('ویرایش پروفایل'),
+        ),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              TextFormField(
+                controller: _aboutMeController,
+                maxLength: 400, 
+                decoration: const InputDecoration(
+                  labelText: 'درباره من',
+                  border: OutlineInputBorder(),
+                ),
+                minLines: 3,
+                maxLines: 5,
+              ),
+              const SizedBox(height: 16),
+              TextFormField(
+                controller: _weightController,
+                keyboardType: TextInputType.number, 
+                decoration: const InputDecoration(
+                  labelText: 'وزن',
+                  border: OutlineInputBorder(),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
-                child: Text(
-                  'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters',
-                  style: TextStyle(fontSize: 15),
+              const SizedBox(height: 16),
+              TextFormField(
+                controller: _heightController,
+                keyboardType: TextInputType.number, 
+                decoration: const InputDecoration(
+                  labelText: 'قد',
+                  border: OutlineInputBorder(),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(
-                    'Hacker',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    '|',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    'Dev',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    '|',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    'Android',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    '|',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    'Travel',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                color: Color(0xffF8F8F8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 16.0),
-                      child: Column(
-                        children: [
-                          Text('Article'),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            '20',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 50,
-                      width: 1,
-                      color: Colors.black,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 16.0),
-                      child: Column(
-                        children: [
-                          Text('Followers'),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            '200',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 50,
-                      width: 1,
-                      color: Colors.black,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 16.0),
-                      child: Column(
-                        children: [
-                          Text('Following'),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            '80',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+              const SizedBox(height: 16),
+              TextFormField(
+                controller: _intelligenceController,
+                keyboardType: TextInputType.number, 
+                decoration: const InputDecoration(
+                  labelText: 'بهره‌وری هوشی',
+                  border: OutlineInputBorder(),
                 ),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'علایق',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                children: _interests
+                    .map(
+                      (interest) => ChoiceChip(
+                        label: Text(interest),
+                        selected: true,
+                        onSelected: (_) {}, 
+                      ),
+                    )
+                    .toList()
+                  ..add(
+                    ChoiceChip(
+                      label: const Icon(Icons.add),
+                      selected: false,
+                      onSelected: (_) {
+                        _showAddInterestDialog(context);
+                      },
+                    ),
+                  ),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  
+                  _saveChanges(context);
+                },
+                child: const Text('ذخیره تغییرات'),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _showAddInterestDialog(BuildContext context) {
+    String newInterest = '';
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('افزودن علایق جدید'),
+          content: TextField(
+            onChanged: (value) {
+              newInterest = value;
+            },
+            decoration: const InputDecoration(
+              labelText: 'علاقه‌مندی جدید',
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('لغو'),
+            ),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  if (newInterest.isNotEmpty) {
+                    _interests.add(newInterest);
+                  }
+                });
+                Navigator.of(context).pop();
+              },
+              child: const Text('افزودن'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _saveChanges(BuildContext context) {
+    
+    String updatedAboutMe = _aboutMeController.text;
+    int updatedWeight = int.tryParse(_weightController.text) ?? 0;
+    int updatedHeight = int.tryParse(_heightController.text) ?? 0;
+    int updatedIntelligence =
+        int.tryParse(_intelligenceController.text) ?? 0;
+
+    
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Center(child: Text('تغییرات با موفقیت ذخیره شدند'))),
+    );
+
+    
+    Navigator.pop(context, {
+      'aboutMe': updatedAboutMe,
+      'weight': updatedWeight,
+      'height': updatedHeight,
+      'intelligence': updatedIntelligence,
+      'interests': _interests,
+    });
   }
 }

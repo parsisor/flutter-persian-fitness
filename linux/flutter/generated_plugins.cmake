@@ -3,13 +3,8 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  flutter_localization
-<<<<<<< Updated upstream
   record_linux
-=======
-  nb_utils
   url_launcher_linux
->>>>>>> Stashed changes
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

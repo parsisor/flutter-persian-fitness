@@ -1,7 +1,6 @@
-import 'package:Zerang/fitness_hub/Hub.dart';
+import 'package:zerang/fitness_hub/Hub.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:Zerang/fitness_hub/fitness_hub.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -17,11 +16,11 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('خطا'),
+          title: const Text('خطا'),
           content: Text(message),
           actions: [
             TextButton(
-              child: Text('باشه'),
+              child: const Text('باشه'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -40,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
       );
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ApplicationHub()),
+        MaterialPageRoute(builder: (context) => const ApplicationHub()),
       );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'wrong-password') {
@@ -61,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Colors.blueAccent, Colors.lightBlueAccent],
             begin: Alignment.topLeft,
@@ -77,8 +76,8 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    SizedBox(height: 40),
-                    Center(
+                    const SizedBox(height: 40),
+                    const Center(
                       child: Text(
                         'ورود',
                         style: TextStyle(
@@ -89,27 +88,27 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 40),
+                    const SizedBox(height: 40),
                     _buildTextField(
                       controller: _emailController,
                       label: 'پست الکترونیک خود را وارد کنید',
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     _buildTextField(
                       controller: _passController,
                       label: 'گذرواژه خود را وارد کنید',
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     ElevatedButton(
                       onPressed: _signIn,
-                      child: Text('ورود', style: TextStyle( color: Colors.white)),
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 16.0),
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
                         backgroundColor: Colors.deepPurple,
                       ),
+                      child: const Text('ورود', style: TextStyle( color: Colors.white)),
                     ),
                   ],
                 ),
@@ -129,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
       controller: controller,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: TextStyle(color: Colors.white),
+        labelStyle: const TextStyle(color: Colors.white),
         filled: true,
         fillColor: Colors.white.withOpacity(0.3),
         border: OutlineInputBorder(
@@ -137,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
           borderSide: BorderSide.none,
         ),
       ),
-      style: TextStyle(color: Colors.white),
+      style: const TextStyle(color: Colors.white),
       textAlign: TextAlign.right,
     );
   }

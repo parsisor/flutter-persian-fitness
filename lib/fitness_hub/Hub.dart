@@ -1,17 +1,18 @@
-import 'package:Zerang/Theme/consts.dart';
-import 'package:Zerang/fitness_hub/components/profile.dart';
-import 'package:Zerang/fitness_hub/otherPages/Brain/brainWorkout.dart';
-import 'package:Zerang/fitness_hub/components/BarChartsample.dart';
-import 'package:Zerang/fitness_hub/components/Qoutes/quotes.dart';
-import 'package:Zerang/fitness_hub/otherPages/Settings/settings.dart';
-import 'package:Zerang/fitness_hub/otherPages/Tools/Tools.dart';
-import 'package:Zerang/fitness_hub/otherPages/Workout/workout.dart';
-import 'package:Zerang/fitness_hub/components/streak_bar/streak_bar.dart';
-import 'package:Zerang/sign_in/sign_in_UI.dart';
-import 'package:Zerang/sign_in/sign_in_page.dart';
+
+import 'package:zerang/fitness_hub/components/profile2.dart';
 import 'package:flutter/material.dart';
 
+import 'package:zerang/fitness_hub/components/streak_bar/streak_bar.dart';
+import 'package:zerang/fitness_hub/components/BarChartsample.dart';
+import 'package:zerang/fitness_hub/components/Qoutes/quotes.dart';
+import 'package:zerang/fitness_hub/otherPages/Settings/settings.dart';
+import 'package:zerang/fitness_hub/otherPages/Tools/Tools.dart';
+import 'package:zerang/fitness_hub/otherPages/Workout/workout.dart';
+import 'package:zerang/fitness_hub/otherPages/Brain/brainWorkout.dart';
+
 class ApplicationHub extends StatefulWidget {
+  const ApplicationHub({super.key});
+
   @override
   _ApplicationHubState createState() => _ApplicationHubState();
 }
@@ -19,12 +20,12 @@ class ApplicationHub extends StatefulWidget {
 class _ApplicationHubState extends State<ApplicationHub> {
   int _selectedIndex = 0;
 
-  static List<Widget> _widgetOptions = <Widget>[
-    HomePage(),
-    WorkoutsSection(),
+  static final List<Widget> _widgetOptions = <Widget>[
+    const HomePage(),
+    const WorkoutsSection(),
     BrainWorkout(),
-    ToolsPage(),
-    SettingsPage(),
+    const ToolsPage(),
+    const SettingsPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -70,6 +71,8 @@ class _ApplicationHubState extends State<ApplicationHub> {
 }
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -79,6 +82,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -89,7 +93,7 @@ class _HomePageState extends State<HomePage> {
           },
         ),
         title: Text(
-          'Zerang',
+          'zerang',
           style: TextStyle(
             fontSize: 28.0,
             color: Theme.of(context).colorScheme.onSurface,
@@ -97,32 +101,8 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         centerTitle: true,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Profile()),
-                );
-              },
-              child: Container(
-                padding: const EdgeInsets.all(2.0),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Theme.of(context).primaryColor,
-                    width: 2,
-                  ),
-                  shape: BoxShape.circle,
-                ),
-                child: CircleAvatar(
-                  radius: 20.0,
-                  backgroundImage: AssetImage("assets/Icons/feelings_icons/1x/Asset 2.png"),
-                ),
-              ),
-            ),
-          ),
+        actions: const [
+          ProfileButton(),
         ],
       ),
       body: SingleChildScrollView(
@@ -142,12 +122,13 @@ class _HomePageState extends State<HomePage> {
                 }
               },
               child: AnimatedContainer(
-                duration: Duration(milliseconds: 500),
-                height: _isExpanded ? 250 : 102,
+                duration: const Duration(milliseconds: 500),
+                height: _isExpanded ? 400 : 102,
                 width: double.infinity,
                 padding: const EdgeInsets.all(16.0),
+                
                 child: AnimatedSwitcher(
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   switchInCurve: Curves.easeIn,
                   switchOutCurve: Curves.easeOut,
                   transitionBuilder: (child, animation) {
@@ -160,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                       ? Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           key: UniqueKey(),
-                          children: [
+                          children: const [
                             Expanded(
                               child: BarChartSample3(),
                             ),
@@ -169,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                       : Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           key: UniqueKey(),
-                          children: [
+                          children: const [
                             StreakBarRow(),
                           ],
                         ),
@@ -179,21 +160,20 @@ class _HomePageState extends State<HomePage> {
             QuoteSection(),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'چالش‌ها',
-                    textDirection: TextDirection.rtl,
-                    style: TextStyle(
-                      fontSize: 26.0,
-                      fontWeight: FontWeight.w700,
-                    ),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  'چالش‌ها',
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontSize: 26.0,
+                    fontWeight: FontWeight.w700,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
-                ],
+                ),
               ),
             ),
-            ChallengesSection(),
+            const ChallengesSection(),
           ],
         ),
       ),
@@ -202,8 +182,12 @@ class _HomePageState extends State<HomePage> {
 }
 
 class ChallengesSection extends StatelessWidget {
+  const ChallengesSection({super.key});
+
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
@@ -212,24 +196,28 @@ class ChallengesSection extends StatelessWidget {
             title: 'چالش تمرینات ورزشی 30 روزه',
             subtitle: 'تکمیل وظایف ورزشی مختلف هر روز',
             progress: 0.7,
+            isDarkMode: isDarkMode,
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           ChallengeTile(
             title: 'چالش ذهن آگاهی',
             subtitle: 'تمرین ذهنی و کاهش استرس',
             progress: 0.5,
+            isDarkMode: isDarkMode,
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           ChallengeTile(
             title: 'چالش بدون قند',
             subtitle: '30 روز اجتناب از مصرف قند برای بهبود سلامتی',
             progress: 0.2,
+            isDarkMode: isDarkMode,
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           ChallengeTile(
             title: 'چالش خواندن کتاب',
             subtitle: 'خواندن یک کتاب هر هفته',
             progress: 0.9,
+            isDarkMode: isDarkMode,
           ),
         ],
       ),
@@ -241,24 +229,35 @@ class ChallengeTile extends StatelessWidget {
   final String title;
   final String subtitle;
   final double progress;
+  final bool isDarkMode;
 
-  const ChallengeTile({
+  const ChallengeTile({super.key, 
     required this.title,
     required this.subtitle,
     required this.progress,
+    required this.isDarkMode,
   });
 
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: isDarkMode ? Colors.grey[800] : Colors.white, // Card background color
       child: ListTile(
-        leading: Icon(Icons.local_fire_department, size: 30),
-        title: Text(title, textDirection: TextDirection.rtl),
+        leading: const Icon(Icons.local_fire_department, size: 30),
+        title: Text(
+          title,
+          textDirection: TextDirection.rtl,
+          style: TextStyle(color: isDarkMode ? Colors.white : Colors.black), // Title color
+        ),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text(subtitle, textDirection: TextDirection.rtl),
-            SizedBox(height: 8.0),
+            Text(
+              subtitle,
+              textDirection: TextDirection.rtl,
+              style: TextStyle(color: isDarkMode ? Colors.white : Colors.black), // Subtitle color
+            ),
+            const SizedBox(height: 8.0),
             LinearProgressIndicator(
               value: progress,
               backgroundColor: Colors.grey[300],

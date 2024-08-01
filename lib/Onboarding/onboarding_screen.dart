@@ -1,12 +1,12 @@
-import 'package:Zerang/Onboarding/onboarding_contents.dart';
-import 'package:Zerang/Onboarding/size_config.dart';
-import 'package:Zerang/Theme/consts.dart';
-import 'package:Zerang/sign_in/sign_in_Ui.dart';
+import 'package:zerang/onboarding/onboarding_contents.dart';
+import 'package:zerang/onboarding/size_config.dart';
+import 'package:zerang/Theme/consts.dart';
+import 'package:zerang/sign_in/sign_in_Ui.dart';
 
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({Key? key}) : super(key: key);
+  const OnboardingScreen({super.key});
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
@@ -123,10 +123,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SignIn()),
+                                    builder: (context) => const SignIn()),
                               );
                             },
-                            child: const Text("شروع" , style: TextStyle(color: Colors.black),),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: sefid,
                               shape: RoundedRectangleBorder(
@@ -140,6 +139,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               textStyle:
                                   TextStyle(fontSize: (width <= 550) ? 13 : 17),
                             ),
+                            child: const Text("شروع" , style: TextStyle(color: Colors.black),),
                           ),
                         )
                       : Padding(
@@ -151,16 +151,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 onPressed: () {
                                   _controller.jumpToPage(2);
                                 },
-                                child: const Text(
-                                  "رد کردن",
-                                  style: TextStyle(color: Colors.black),
-                                ),
                                 style: TextButton.styleFrom(
                                   elevation: 0,
                                   textStyle: TextStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: (width <= 550) ? 13 : 17,
                                   ),
+                                ),
+                                child: const Text(
+                                  "رد کردن",
+                                  style: TextStyle(color: Colors.black),
                                 ),
                               ),
                               ElevatedButton(
@@ -170,7 +170,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                     curve: Curves.easeIn,
                                   );
                                 },
-                                child: const Text("بعدی" ,style: TextStyle(color: Colors.black),),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(
@@ -185,6 +184,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   textStyle: TextStyle(
                                       fontSize: (width <= 550) ? 13 : 17),
                                 ),
+                                child: const Text("بعدی" ,style: TextStyle(color: Colors.black),),
                               ),
                             ],
                           ),

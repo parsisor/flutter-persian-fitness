@@ -17,17 +17,15 @@ const Color containerColor2 = Color(0xFF03F7FF);
 const Color containerColor3 = Color(0xFFFF6591);
 const Color containerColor4 = Color(0xFF9C5AFF);
 
-final ColorScheme lightColorScheme = ColorScheme.light(
+const ColorScheme lightColorScheme = ColorScheme.light(
   brightness: Brightness.light,
   primary: selectedButtonColor,
   secondary: Colors.green,
   error: Colors.red,
-  surface: Colors.white,
-  background: Colors.white,
+  surface: Color.fromARGB(255, 224, 224, 224),
   onPrimary: Colors.white,
   onSecondary: Colors.white,
   onError: Colors.white,
-  onBackground: Colors.black,
   onSurface: Colors.black,
 );
 
@@ -37,11 +35,9 @@ final ColorScheme darkColorScheme = ColorScheme.dark(
   secondary: Colors.lightGreen,
   error: Colors.red,
   surface: Colors.grey[800]!,
-  background: Colors.grey[900]!,
   onPrimary: Colors.black,
   onSecondary: Colors.black,
   onError: Colors.white,
-  onBackground: Colors.white,
   onSurface: Colors.white,
 );
 

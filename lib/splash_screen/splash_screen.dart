@@ -1,9 +1,10 @@
 import 'dart:async';
-import 'package:Zerang/fitness_hub/Hub.dart';
-
 import 'package:flutter/material.dart';
+import 'package:zerang/onboarding/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -17,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: Duration(seconds: 3), 
+      duration: const Duration(seconds: 3), 
       vsync: this,
     );
 
@@ -36,10 +37,10 @@ class _SplashScreenState extends State<SplashScreen>
     
     _animationController.repeat(reverse: true);
 
-    Timer(Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ApplicationHub()),
+        MaterialPageRoute(builder: (context) => const OnboardingScreen()),
       );
     });
   }
@@ -53,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 54, 80),
+      backgroundColor: const Color.fromARGB(255, 32, 54, 80),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -68,8 +69,8 @@ class _SplashScreenState extends State<SplashScreen>
               },
               child: Image.asset("assets/App_Logo/Logo.png" , scale: 5,),
             ),
-            SizedBox(height: 30),
-            Text(
+            const SizedBox(height: 30),
+            const Text(
               'زرنگ',
               style: TextStyle(
                 color: Colors.white,

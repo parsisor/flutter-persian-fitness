@@ -32,3 +32,101 @@ final List<Article> offlineArticles = [
     sub: "مقاله ای در مورد اهمیت خواب",
   ),
 ];
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'مقالات',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const ArticlesScreen(),
+    );
+  }
+}
+
+class ArticlesScreen extends StatelessWidget {
+  const ArticlesScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('مقالات'),
+        centerTitle: true,
+      ),
+      body: ListView.builder(
+        itemCount: offlineArticles.length,
+        itemBuilder: (context, index) {
+          final article = offlineArticles[index];
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ArticleDetailScreen(article: article),
+                ),
+              );
+            },
+            child: Card(
+              margin: const EdgeInsets.all(16),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      article.title,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center, // Ensure title is centered
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      article.sub,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(color: Colors.grey),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class ArticleDetailScreen extends StatelessWidget {
+  final Article article;
+
+  const ArticleDetailScreen({super.key, required this.article});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(article.title),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              article.content,
+              textDirection: TextDirection.rtl,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

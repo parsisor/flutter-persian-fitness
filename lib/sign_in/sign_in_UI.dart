@@ -1,11 +1,13 @@
-import 'package:Zerang/Theme/consts.dart';
-import 'package:Zerang/fitness_hub/Hub.dart';
-import 'package:Zerang/fitness_hub/fitness_hub.dart';
-import 'package:Zerang/sign_in/login_Ui.dart';
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:zerang/Theme/consts.dart';
+import 'package:zerang/fitness_hub/Hub.dart';
+import 'package:zerang/sign_in/login_Ui.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:lottie/lottie.dart';
+
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -21,6 +23,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
   final _formKey = GlobalKey<FormState>();
 
   bool isHovering = false;
+  bool isDeveloperHovering = false;
 
   @override
   void dispose() {
@@ -69,7 +72,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
         content: Text(message),
       ));
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('خطایی رخ داد. دوباره تلاش کنید'),
       ));
     }
@@ -82,7 +85,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
         return AlertDialog(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          title: Text('تبریک!', textAlign: TextAlign.center),
+          title: const Text('تبریک!', textAlign: TextAlign.center),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -91,19 +94,19 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                 width: 150,
                 height: 150,
               ),
-              SizedBox(height: 20),
-              Text('ثبت نام شما با موفقیت انجام شد.',
+              const SizedBox(height: 20),
+              const Text('ثبت نام شما با موفقیت انجام شد.',
                   textAlign: TextAlign.center),
             ],
           ),
           actions: [
             TextButton(
-              child: Text('باشه'),
+              child: const Text('باشه'),
               onPressed: () {
                 Navigator.of(context).pop();
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => ApplicationHub()),
+                  MaterialPageRoute(builder: (context) => const ApplicationHub()),
                 );
               },
             ),
@@ -118,14 +121,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ),
+        
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -136,17 +132,17 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
+                      SizedBox(
                         height: 150,
                         child: Lottie.asset(
                           "assets/gifs/lotties/sign_in.json",
                           fit: BoxFit.contain,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      Text(
+                      const Text(
                         "ثبت نام",
                         style: TextStyle(
                           fontSize: 40,
@@ -155,7 +151,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                         ),
                         textAlign: TextAlign.right,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       _buildTextField(
@@ -169,7 +165,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                           return null;
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       _buildTextField(
@@ -187,7 +183,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                           return null;
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       _buildTextField(
@@ -205,20 +201,20 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                           return null;
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       ElevatedButton(
                         onPressed: _signUp,
-                        child: Text(
-                          "ثبت نام",
-                          style: TextStyle(fontSize: 18, color: Colors.white),
-                        ),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blueAccent,
                         ),
+                        child: const Text(
+                          "ثبت نام",
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       MouseRegion(
@@ -239,7 +235,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                               PageRouteBuilder(
                                 pageBuilder:
                                     (context, animation, secondaryAnimation) =>
-                                        Login_ui(),
+                                        const Login_ui(),
                                 transitionsBuilder: (context, animation,
                                     secondaryAnimation, child) {
                                   const begin = Offset(1.0, 0.0);
@@ -265,10 +261,65 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                               fontSize: 16,
                               decoration: TextDecoration.underline,
                             ),
-                            duration: Duration(milliseconds: 200),
+                            duration: const Duration(milliseconds: 200),
                             curve: Curves.easeInOut,
-                            child: Text(
+                            child: const Text(
                               "از قبل اکانت دارم/میخواهم ورود کنم",
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      MouseRegion(
+                        onEnter: (_) {
+                          setState(() {
+                            isDeveloperHovering = true;
+                          });
+                        },
+                        onExit: (_) {
+                          setState(() {
+                            isDeveloperHovering = false;
+                          });
+                        },
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                              context,
+                              PageRouteBuilder(
+                                pageBuilder:
+                                    (context, animation, secondaryAnimation) =>
+                                        const ApplicationHub(),
+                                transitionsBuilder: (context, animation,
+                                    secondaryAnimation, child) {
+                                  const begin = Offset(1.0, 0.0);
+                                  const end = Offset.zero;
+                                  const curve = Curves.ease;
+
+                                  var tween = Tween(begin: begin, end: end)
+                                      .chain(CurveTween(curve: curve));
+
+                                  return SlideTransition(
+                                    position: animation.drive(tween),
+                                    child: child,
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                          child: AnimatedDefaultTextStyle(
+                            style: TextStyle(
+                              color: isDeveloperHovering
+                                  ? selectedButtonColor
+                                  : Colors.blueAccent,
+                              fontSize: 16,
+                              decoration: TextDecoration.underline,
+                            ),
+                            duration: const Duration(milliseconds: 200),
+                            curve: Curves.easeInOut,
+                            child: const Text(
+                              "ورود به عنوان دولوپر",
                             ),
                           ),
                         ),
@@ -298,10 +349,10 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
       obscureText: obscureText,
       validator: validator,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.only(right: 24.0),
+        contentPadding: const EdgeInsets.only(right: 24.0),
         labelText: label,
         prefixIcon: Icon(icon),
-        prefixIconConstraints: BoxConstraints(minWidth: 80, minHeight: 0),
+        prefixIconConstraints: const BoxConstraints(minWidth: 80, minHeight: 0),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),

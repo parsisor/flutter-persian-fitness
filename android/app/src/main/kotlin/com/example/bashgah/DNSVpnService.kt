@@ -3,44 +3,43 @@ package com.example.bashgah
 import android.app.PendingIntent
 import android.content.Intent
 import android.net.VpnService
+import android.os.Build
 import android.os.ParcelFileDescriptor
 import android.util.Log
-import java.net.InetAddress
 
-class DNSVpnService : VpnService() {
+class DnsVpnService : VpnService() {
     private var vpnInterface: ParcelFileDescriptor? = null
-    private val TAG = "DNSVpnService"
 
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        val primaryDNS = intent?.getStringExtra("primaryDNS")
-        val secondaryDNS = intent?.getStringExtra("secondaryDNS")
-        if (primaryDNS != null && secondaryDNS != null) {
-            setupVPN(primaryDNS, secondaryDNS)
+    override fun onCreate() {
+        super.onCreate()
+        Log.d("DnsVpnService", "DNS VPN Service Created")
+
+        val builder = Builder()
+        builder.setSession("DNS VPN Service")
+        builder.addAddress("10.0.0.2", 24) // Your VPN address
+        builder.addDnsServer("10.202.10.202") // First DNS server
+        builder.addDnsServer("10.202.10.102") // Second DNS server
+
+        // Set up a pending intent for VPN configuration (if required)
+        val intent = Intent(this, MainActivity::class.java)
+        val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
         } else {
-            Log.e(TAG, "Invalid DNS addresses: primaryDNS=$primaryDNS, secondaryDNS=$secondaryDNS")
+            PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
         }
-        return START_STICKY
-    }
+        builder.setConfigureIntent(pendingIntent)
 
-    private fun setupVPN(primaryDNS: String, secondaryDNS: String) {
-        try {
-            Log.i(TAG, "Setting up VPN with primaryDNS=$primaryDNS, secondaryDNS=$secondaryDNS")
-            val builder = Builder()
-            builder.setSession("DNS Changer")
-            builder.addAddress("192.168.1.100", 24)
-            builder.addDnsServer(primaryDNS)
-            builder.addDnsServer(secondaryDNS)
-            builder.addRoute("0.0.0.0", 0)
-            vpnInterface = builder.establish()
-            Log.i(TAG, "VPN established")
-        } catch (e: Exception) {
-            Log.e(TAG, "Error setting up VPN", e)
+        vpnInterface = builder.establish()
+        if (vpnInterface != null) {
+            Log.d("DnsVpnService", "VPN Interface Established")
+        } else {
+            Log.e("DnsVpnService", "Failed to Establish VPN Interface")
         }
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         vpnInterface?.close()
-        Log.i(TAG, "VPN service destroyed")
+        Log.d("DnsVpnService", "DNS VPN Service Destroyed")
+        super.onDestroy()
     }
 }

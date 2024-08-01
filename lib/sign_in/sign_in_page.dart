@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:Zerang/sign_in/LoginPage.dart';
-import 'package:Zerang/sign_in/PasswordRecoveryPage.dart';
+import 'package:zerang/sign_in/loginPage.dart';
+import 'package:zerang/sign_in/passwordRecoveryPage.dart';
 
 
 class SignInPage extends StatefulWidget {
+  const SignInPage({super.key});
+
   @override
   _SignInPageState createState() => _SignInPageState();
 }
@@ -76,11 +78,11 @@ class _SignInPageState extends State<SignInPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('خطا'),
+          title: const Text('خطا'),
           content: Text(message),
           actions: [
             TextButton(
-              child: Text('باشه'),
+              child: const Text('باشه'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -172,8 +174,8 @@ class _SignInPageState extends State<SignInPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    SizedBox(height: 40),
-                    Center(
+                    const SizedBox(height: 40),
+                    const Center(
                       child: Text(
                         'ثبت نام',
                         style: TextStyle(
@@ -184,19 +186,19 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 40),
+                    const SizedBox(height: 40),
                     _buildTextField(
                       controller: _emailController,
                       label: 'پست الکترونیک خود را وارد کنید',
                       errorText: _emailErrorText,
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     _buildTextField(
                       controller: _passController,
                       label: 'گذرواژه خود را وارد کنید',
                       errorText: _nameErrorText,
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     _buildTextField(
                       controller: _weightController,
                       label: 'وزن خود را وارد کنید (کیلوگرم)',
@@ -204,7 +206,7 @@ class _SignInPageState extends State<SignInPage> {
                       inputType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     _buildTextField(
                       controller: _heightController,
                       label: 'قد خود را وارد کنید (سانتی‌متر)',
@@ -212,31 +214,31 @@ class _SignInPageState extends State<SignInPage> {
                       inputType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     ElevatedButton(
                       onPressed: _signUp,
-                      child: Text('ثبت نام', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 16.0),
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
                         backgroundColor: Colors.deepPurple,
                       ),
+                      child: const Text('ثبت نام', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: _fetchUserData,
-                      child: Text('دریافت اطلاعات کاربر', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 16.0),
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
                         backgroundColor: Colors.deepPurple,
                       ),
+                      child: const Text('دریافت اطلاعات کاربر', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -244,31 +246,31 @@ class _SignInPageState extends State<SignInPage> {
                           MaterialPageRoute(builder: (context) => LoginPage()),
                         );
                       },
-                      child: Text('ورود به حساب کاربری', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 16.0),
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
                         backgroundColor: Colors.deepPurple,
                       ),
+                      child: const Text('ورود به حساب کاربری', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => PasswordRecoveryPage()),
+                          MaterialPageRoute(builder: (context) => const PasswordRecoveryPage()),
                         );
                       },
-                      child: Text('بازیابی گذرواژه', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 16.0),
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
                         backgroundColor: Colors.deepPurple,
                       ),
+                      child: const Text('بازیابی گذرواژه', style: TextStyle(fontFamily: 'Vazir', color: Colors.white)),
                     ),
                   ],
                 ),
@@ -293,7 +295,7 @@ class _SignInPageState extends State<SignInPage> {
       inputFormatters: inputFormatters,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: TextStyle(color: Colors.white),
+        labelStyle: const TextStyle(color: Colors.white),
         filled: true,
         fillColor: Colors.white.withOpacity(0.3),
         border: OutlineInputBorder(
@@ -302,7 +304,7 @@ class _SignInPageState extends State<SignInPage> {
         ),
         errorText: errorText,
       ),
-      style: TextStyle(color: Colors.white),
+      style: const TextStyle(color: Colors.white),
       textAlign: TextAlign.right,
     );
   }

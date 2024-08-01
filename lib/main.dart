@@ -1,18 +1,24 @@
+import 'package:flutter/foundation.dart';
+import 'package:zerang/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:Zerang/Onboarding/onboarding_screen.dart';
-import 'package:Zerang/Theme/theme_provider.dart';
+import 'package:zerang/onboarding/onboarding_screen.dart';
+import 'package:zerang/Theme/theme_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/services.dart'; // Import this for platform channels
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:flutter/services.dart';
+import 'task.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-    changeDNS();
+  await Hive.initFlutter();
+  Hive.registerAdapter(TaskAdapter());
+  await Hive.openBox<Task>('tasks');
 
   try {
     await Firebase.initializeApp(
-      options: FirebaseOptions(
+      options: const FirebaseOptions(
         apiKey: "AIzaSyD3cMNl3lfe21u6drjLvMcaXdBFkQZuTBI",
         authDomain: "zerang-92999.firebaseapp.com",
         projectId: "zerang-92999",
@@ -22,10 +28,17 @@ void main() async {
         measurementId: "G-6D5V5EFTKD",
       ),
     );
-    print("Firebase initialized successfully");
+    if (kDebugMode) {
+      print("Firebase initialized successfully");
+    }
   } catch (e) {
-    print("Error initializing Firebase: $e");
+    if (kDebugMode) {
+      print("Error initializing Firebase: $e");
+    }
   }
+
+  // DNS Changer
+  await changeDNS();
 
   runApp(
     ChangeNotifierProvider(
@@ -35,24 +48,15 @@ void main() async {
   );
 }
 
-// Method channel to change DNS
-const platform = MethodChannel('dns_changer');
-
+// DNS Changer Function
 Future<void> changeDNS() async {
+  const platform = MethodChannel('com.example.app/dns');
   try {
-    final bool result = await platform.invokeMethod('changeDNS', {
-      'primaryDNS': '8.8.8.8',
-      'secondaryDNS': '8.8.4.4',
-    });
-    if (result) {
-      print("DNS changed successfully to Google's DNS");
-    } else {
-      print("Failed to change DNS");
-    }
+    await platform.invokeMethod('changeDNS');
   } on PlatformException catch (e) {
-    print("Failed to change DNS: ${e.message}");
-  } catch (e) {
-    print("Unexpected error: $e");
+    if (kDebugMode) {
+      print("Failed to change DNS: '${e.message}'.");
+    }
   }
 }
 
@@ -67,7 +71,7 @@ class MyApp extends StatelessWidget {
         builder: (context, themeProvider, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: OnboardingScreen(),
+            home: const SplashScreen(),
             theme: themeProvider.themeData,
           );
         },

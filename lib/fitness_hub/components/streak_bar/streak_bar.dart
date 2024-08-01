@@ -8,17 +8,21 @@ class StreakBar extends StatelessWidget {
   final String roz;
   final StreakStatus vaziat;
 
-  StreakBar({required this.roz, required this.vaziat});
+  const StreakBar({super.key, required this.roz, required this.vaziat});
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       width: 47,
       height: 70,
       decoration: BoxDecoration(
-        border: Border.all(color: Theme.of(context).dividerColor),
+        border: Border.all(
+            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.8)),
         borderRadius: BorderRadius.circular(10.0),
-        color: Theme.of(context).cardColor,
+        color:
+            isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
       ),
       child: Stack(
         children: [
@@ -32,7 +36,7 @@ class StreakBar extends StatelessWidget {
                 roz,
                 style: TextStyle(
                   fontSize: 10,
-                  color: Theme.of(context).textTheme.bodyLarge!.color,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
             ),
@@ -64,7 +68,7 @@ class StreakBar extends StatelessWidget {
         iconColor = Colors.grey;
         break;
       default:
-        return SizedBox.shrink();
+        return const SizedBox.shrink();
     }
 
     return Positioned(
@@ -81,9 +85,10 @@ class StreakBar extends StatelessWidget {
 }
 
 class StreakBarRow extends StatelessWidget {
+  const StreakBarRow({super.key});
+
   @override
   Widget build(BuildContext context) {
-    // تاریخ جاری را به دست آورید
     final now = Jalali.now();
     final currentDayIndex = now.weekDay;
 
@@ -92,12 +97,13 @@ class StreakBarRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          for (int i = 1; i <= 7; i++) ...[
+          const SizedBox(width: 3.2),
+          for (int i = 0; i <= 6; i++) ...[
             StreakBar(
               roz: getCurrentWeekDay(i),
-              vaziat: _getStreakStatus(i, currentDayIndex),
+              vaziat: _getStreakStatus(i + 1, currentDayIndex),
             ),
-            if (i != 7) SizedBox(width: 3.2), // Add space between cards
+            const SizedBox(width: 3.2),
           ],
         ],
       ),
@@ -116,19 +122,19 @@ class StreakBarRow extends StatelessWidget {
 
   String getCurrentWeekDay(int day) {
     switch (day) {
-      case 1:
+      case 0:
         return 'شنبه';
-      case 2:
+      case 1:
         return 'یک‌شنبه';
-      case 3:
+      case 2:
         return 'دوشنبه';
-      case 4:
+      case 3:
         return 'سه‌شنبه';
-      case 5:
+      case 4:
         return 'چهارشنبه';
-      case 6:
+      case 5:
         return 'پنج‌شنبه';
-      case 7:
+      case 6:
         return 'جمعه';
       default:
         return 'نامشخص';
