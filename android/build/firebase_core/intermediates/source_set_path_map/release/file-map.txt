@@ -1,0 +1,14 @@
+io.flutter.plugins.firebase.core.firebase_core-jetified-window-java-1.0.0-beta04-0 C:\Users\Parsisor\.gradle\caches\transforms-3\16c54c476fe337bf257822f52f2f5393\transformed\jetified-window-java-1.0.0-beta04\res
+io.flutter.plugins.firebase.core.firebase_core-jetified-annotation-experimental-1.1.0-1 C:\Users\Parsisor\.gradle\caches\transforms-3\3ee05dfef9f6b74932ce9921ee9df863\transformed\jetified-annotation-experimental-1.1.0\res
+io.flutter.plugins.firebase.core.firebase_core-jetified-play-services-basement-18.3.0-2 C:\Users\Parsisor\.gradle\caches\transforms-3\61814ebdc2e8e6cb7dab089717b4ab0d\transformed\jetified-play-services-basement-18.3.0\res
+io.flutter.plugins.firebase.core.firebase_core-jetified-firebase-common-21.0.0-3 C:\Users\Parsisor\.gradle\caches\transforms-3\935604ae1b0915baa4c31da647eb74ca\transformed\jetified-firebase-common-21.0.0\res
+io.flutter.plugins.firebase.core.firebase_core-core-1.6.0-4 C:\Users\Parsisor\.gradle\caches\transforms-3\9d0f22d19b5542737e9bc0aeb5e2e36b\transformed\core-1.6.0\res
+io.flutter.plugins.firebase.core.firebase_core-jetified-window-1.0.0-beta04-5 C:\Users\Parsisor\.gradle\caches\transforms-3\a893c4718dbe641cebfcf6bd0f764593\transformed\jetified-window-1.0.0-beta04\res
+io.flutter.plugins.firebase.core.firebase_core-main-6 C:\Users\Parsisor\AppData\Local\Pub\Cache\hosted\pub.flutter-io.cn\firebase_core-3.1.1\android\src\main\res
+io.flutter.plugins.firebase.core.firebase_core-release-7 C:\Users\Parsisor\AppData\Local\Pub\Cache\hosted\pub.flutter-io.cn\firebase_core-3.1.1\android\src\release\res
+io.flutter.plugins.firebase.core.firebase_core-pngs-8 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\firebase_core\generated\res\pngs\release
+io.flutter.plugins.firebase.core.firebase_core-resValues-9 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\firebase_core\generated\res\resValues\release
+io.flutter.plugins.firebase.core.firebase_core-rs-10 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\firebase_core\generated\res\rs\release
+io.flutter.plugins.firebase.core.firebase_core-mergeReleaseResources-11 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\firebase_core\intermediates\incremental\release\mergeReleaseResources\merged.dir
+io.flutter.plugins.firebase.core.firebase_core-mergeReleaseResources-12 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\firebase_core\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+io.flutter.plugins.firebase.core.firebase_core-merged_res-13 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\firebase_core\intermediates\merged_res\release

@@ -1,0 +1,443 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.pija.zerang"
+4    android:versionCode="1"
+5    android:versionName="0.1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml
+10
+11    <!-- Permissions -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:5:5-66
+12-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:5:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:6:5-78
+13-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:6:22-76
+14    <uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
+14-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:7:5-75
+14-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:7:22-72
+15    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+15-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:8:5-70
+15-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:8:22-68
+16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+16-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:9:5-80
+16-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:9:22-78
+17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+17-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:10:5-79
+17-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:10:22-77
+18    <uses-permission android:name="android.permission.CAMERA" /> <!-- Permission for camera -->
+18-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:11:5-64
+18-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:11:22-62
+19    <uses-permission android:name="android.permission.CALL_PHONE" /> <!-- Permission for phone calls -->
+19-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:12:5-68
+19-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:12:22-66
+20    <uses-permission android:name="android.permission.SEND_SMS" /> <!-- Permission for sending SMS -->
+20-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:13:5-66
+20-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:13:22-64
+21
+22
+23    <!-- Queries for URL handling -->
+24    <queries>
+24-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:16:5-25:15
+25        <intent>
+25-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:17:9-24:18
+26            <action android:name="android.intent.action.VIEW" />
+26-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:18:13-64
+26-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:18:21-62
+27
+28            <category android:name="android.intent.category.DEFAULT" />
+28-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:19:13-71
+28-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:19:23-69
+29            <category android:name="android.intent.category.BROWSABLE" />
+29-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:20:13-73
+29-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:20:23-71
+30
+31            <data scheme="http" />
+31-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:21:13-34
+31-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:21:19-32
+32            <data scheme="https" />
+32-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:21:13-34
+32-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:21:19-32
+33            <data scheme="mailto" />
+33-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:21:13-34
+33-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:21:19-32
+34        </intent>
+35    </queries>
+36
+37    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+37-->[com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Parsisor\.gradle\caches\transforms-3\f6610bd171f1324b960703e44d8ce931\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:5-98
+37-->[com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Parsisor\.gradle\caches\transforms-3\f6610bd171f1324b960703e44d8ce931\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:22-95
+38
+39    <permission
+39-->[androidx.core:core:1.10.1] C:\Users\Parsisor\.gradle\caches\transforms-3\ee58f759f7938bc3de48782527803ca0\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
+40        android:name="com.pija.zerang.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+40-->[androidx.core:core:1.10.1] C:\Users\Parsisor\.gradle\caches\transforms-3\ee58f759f7938bc3de48782527803ca0\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
+41        android:protectionLevel="signature" />
+41-->[androidx.core:core:1.10.1] C:\Users\Parsisor\.gradle\caches\transforms-3\ee58f759f7938bc3de48782527803ca0\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
+42
+43    <uses-permission android:name="com.pija.zerang.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+43-->[androidx.core:core:1.10.1] C:\Users\Parsisor\.gradle\caches\transforms-3\ee58f759f7938bc3de48782527803ca0\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
+43-->[androidx.core:core:1.10.1] C:\Users\Parsisor\.gradle\caches\transforms-3\ee58f759f7938bc3de48782527803ca0\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
+44
+45    <application
+46        android:name="android.app.Application"
+46-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:28:9-42
+47        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+47-->[androidx.core:core:1.10.1] C:\Users\Parsisor\.gradle\caches\transforms-3\ee58f759f7938bc3de48782527803ca0\transformed\core-1.10.1\AndroidManifest.xml:28:18-86
+48        android:extractNativeLibs="false"
+49        android:icon="@mipmap/launcher_icon"
+49-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:30:9-45
+50        android:label="zerang" >
+50-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:29:9-31
+51
+52        <!-- Flutter embedding version -->
+53        <meta-data
+53-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:33:9-35:33
+54            android:name="flutterEmbedding"
+54-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:34:13-44
+55            android:value="2" />
+55-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:35:13-30
+56
+57        <!-- Notification icon metadata -->
+58        <meta-data
+58-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:38:9-40:53
+59            android:name="com.google.firebase.messaging.default_notification_icon"
+59-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:39:13-83
+60            android:resource="@mipmap/ic_launcher" />
+60-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:40:13-51
+61
+62        <!-- Firebase Messaging Service -->
+63        <service
+63-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:43:9-49:19
+64            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+64-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:44:13-82
+65            android:exported="true" >
+65-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:45:13-36
+66            <intent-filter>
+66-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:46:13-48:29
+67                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+67-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:47:17-78
+67-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:47:25-75
+68            </intent-filter>
+69        </service>
+70
+71        <!-- Firebase Instance ID Service -->
+72        <service
+72-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:52:9-58:19
+73            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+73-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:53:13-77
+74            android:exported="false" >
+74-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:54:13-37
+75            <intent-filter>
+75-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:55:13-57:29
+76                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+76-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:56:17-80
+76-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:56:25-77
+77            </intent-filter>
+78        </service>
+79
+80        <!-- Firebase Cloud Messaging Receiver -->
+81        <receiver
+81-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:61:9-70:20
+82            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+82-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:62:13-78
+83            android:exported="true"
+83-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:63:13-36
+84            android:permission="com.google.android.c2dm.permission.SEND" >
+84-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:64:13-73
+85            <intent-filter>
+85-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:65:13-69:29
+86                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+86-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:66:17-81
+86-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:66:25-78
+87                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+87-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:67:17-86
+87-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:67:25-83
+88
+89                <category android:name="com.pija.zerang" />
+89-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:68:27-58
+90            </intent-filter>
+91        </receiver>
+92
+93        <!-- VPN Service -->
+94        <service
+94-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:73:9-76:39
+95            android:name="com.example.bashgah.DNSVpnService"
+95-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:74:13-42
+96            android:exported="true"
+96-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:76:13-36
+97            android:permission="android.permission.BIND_VPN_SERVICE" />
+97-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:75:13-69
+98
+99        <activity
+99-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:78:9-96:20
+100            android:name="com.example.bashgah.MainActivity"
+100-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:79:13-41
+101            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+101-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:83:13-163
+102            android:exported="true"
+102-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:80:13-36
+103            android:hardwareAccelerated="true"
+103-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:84:13-47
+104            android:launchMode="singleTop"
+104-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:81:13-43
+105            android:theme="@style/LaunchTheme"
+105-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:82:13-47
+106            android:windowSoftInputMode="adjustResize" >
+106-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:85:13-55
+107
+108            <!-- Flutter theme -->
+109            <meta-data
+109-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:88:13-90:56
+110                android:name="io.flutter.embedding.android.NormalTheme"
+110-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:89:17-72
+111                android:resource="@style/NormalTheme" />
+111-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:90:17-54
+112
+113            <intent-filter>
+113-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:92:13-95:29
+114                <action android:name="android.intent.action.MAIN" />
+114-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:93:17-68
+114-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:93:25-66
+115
+116                <category android:name="android.intent.category.LAUNCHER" />
+116-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:94:17-76
+116-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:94:27-74
+117            </intent-filter>
+118        </activity>
+119
+120        <service
+120-->[:cloud_firestore] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\cloud_firestore\intermediates\merged_manifest\release\AndroidManifest.xml:10:9-14:19
+121            android:name="com.google.firebase.components.ComponentDiscoveryService"
+121-->[:cloud_firestore] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\cloud_firestore\intermediates\merged_manifest\release\AndroidManifest.xml:10:18-89
+122            android:directBootAware="true"
+122-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\935604ae1b0915baa4c31da647eb74ca\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:32:13-43
+123            android:exported="false" >
+123-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:68:13-37
+124            <meta-data
+124-->[:cloud_firestore] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\cloud_firestore\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-13:85
+125                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
+125-->[:cloud_firestore] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\cloud_firestore\intermediates\merged_manifest\release\AndroidManifest.xml:12:17-134
+126                android:value="com.google.firebase.components.ComponentRegistrar" />
+126-->[:cloud_firestore] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\cloud_firestore\intermediates\merged_manifest\release\AndroidManifest.xml:13:17-82
+127            <meta-data
+127-->[:firebase_auth] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\firebase_auth\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-13:85
+128                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+128-->[:firebase_auth] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\firebase_auth\intermediates\merged_manifest\release\AndroidManifest.xml:12:17-124
+129                android:value="com.google.firebase.components.ComponentRegistrar" />
+129-->[:firebase_auth] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\firebase_auth\intermediates\merged_manifest\release\AndroidManifest.xml:13:17-82
+130            <meta-data
+130-->[:firebase_core] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\firebase_core\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-13:85
+131                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+131-->[:firebase_core] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\firebase_core\intermediates\merged_manifest\release\AndroidManifest.xml:12:17-124
+132                android:value="com.google.firebase.components.ComponentRegistrar" />
+132-->[:firebase_core] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\firebase_core\intermediates\merged_manifest\release\AndroidManifest.xml:13:17-82
+133            <meta-data
+133-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:69:13-71:85
+134                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+134-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:70:17-109
+135                android:value="com.google.firebase.components.ComponentRegistrar" />
+135-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:71:17-82
+136            <meta-data
+136-->[com.google.firebase:firebase-firestore:25.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\8c9485d3c5f3c1aca07951a41adfd360\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:17:13-19:85
+137                android:name="com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar"
+137-->[com.google.firebase:firebase-firestore:25.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\8c9485d3c5f3c1aca07951a41adfd360\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:18:17-122
+138                android:value="com.google.firebase.components.ComponentRegistrar" />
+138-->[com.google.firebase:firebase-firestore:25.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\8c9485d3c5f3c1aca07951a41adfd360\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:19:17-82
+139            <meta-data
+139-->[com.google.firebase:firebase-firestore:25.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\8c9485d3c5f3c1aca07951a41adfd360\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:20:13-22:85
+140                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+140-->[com.google.firebase:firebase-firestore:25.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\8c9485d3c5f3c1aca07951a41adfd360\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:21:17-111
+141                android:value="com.google.firebase.components.ComponentRegistrar" />
+141-->[com.google.firebase:firebase-firestore:25.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\8c9485d3c5f3c1aca07951a41adfd360\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:22:17-82
+142            <meta-data
+142-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\ae0814f4523c52eb1d87f761472826e3\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:12:13-14:85
+143                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+143-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\ae0814f4523c52eb1d87f761472826e3\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:13:17-116
+144                android:value="com.google.firebase.components.ComponentRegistrar" />
+144-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\ae0814f4523c52eb1d87f761472826e3\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:14:17-82
+145            <meta-data
+145-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\935604ae1b0915baa4c31da647eb74ca\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:35:13-37:85
+146                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+146-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\935604ae1b0915baa4c31da647eb74ca\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:36:17-109
+147                android:value="com.google.firebase.components.ComponentRegistrar" />
+147-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\935604ae1b0915baa4c31da647eb74ca\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:37:17-82
+148        </service>
+149
+150        <activity
+150-->[:url_launcher_android] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:9-13:74
+151            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+151-->[:url_launcher_android] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-74
+152            android:exported="false"
+152-->[:url_launcher_android] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-37
+153            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+153-->[:url_launcher_android] C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-71
+154        <activity
+154-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:29:9-46:20
+155            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+155-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:30:13-80
+156            android:excludeFromRecents="true"
+156-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:31:13-46
+157            android:exported="true"
+157-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:32:13-36
+158            android:launchMode="singleTask"
+158-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:33:13-44
+159            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+159-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:34:13-72
+160            <intent-filter>
+160-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:35:13-45:29
+161                <action android:name="android.intent.action.VIEW" />
+161-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:18:13-64
+161-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:18:21-62
+162
+163                <category android:name="android.intent.category.DEFAULT" />
+163-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:19:13-71
+163-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:19:23-69
+164                <category android:name="android.intent.category.BROWSABLE" />
+164-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:20:13-73
+164-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:20:23-71
+165
+166                <data
+166-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:21:13-34
+167                    android:host="firebase.auth"
+168                    android:path="/"
+169                    android:scheme="genericidp" />
+170            </intent-filter>
+171        </activity>
+172        <activity
+172-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:47:9-64:20
+173            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+173-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:48:13-79
+174            android:excludeFromRecents="true"
+174-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:49:13-46
+175            android:exported="true"
+175-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:50:13-36
+176            android:launchMode="singleTask"
+176-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:51:13-44
+177            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+177-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:52:13-72
+178            <intent-filter>
+178-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\73c2e58a899d32dd7b74a742cab2012b\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:53:13-63:29
+179                <action android:name="android.intent.action.VIEW" />
+179-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:18:13-64
+179-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:18:21-62
+180
+181                <category android:name="android.intent.category.DEFAULT" />
+181-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:19:13-71
+181-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:19:23-69
+182                <category android:name="android.intent.category.BROWSABLE" />
+182-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:20:13-73
+182-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:20:23-71
+183
+184                <data
+184-->C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\app\src\main\AndroidManifest.xml:21:13-34
+185                    android:host="firebase.auth"
+186                    android:path="/"
+187                    android:scheme="recaptcha" />
+188            </intent-filter>
+189        </activity>
+190
+191        <service
+191-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Parsisor\.gradle\caches\transforms-3\487b8dbbe7f4d0dd2a3f24554b471f1c\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:24:9-32:19
+192            android:name="androidx.credentials.playservices.CredentialProviderMetadataHolder"
+192-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Parsisor\.gradle\caches\transforms-3\487b8dbbe7f4d0dd2a3f24554b471f1c\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:25:13-94
+193            android:enabled="true"
+193-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Parsisor\.gradle\caches\transforms-3\487b8dbbe7f4d0dd2a3f24554b471f1c\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:26:13-35
+194            android:exported="false" >
+194-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Parsisor\.gradle\caches\transforms-3\487b8dbbe7f4d0dd2a3f24554b471f1c\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:27:13-37
+195            <meta-data
+195-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Parsisor\.gradle\caches\transforms-3\487b8dbbe7f4d0dd2a3f24554b471f1c\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:29:13-31:104
+196                android:name="androidx.credentials.CREDENTIAL_PROVIDER_KEY"
+196-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Parsisor\.gradle\caches\transforms-3\487b8dbbe7f4d0dd2a3f24554b471f1c\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:30:17-76
+197                android:value="androidx.credentials.playservices.CredentialProviderPlayServicesImpl" />
+197-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Parsisor\.gradle\caches\transforms-3\487b8dbbe7f4d0dd2a3f24554b471f1c\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:31:17-101
+198        </service>
+199
+200        <activity
+200-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Parsisor\.gradle\caches\transforms-3\487b8dbbe7f4d0dd2a3f24554b471f1c\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:34:9-41:20
+201            android:name="androidx.credentials.playservices.HiddenActivity"
+201-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Parsisor\.gradle\caches\transforms-3\487b8dbbe7f4d0dd2a3f24554b471f1c\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:35:13-76
+202            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+202-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Parsisor\.gradle\caches\transforms-3\487b8dbbe7f4d0dd2a3f24554b471f1c\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:36:13-87
+203            android:enabled="true"
+203-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Parsisor\.gradle\caches\transforms-3\487b8dbbe7f4d0dd2a3f24554b471f1c\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:37:13-35
+204            android:exported="false"
+204-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Parsisor\.gradle\caches\transforms-3\487b8dbbe7f4d0dd2a3f24554b471f1c\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:38:13-37
+205            android:fitsSystemWindows="true"
+205-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Parsisor\.gradle\caches\transforms-3\487b8dbbe7f4d0dd2a3f24554b471f1c\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:39:13-45
+206            android:theme="@style/Theme.Hidden" >
+206-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Parsisor\.gradle\caches\transforms-3\487b8dbbe7f4d0dd2a3f24554b471f1c\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:40:13-48
+207        </activity>
+208        <activity
+208-->[com.google.android.gms:play-services-auth:21.1.1] C:\Users\Parsisor\.gradle\caches\transforms-3\41a2252515be517d633546bf680f3f96\transformed\jetified-play-services-auth-21.1.1\AndroidManifest.xml:23:9-27:75
+209            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+209-->[com.google.android.gms:play-services-auth:21.1.1] C:\Users\Parsisor\.gradle\caches\transforms-3\41a2252515be517d633546bf680f3f96\transformed\jetified-play-services-auth-21.1.1\AndroidManifest.xml:24:13-93
+210            android:excludeFromRecents="true"
+210-->[com.google.android.gms:play-services-auth:21.1.1] C:\Users\Parsisor\.gradle\caches\transforms-3\41a2252515be517d633546bf680f3f96\transformed\jetified-play-services-auth-21.1.1\AndroidManifest.xml:25:13-46
+211            android:exported="false"
+211-->[com.google.android.gms:play-services-auth:21.1.1] C:\Users\Parsisor\.gradle\caches\transforms-3\41a2252515be517d633546bf680f3f96\transformed\jetified-play-services-auth-21.1.1\AndroidManifest.xml:26:13-37
+212            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+212-->[com.google.android.gms:play-services-auth:21.1.1] C:\Users\Parsisor\.gradle\caches\transforms-3\41a2252515be517d633546bf680f3f96\transformed\jetified-play-services-auth-21.1.1\AndroidManifest.xml:27:13-72
+213        <!--
+214            Service handling Google Sign-In user revocation. For apps that do not integrate with
+215            Google Sign-In, this service will never be started.
+216        -->
+217        <service
+217-->[com.google.android.gms:play-services-auth:21.1.1] C:\Users\Parsisor\.gradle\caches\transforms-3\41a2252515be517d633546bf680f3f96\transformed\jetified-play-services-auth-21.1.1\AndroidManifest.xml:33:9-37:51
+218            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+218-->[com.google.android.gms:play-services-auth:21.1.1] C:\Users\Parsisor\.gradle\caches\transforms-3\41a2252515be517d633546bf680f3f96\transformed\jetified-play-services-auth-21.1.1\AndroidManifest.xml:34:13-89
+219            android:exported="true"
+219-->[com.google.android.gms:play-services-auth:21.1.1] C:\Users\Parsisor\.gradle\caches\transforms-3\41a2252515be517d633546bf680f3f96\transformed\jetified-play-services-auth-21.1.1\AndroidManifest.xml:35:13-36
+220            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+220-->[com.google.android.gms:play-services-auth:21.1.1] C:\Users\Parsisor\.gradle\caches\transforms-3\41a2252515be517d633546bf680f3f96\transformed\jetified-play-services-auth-21.1.1\AndroidManifest.xml:36:13-107
+221            android:visibleToInstantApps="true" />
+221-->[com.google.android.gms:play-services-auth:21.1.1] C:\Users\Parsisor\.gradle\caches\transforms-3\41a2252515be517d633546bf680f3f96\transformed\jetified-play-services-auth-21.1.1\AndroidManifest.xml:37:13-48
+222
+223        <activity
+223-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\Parsisor\.gradle\caches\transforms-3\d63deba4a5c247b8647b3671b1c3a32c\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:20:9-22:45
+224            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+224-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\Parsisor\.gradle\caches\transforms-3\d63deba4a5c247b8647b3671b1c3a32c\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:20:19-85
+225            android:exported="false"
+225-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\Parsisor\.gradle\caches\transforms-3\d63deba4a5c247b8647b3671b1c3a32c\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:22:19-43
+226            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+226-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\Parsisor\.gradle\caches\transforms-3\d63deba4a5c247b8647b3671b1c3a32c\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:21:19-78
+227
+228        <provider
+228-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\935604ae1b0915baa4c31da647eb74ca\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:23:9-28:39
+229            android:name="com.google.firebase.provider.FirebaseInitProvider"
+229-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\935604ae1b0915baa4c31da647eb74ca\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:24:13-77
+230            android:authorities="com.pija.zerang.firebaseinitprovider"
+230-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\935604ae1b0915baa4c31da647eb74ca\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:25:13-72
+231            android:directBootAware="true"
+231-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\935604ae1b0915baa4c31da647eb74ca\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:26:13-43
+232            android:exported="false"
+232-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\935604ae1b0915baa4c31da647eb74ca\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:27:13-37
+233            android:initOrder="100" />
+233-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Parsisor\.gradle\caches\transforms-3\935604ae1b0915baa4c31da647eb74ca\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:28:13-36
+234
+235        <uses-library
+235-->[androidx.window:window:1.0.0-beta04] C:\Users\Parsisor\.gradle\caches\transforms-3\a893c4718dbe641cebfcf6bd0f764593\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+236            android:name="androidx.window.extensions"
+236-->[androidx.window:window:1.0.0-beta04] C:\Users\Parsisor\.gradle\caches\transforms-3\a893c4718dbe641cebfcf6bd0f764593\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+237            android:required="false" />
+237-->[androidx.window:window:1.0.0-beta04] C:\Users\Parsisor\.gradle\caches\transforms-3\a893c4718dbe641cebfcf6bd0f764593\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+238        <uses-library
+238-->[androidx.window:window:1.0.0-beta04] C:\Users\Parsisor\.gradle\caches\transforms-3\a893c4718dbe641cebfcf6bd0f764593\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+239            android:name="androidx.window.sidecar"
+239-->[androidx.window:window:1.0.0-beta04] C:\Users\Parsisor\.gradle\caches\transforms-3\a893c4718dbe641cebfcf6bd0f764593\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+240            android:required="false" />
+240-->[androidx.window:window:1.0.0-beta04] C:\Users\Parsisor\.gradle\caches\transforms-3\a893c4718dbe641cebfcf6bd0f764593\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+241
+242        <meta-data
+242-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Parsisor\.gradle\caches\transforms-3\61814ebdc2e8e6cb7dab089717b4ab0d\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
+243            android:name="com.google.android.gms.version"
+243-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Parsisor\.gradle\caches\transforms-3\61814ebdc2e8e6cb7dab089717b4ab0d\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
+244            android:value="@integer/google_play_services_version" />
+244-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Parsisor\.gradle\caches\transforms-3\61814ebdc2e8e6cb7dab089717b4ab0d\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
+245    </application>
+246
+247</manifest>

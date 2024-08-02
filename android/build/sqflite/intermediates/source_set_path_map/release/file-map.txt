@@ -1,0 +1,12 @@
+com.tekartik.sqflite-jetified-window-java-1.0.0-beta04-0 C:\Users\Parsisor\.gradle\caches\transforms-3\16c54c476fe337bf257822f52f2f5393\transformed\jetified-window-java-1.0.0-beta04\res
+com.tekartik.sqflite-jetified-annotation-experimental-1.1.0-1 C:\Users\Parsisor\.gradle\caches\transforms-3\3ee05dfef9f6b74932ce9921ee9df863\transformed\jetified-annotation-experimental-1.1.0\res
+com.tekartik.sqflite-core-1.6.0-2 C:\Users\Parsisor\.gradle\caches\transforms-3\9d0f22d19b5542737e9bc0aeb5e2e36b\transformed\core-1.6.0\res
+com.tekartik.sqflite-jetified-window-1.0.0-beta04-3 C:\Users\Parsisor\.gradle\caches\transforms-3\a893c4718dbe641cebfcf6bd0f764593\transformed\jetified-window-1.0.0-beta04\res
+com.tekartik.sqflite-main-4 C:\Users\Parsisor\AppData\Local\Pub\Cache\hosted\pub.flutter-io.cn\sqflite-2.3.3+1\android\src\main\res
+com.tekartik.sqflite-release-5 C:\Users\Parsisor\AppData\Local\Pub\Cache\hosted\pub.flutter-io.cn\sqflite-2.3.3+1\android\src\release\res
+com.tekartik.sqflite-pngs-6 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\sqflite\generated\res\pngs\release
+com.tekartik.sqflite-resValues-7 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\sqflite\generated\res\resValues\release
+com.tekartik.sqflite-rs-8 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\sqflite\generated\res\rs\release
+com.tekartik.sqflite-mergeReleaseResources-9 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\sqflite\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.tekartik.sqflite-mergeReleaseResources-10 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\sqflite\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.tekartik.sqflite-merged_res-11 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\sqflite\intermediates\merged_res\release

@@ -1,0 +1,12 @@
+io.github.ponnamkarthik.toast.fluttertoast-jetified-window-java-1.0.0-beta04-0 C:\Users\Parsisor\.gradle\caches\transforms-3\16c54c476fe337bf257822f52f2f5393\transformed\jetified-window-java-1.0.0-beta04\res
+io.github.ponnamkarthik.toast.fluttertoast-jetified-annotation-experimental-1.1.0-1 C:\Users\Parsisor\.gradle\caches\transforms-3\3ee05dfef9f6b74932ce9921ee9df863\transformed\jetified-annotation-experimental-1.1.0\res
+io.github.ponnamkarthik.toast.fluttertoast-core-1.6.0-2 C:\Users\Parsisor\.gradle\caches\transforms-3\9d0f22d19b5542737e9bc0aeb5e2e36b\transformed\core-1.6.0\res
+io.github.ponnamkarthik.toast.fluttertoast-jetified-window-1.0.0-beta04-3 C:\Users\Parsisor\.gradle\caches\transforms-3\a893c4718dbe641cebfcf6bd0f764593\transformed\jetified-window-1.0.0-beta04\res
+io.github.ponnamkarthik.toast.fluttertoast-main-4 C:\Users\Parsisor\AppData\Local\Pub\Cache\hosted\pub.flutter-io.cn\fluttertoast-8.2.6\android\src\main\res
+io.github.ponnamkarthik.toast.fluttertoast-release-5 C:\Users\Parsisor\AppData\Local\Pub\Cache\hosted\pub.flutter-io.cn\fluttertoast-8.2.6\android\src\release\res
+io.github.ponnamkarthik.toast.fluttertoast-pngs-6 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\fluttertoast\generated\res\pngs\release
+io.github.ponnamkarthik.toast.fluttertoast-resValues-7 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\fluttertoast\generated\res\resValues\release
+io.github.ponnamkarthik.toast.fluttertoast-rs-8 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\fluttertoast\generated\res\rs\release
+io.github.ponnamkarthik.toast.fluttertoast-mergeReleaseResources-9 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\fluttertoast\intermediates\incremental\release\mergeReleaseResources\merged.dir
+io.github.ponnamkarthik.toast.fluttertoast-mergeReleaseResources-10 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\fluttertoast\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+io.github.ponnamkarthik.toast.fluttertoast-merged_res-11 C:\Users\Parsisor\Desktop\flutter-persian-fitness-main\bashgah\android\build\fluttertoast\intermediates\merged_res\release

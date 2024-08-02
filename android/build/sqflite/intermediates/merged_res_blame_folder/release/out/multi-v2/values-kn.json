@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.tekartik.sqflite-merged_res-10:/values-kn/values-kn.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Parsisor\\.gradle\\caches\\transforms-3\\9d0f22d19b5542737e9bc0aeb5e2e36b\\transformed\\core-1.6.0\\res\\values-kn\\values-kn.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.tekartik.sqflite-mergeReleaseResources-8:/values-kn/values-kn.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Parsisor\\.gradle\\caches\\transforms-3\\9d0f22d19b5542737e9bc0aeb5e2e36b\\transformed\\core-1.6.0\\res\\values-kn\\values-kn.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}

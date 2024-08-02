@@ -41,6 +41,7 @@ dependencies:
   shared_preferences_windows: ^2.3.2
   flutter_bloc:
   flutter_gemini: ^2.0.3
+  firebase_storage: ^12.1.2
 
 dev_dependencies:
   flutter_test:
