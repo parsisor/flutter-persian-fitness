@@ -117,7 +117,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                               tag: workout.wGif,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(15.0),
-                                child: Image.asset(
+                                child: Image.network(
                                   workout.wGif,
                                   width: 60,
                                   height: 60,

@@ -1,13 +1,15 @@
 import 'package:flutter/foundation.dart';
-import 'package:zerang/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:zerang/splash_screen/splash_screen.dart';
 import 'package:zerang/onboarding/onboarding_screen.dart';
 import 'package:zerang/Theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter/services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'task.dart'; 
+import 'package:zerang/fitness_hub/hub.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -71,11 +73,30 @@ class MyApp extends StatelessWidget {
         builder: (context, themeProvider, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: const SplashScreen(),
             theme: themeProvider.themeData,
+            home: AuthGate(),
           );
         },
       ),
+    );
+  }
+}
+
+class AuthGate extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.active) {
+          if (snapshot.hasData) {
+            return const ApplicationHub(); // User is signed in
+          } else {
+            return const OnboardingScreen(); // User is not signed in
+          }
+        }
+        return const SplashScreen(); // Loading
+      },
     );
   }
 }

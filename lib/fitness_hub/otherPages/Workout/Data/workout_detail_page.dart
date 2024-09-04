@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zerang/theme/consts.dart';
 import 'package:zerang/fitness_hub/otherPages/Workout/Data/workout_storage.dart';
 
+
 class WorkoutDetailPage extends StatelessWidget {
   final WorkoutBase workout;
 
@@ -20,7 +21,7 @@ class WorkoutDetailPage extends StatelessWidget {
         body: ListView(
           padding: const EdgeInsets.all(16.0),
           children: [
-            Image.asset(
+            Image.network(
               workout.wGif,
               width: double.infinity,
               height: 300,
